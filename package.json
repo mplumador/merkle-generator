@@ -1,0 +1,19 @@
+{
+  "name": "merkle-generator",
+  "version": "1.0.0",
+  "description": "ElasticSwap merkle tree generator for reward pools ",
+  "main": "index.js",
+  "repository": "git@github.com:ElasticSwap/merkle-generator.git",
+  "author": "0xean <0xean.eth@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "=16.14.2",
+    "npm": ">=7.0.0"
+  },
+  "dependencies": {
+    "@elasticswap/elasticswap": "^0.0.11",
+    "@elasticswap/token": "^0.0.4",
+    "ethers": "^5.6.4"
+  }
+}
