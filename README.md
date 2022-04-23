@@ -19,4 +19,3 @@ ElasticSwap merkle tree generator for reward pools
     1. Edge case: where a user has previously exited and we need to make sure the new claim is 
     handled correctly since when they exit we do `stake.totalRealizedTIC += stake.totalUnrealized;`
 1. Persist to IPFS
-
