@@ -11,6 +11,9 @@
     "node": "=16.14.2",
     "npm": ">=7.0.0"
   },
+  "scripts": {
+    "start": "node --experimental-json-modules ./src/index.mjs"
+  },
   "dependencies": {
     "@elasticswap/elasticswap": "^0.0.11",
     "@elasticswap/token": "^0.0.4",
