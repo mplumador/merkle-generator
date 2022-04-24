@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
 import tokenDeployments from '@elasticswap/token/artifacts/deployments.json' assert { type: 'json'};
-import { getAllTokensDepositedEvents, getAllTokensWithdrawnEvents } from "./stakers.mjs";
+import { getAllTokensDepositedEvents, getAllTokensWithdrawnEvents, indexEvents } from "./stakers.mjs";
 
 const EPOCH_LENGTH = 2*7*24*60*60;  // 2 week epochs
 const GENESIS_BLOCK = 13720539;
@@ -20,7 +20,13 @@ async function main() {
   console.log(`Found ${tokensDepositedEvents.length} TokensDeposited events`);
   console.log(`Found ${tokensWithdrawnEvents.length} TokensWithdrawn events`);
 
+  const indexedEvents = {};
+  indexEvents(tokensDepositedEvents, indexedEvents);
+  indexEvents(tokensWithdrawnEvents, indexedEvents);
+
+  // at this point we now have all events indexed by poolId and then user address.
   
+
 }
 
 
