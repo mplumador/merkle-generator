@@ -12,11 +12,27 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "start": "node --experimental-json-modules ./src/index.mjs"
+    "start": "node --experimental-json-modules ./src/index.mjs",
+    "lint": "yarn run prettier && yarn run lint:js",
+    "lint:js": "npx eslint src/*.mjs src/**/*.mjs --fix",
+    "lint:test": "npx eslint test/*.mjs test/**/*.mjs --fix",
+    "prerelease": "yarn lint && yarn build",
+    "prettier": "yarn run prettier:js",
+    "prettier:js": "npx prettier --write src/*.mjs --write src/**/*.mjs --write src/**/**/*.mjs --write src/**/**/**/*.mjs",
+    "prettier:test": "npx prettier --write test/*.mjs --write test/**/*.mjs --write test/**/**/*.mjs --write test/**/**/**/*.mjs"
   },
   "dependencies": {
     "@elasticswap/elasticswap": "^0.0.11",
     "@elasticswap/token": "^0.0.4",
     "ethers": "^5.6.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-syntax-import-assertions": "^7.16.7",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.6.2"
   }
 }
