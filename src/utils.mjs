@@ -3,6 +3,8 @@ import { ethers } from 'ethers';
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
 const blockNumberToTimestamp = {}; // cached block numbers to timestamp
+const TOKENS_DEPOSITED = 'TokensDeposited';
+const TOKENS_WITHDRAWN = 'TokensWithdrawn';
 
 export const getAllTokensDepositedEvents = async (
   merklePools,
@@ -96,44 +98,86 @@ export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
   return poolUserData;
 };
 
-export const calculateUserBalanceSeconds = async (epoch, merklePools, poolId, poolUserData) => {
+export const calculateUserBalanceSeconds = async (
+  epoch,
+  merklePools,
+  poolId,
+  poolUserData,
+  provider,
+) => {
   const userData = poolUserData[poolId];
   const userAddresses = Object.keys(userData);
+  const epochStartTimestamp = await getBlockTimestamp(epoch.startBlock, provider);
+  const epochEndTimestamp = await getBlockTimestamp(epoch.endBlock, provider);
+  const epochDuration = epochEndTimestamp - epochStartTimestamp;
   const userBalancesAtEndOfEpoch = await Promise.all(
     userAddresses.map((user) =>
       merklePools.getStakeTotalDeposited(user, poolId, { blockTag: epoch.endBlock }),
     ),
   );
 
+  const userBalancesAtStartOfEpoch = await Promise.all(
+    userAddresses.map((user) =>
+      merklePools.getStakeTotalDeposited(user, poolId, { blockTag: epoch.startBlock }),
+    ),
+  );
+
   // for each user, iterate back through block to the start of the epoch and calculate
   // their balanceSeconds.
-  for(let i = 0; i < userAddresses.length; i++) {
+  for (let i = 0; i < userAddresses.length; i++) {
     const user = userAddresses[i];
-    const balance = userBalancesAtEndOfEpoch[i];
-    if(balance.eq(ZERO)) {
-      //TODO: these should go to the forfeit address!
+    const userBalanceAtEnd = userBalancesAtEndOfEpoch[i];
+    if (userBalanceAtEnd.eq(ZERO)) {
+      // TODO: these should go to the forfeit address!
       continue;
     }
 
     const userEvents = userData[user].events;
-    if(userEvents.length === 0) {
+    const userBalanceAtStart = userBalancesAtStartOfEpoch[i];
+    if (userEvents.length === 0) {
       // user has had the same balance the whole time!
-
+      if (!userBalanceAtEnd.eq(userBalanceAtStart)) {
+        throw new Error(
+          `User ${user} has no events, but a staked balance change! balanceAtStart=${userBalanceAtStart.toString()} balanceAtEnd=${userBalanceAtEnd.toString()}`,
+        );
+      }
+      userData.balanceSeconds = userBalanceAtEnd.mul(epochDuration);
       continue;
     }
 
     // find any events that occurred or this user and sort them by block number!
-    const eventBlockNumbers = Object.keys(userData[user].events).sort();
-    
-    
+    const eventBlockNumbers = Object.keys(userEvents).sort();
+    let userBalanceSeconds = userBalanceAtStart.mul(epochDuration);
+    for (let ii = 0; ii < eventBlockNumbers.length; ii++) {
+      const eventBlockNumber = eventBlockNumbers[ii];
+      if (eventBlockNumber <= epoch.startBlock || eventBlockNumber > epoch.endBlock) {
+        // this event occurs before our epoch or after our epoch
+        continue;
+      }
+      const event = userEvents[eventBlockNumber];
+      const eventTimestamp = await getBlockTimestamp(eventBlockNumber, provider);
+      const secondsToEndOfEpoch = epochEndTimestamp - eventTimestamp;
+      if (event.event === TOKENS_DEPOSITED) {
+        userBalanceSeconds = userBalanceSeconds.add(event.amount.mul(secondsToEndOfEpoch));
+      } else if (event.event === TOKENS_WITHDRAWN) {
+        // when this occurs the user forfeits all of these tokens!
+        // we still need to continue to determine if they re-deposited.
+        // TODO: handle forfeit
+        userBalanceSeconds = ZERO;
+      } else {
+        throw new Error(`Unexpected event ${event.event} found for user ${user}`);
+      }
+    }
+    userData[user].balanceSeconds = userBalanceSeconds;
   }
-}
+};
 
 export const getBlockTimestamp = async (blockNumber, provider) => {
-  if(blockNumberToTimestamp[blockNumber]) {
-    return blockNumberToTimestamp[blockNumber];
+  const blockNumberParsed = parseInt(blockNumber);
+  if (blockNumberToTimestamp[blockNumberParsed]) {
+    return blockNumberToTimestamp[blockNumberParsed];
   }
-  const block = await provider.getBlock(blockNumber)
-  blockNumberToTimestamp[blockNumber] = block.timestamp;
+  const block = await provider.getBlock(blockNumberParsed);
+  blockNumberToTimestamp[blockNumberParsed] = block.timestamp;
   return block.timestamp;
-}
+};

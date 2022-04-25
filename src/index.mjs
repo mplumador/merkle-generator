@@ -4,7 +4,6 @@ import {
   calculateUserBalanceSeconds,
   getAllTokensDepositedEvents,
   getAllTokensWithdrawnEvents,
-  getBlockTimestamp,
   indexEventsByPoolByUser,
 } from './utils.mjs';
 
@@ -48,7 +47,8 @@ async function main() {
     endBlock: currentBlock,
   };
   // TODO: how to handle forfeit?
-  await calculateUserBalanceSeconds(epoch, merklePools, 0, poolUserData);
+  await calculateUserBalanceSeconds(epoch, merklePools, 0, poolUserData, provider);
+  console.log(JSON.stringify(poolUserData[0]));
 }
 
 main()
