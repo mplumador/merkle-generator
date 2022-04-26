@@ -108,6 +108,7 @@ export const calculateAllUserBalanceSeconds = async (
   const userData = poolUserData[poolId];
   const userAddresses = Object.keys(userData);
   let forfeitBalanceSecondsTotal = ZERO;
+  let userBalanceSecondsTotal = ZERO;
   const userBalancesAtEndOfEpoch = await Promise.all(
     userAddresses.map((user) =>
       merklePools.getStakeTotalDeposited(user, poolId, { blockTag: epoch.endBlock }),
@@ -133,8 +134,10 @@ export const calculateAllUserBalanceSeconds = async (
       userData[user].events,
     );
     userData[user].balanceSeconds = userValues.userBalanceSeconds;
+    userBalanceSecondsTotal = userBalanceSecondsTotal.add(userValues.userBalanceSeconds);
     forfeitBalanceSecondsTotal = forfeitBalanceSecondsTotal.add(userValues.forfeitBalanceSeconds);
   }
+  userData.userBalanceSecondsTotal = userBalanceSecondsTotal;
   userData.forfeitBalanceSecondsTotal = forfeitBalanceSecondsTotal;
 };
 
@@ -182,8 +185,7 @@ export const calculateUserBalanceSeconds = async (
       // user has increased their balance, record their userBalance until now and set new balance
       // going forward.
       lastBalance = lastBalance.add(event.amount);
-    } else if (event.event === TOKENS_WITHDRAWN) {
-      // TODO: handle forfeit
+    } else if (event.event === TOKENS_WITHDRAWN) {      
       forfeitBalanceSeconds = forfeitBalanceSeconds.add(userBalanceSeconds);
       userBalanceSeconds = ZERO;
       lastBalance = ZERO;
