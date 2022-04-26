@@ -98,7 +98,7 @@ export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
   return poolUserData;
 };
 
-export const calculateUserBalanceSeconds = async (
+export const calculateAllUserBalanceSeconds = async (
   epoch,
   merklePools,
   poolId,
@@ -107,9 +107,7 @@ export const calculateUserBalanceSeconds = async (
 ) => {
   const userData = poolUserData[poolId];
   const userAddresses = Object.keys(userData);
-  const epochStartTimestamp = await getBlockTimestamp(epoch.startBlock, provider);
-  const epochEndTimestamp = await getBlockTimestamp(epoch.endBlock, provider);
-  const epochDuration = epochEndTimestamp - epochStartTimestamp;
+  let forfeitBalanceSecondsTotal = ZERO;
   const userBalancesAtEndOfEpoch = await Promise.all(
     userAddresses.map((user) =>
       merklePools.getStakeTotalDeposited(user, poolId, { blockTag: epoch.endBlock }),
@@ -126,50 +124,84 @@ export const calculateUserBalanceSeconds = async (
   // their balanceSeconds.
   for (let i = 0; i < userAddresses.length; i++) {
     const user = userAddresses[i];
-    const userBalanceAtEnd = userBalancesAtEndOfEpoch[i];
-    if (userBalanceAtEnd.eq(ZERO)) {
-      // TODO: these should go to the forfeit address!
-      continue;
-    }
-
-    const userEvents = userData[user].events;
-    const userBalanceAtStart = userBalancesAtStartOfEpoch[i];
-    if (userEvents.length === 0) {
-      // user has had the same balance the whole time!
-      if (!userBalanceAtEnd.eq(userBalanceAtStart)) {
-        throw new Error(
-          `User ${user} has no events, but a staked balance change! balanceAtStart=${userBalanceAtStart.toString()} balanceAtEnd=${userBalanceAtEnd.toString()}`,
-        );
-      }
-      userData.balanceSeconds = userBalanceAtEnd.mul(epochDuration);
-      continue;
-    }
-
-    // find any events that occurred or this user and sort them by block number!
-    const eventBlockNumbers = Object.keys(userEvents).sort();
-    let userBalanceSeconds = userBalanceAtStart.mul(epochDuration);
-    for (let ii = 0; ii < eventBlockNumbers.length; ii++) {
-      const eventBlockNumber = eventBlockNumbers[ii];
-      if (eventBlockNumber <= epoch.startBlock || eventBlockNumber > epoch.endBlock) {
-        // this event occurs before our epoch or after our epoch
-        continue;
-      }
-      const event = userEvents[eventBlockNumber];
-      const eventTimestamp = await getBlockTimestamp(eventBlockNumber, provider);
-      const secondsToEndOfEpoch = epochEndTimestamp - eventTimestamp;
-      if (event.event === TOKENS_DEPOSITED) {
-        userBalanceSeconds = userBalanceSeconds.add(event.amount.mul(secondsToEndOfEpoch));
-      } else if (event.event === TOKENS_WITHDRAWN) {
-        // when this occurs the user forfeits all of these tokens!
-        // we still need to continue to determine if they re-deposited.
-        // TODO: handle forfeit
-        userBalanceSeconds = ZERO;
-      } else {
-        throw new Error(`Unexpected event ${event.event} found for user ${user}`);
-      }
-    }
-    userData[user].balanceSeconds = userBalanceSeconds;
+    const userValues = await calculateUserBalanceSeconds(
+      epoch,
+      provider,
+      user,
+      userBalancesAtStartOfEpoch[i],
+      userBalancesAtEndOfEpoch[i],
+      userData[user].events,
+    );
+    userData[user].balanceSeconds = userValues.userBalanceSeconds;
+    forfeitBalanceSecondsTotal = forfeitBalanceSecondsTotal.add(userValues.forfeitBalanceSeconds);
   }
+  userData.forfeitBalanceSecondsTotal = forfeitBalanceSecondsTotal;
+};
+
+export const calculateUserBalanceSeconds = async (
+  epoch,
+  provider,
+  user,
+  userBalanceAtStartOfEpoch,
+  userBalanceAtEndOfEpoch,
+  userEvents,
+) => {
+  let forfeitBalanceSeconds = ZERO;
+  const epochStartTimestamp = await getBlockTimestamp(epoch.startBlock, provider);
+  const epochEndTimestamp = await getBlockTimestamp(epoch.endBlock, provider);
+  const epochDuration = epochEndTimestamp - epochStartTimestamp;
+  if (userEvents.length === 0) {
+    // user has had the same balance the whole time!
+    if (!userBalanceAtEndOfEpoch.eq(userBalanceAtStartOfEpoch)) {
+      throw new Error(
+        `User ${user} has no events, but a staked balance change! balanceAtStart=${userBalanceAtStartOfEpoch.toString()} balanceAtEnd=${userBalanceAtEndOfEpoch.toString()}`,
+      );
+    }
+    return {
+      userBalanceSeconds: userBalanceAtEndOfEpoch.mul(epochDuration),
+      forfeitBalanceSeconds,
+    };
+  }
+  // find any events that occurred or this user and sort them by block number!
+  const eventBlockNumbers = Object.keys(userEvents).sort();
+  let userBalanceSeconds = ZERO;
+  let lastBalance = userBalanceAtStartOfEpoch;
+  let lastTimestamp = epochStartTimestamp;
+  for (let ii = 0; ii < eventBlockNumbers.length; ii++) {
+    const eventBlockNumber = eventBlockNumbers[ii];
+    if (eventBlockNumber <= epoch.startBlock || eventBlockNumber > epoch.endBlock) {
+      // this event occurs before our epoch or after our epoch
+      continue;
+    }
+    const event = userEvents[eventBlockNumber];
+    const eventTimestamp = await getBlockTimestamp(eventBlockNumber, provider);
+    const elapsedTime = eventTimestamp - lastTimestamp;
+    userBalanceSeconds = userBalanceSeconds.add(lastBalance.mul(elapsedTime));
+    lastTimestamp = eventTimestamp;
+    if (event.event === TOKENS_DEPOSITED) {
+      // user has increased their balance, record their userBalance until now and set new balance
+      // going forward.
+      lastBalance = lastBalance.add(event.amount);
+    } else if (event.event === TOKENS_WITHDRAWN) {
+      // TODO: handle forfeit
+      forfeitBalanceSeconds = forfeitBalanceSeconds.add(userBalanceSeconds);
+      userBalanceSeconds = ZERO;
+      lastBalance = ZERO;
+    } else {
+      throw new Error(`Unexpected event ${event.event} found for user ${user}`);
+    }
+  }
+
+  // we now just need to handle the time period since the last event and the end of the epoch!
+  if (!lastBalance.eq(ZERO)) {
+    // the user has a balance.
+    const elapsedTime = epochEndTimestamp - lastTimestamp;
+    userBalanceSeconds = userBalanceSeconds.add(lastBalance.mul(elapsedTime));
+  }
+  return {
+    userBalanceSeconds,
+    forfeitBalanceSeconds,
+  };
 };
 
 export const getBlockTimestamp = async (blockNumber, provider) => {

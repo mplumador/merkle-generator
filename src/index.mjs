@@ -1,7 +1,8 @@
 import { ethers } from 'ethers';
 import tokenDeployments from '@elasticswap/token/artifacts/deployments.json' assert { type: 'json' };
 import {
-  calculateUserBalanceSeconds,
+  calculateAllUserBalanceSeconds,
+  getBlockTimestamp,
   getAllTokensDepositedEvents,
   getAllTokensWithdrawnEvents,
   indexEventsByPoolByUser,
@@ -47,8 +48,9 @@ async function main() {
     endBlock: currentBlock,
   };
   // TODO: how to handle forfeit?
-  await calculateUserBalanceSeconds(epoch, merklePools, 0, poolUserData, provider);
+  await calculateAllUserBalanceSeconds(epoch, merklePools, 0, poolUserData, provider);
   console.log(JSON.stringify(poolUserData[0]));
+  //
 }
 
 main()
