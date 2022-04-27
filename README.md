@@ -19,3 +19,29 @@ ElasticSwap merkle tree generator for reward pools
     1. Edge case: where a user has previously exited and we need to make sure the new claim is 
     handled correctly since when they exit we do `stake.totalRealizedTIC += stake.totalUnrealized;`
 1. Persist to IPFS
+
+
+---------------------------
+New algorithm....
+
+All we care about is unrealized TIC at a given snapshot. Once we have the unrealized TIC for each
+user at the snapshot, we can sum across all pools.  If a user un-stakes, they automatically lose their
+unrealized TIC (in the contract and also cannot claim). If a user adds, this is also handled automatically.
+
+The only complexity is considering their previous claim state into the new tree.
+
+------------
+1. get all stakers for a pool through tokens deposit events
+1. get all stakers unrealized TIC at the given snapshot
+1. sum all unrealized TIC for pool
+1. sum all unrealized TIC across all pools
+1. determine each pools needed allocation of USDC (this isn't the weights since weights can change)
+1. Once USDC has been added to pool, determine how much ELP was generated (slippage means this has to be done first)
+  1. Also need to determine how much TIC was consumed and then debit that across users unclaimed TIC
+  in the tree.
+1. generate and publish tree.
+
+- What happens if the user doesn't claim?
+    we need to subtract their unclaimed merkle node TIC amount and take that into account.
+    otherwise their unclamed (but claimable) ELP is counting towards more than it should be
+    of the unrealized pot!

@@ -43,7 +43,7 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
     if (events.length > 0) {
       allEvents = allEvents.concat(events);
       // for testing return here.... TODO: make sure to remove me!
-      return allEvents;
+      // return allEvents;
     }
     requestedBlock = nextRequestedBlock;
   }
@@ -185,7 +185,7 @@ export const calculateUserBalanceSeconds = async (
       // user has increased their balance, record their userBalance until now and set new balance
       // going forward.
       lastBalance = lastBalance.add(event.amount);
-    } else if (event.event === TOKENS_WITHDRAWN) {      
+    } else if (event.event === TOKENS_WITHDRAWN) {
       forfeitBalanceSeconds = forfeitBalanceSeconds.add(userBalanceSeconds);
       userBalanceSeconds = ZERO;
       lastBalance = ZERO;
@@ -214,4 +214,36 @@ export const getBlockTimestamp = async (blockNumber, provider) => {
   const block = await provider.getBlock(blockNumberParsed);
   blockNumberToTimestamp[blockNumberParsed] = block.timestamp;
   return block.timestamp;
+};
+
+export const getPoolUnclaimedTicData = async (
+  userAddresses,
+  forfeitAddress,
+  poolId,
+  snapshotBlock,
+  merklePools,
+) => {
+  const allAddresses = userAddresses.concat([forfeitAddress]);
+
+  const unclaimedTicAtSnapshot = await Promise.all(
+    allAddresses.map((user) =>
+      merklePools.getStakeTotalUnclaimed(user, poolId, { blockTag: snapshotBlock }),
+    ),
+  );
+
+  const poolData = {
+    users: {},
+    totalSummedUnclaimedTic: ZERO,
+    unclaimedTic: await merklePools.getPoolTotalUnclaimedNotInLP(poolId, {
+      blockTag: snapshotBlock,
+    }),
+  };
+
+  for (let i = 0; i < allAddresses.length; i++) {
+    const user = allAddresses[i];
+    const unclaimedTicBalance = unclaimedTicAtSnapshot[i];
+    poolData.users[user] = unclaimedTicBalance;
+    poolData.totalSummedUnclaimedTic = poolData.totalSummedUnclaimedTic.add(unclaimedTicBalance);
+  }
+  return poolData;
 };
