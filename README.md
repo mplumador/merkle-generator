@@ -40,3 +40,8 @@ The only complexity is considering their previous claim state into the new tree.
   1. Also need to determine how much TIC was consumed and then debit that across users unclaimed TIC
   in the tree.
 1. generate and publish tree.
+
+- What happens if the user doesn't claim?
+    we need to subtract their unclaimed merkle node TIC amount and take that into account.
+    otherwise their unclamed (but claimable) ELP is counting towards more than it should be
+    of the unrealized pot!

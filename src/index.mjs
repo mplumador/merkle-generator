@@ -2,14 +2,13 @@ import { ethers } from 'ethers';
 import tokenDeployments from '@elasticswap/token/artifacts/deployments.json' assert { type: 'json' };
 import {
   calculateAllUserBalanceSeconds,
-  getBlockTimestamp,
   getAllTokensDepositedEvents,
   getAllTokensWithdrawnEvents,
+  getPoolUnclaimedTicData,
   indexEventsByPoolByUser,
 } from './utils.mjs';
 
-const EPOCH_LENGTH = 2 * 7 * 24 * 60 * 60; // 2 week epochs
-const GENESIS_BLOCK = 13720539;
+const GENESIS_BLOCK = 13547536;
 const RPC_URL = 'https://api.avax.network/ext/bc/C/rpc';
 
 async function main() {
@@ -20,37 +19,36 @@ async function main() {
     merklePoolsDeployInfo.abi,
     provider,
   );
-  // const genesisBlock = await provider.getBlock(GENESIS_BLOCK);
-  const currentBlock = await provider.getBlockNumber();
+
+  const currentBlock = await provider.getBlockNumber(); // for now use this as our "snapshot"
   const tokensDepositedEvents = await getAllTokensDepositedEvents(
-    merklePools,
-    GENESIS_BLOCK,
-    currentBlock,
-  );
-  const tokensWithdrawnEvents = await getAllTokensWithdrawnEvents(
     merklePools,
     GENESIS_BLOCK,
     currentBlock,
   );
 
   console.log(`Found ${tokensDepositedEvents.length} TokensDeposited events`);
-  console.log(`Found ${tokensWithdrawnEvents.length} TokensWithdrawn events`);
 
   const poolUserData = {};
   indexEventsByPoolByUser(tokensDepositedEvents, poolUserData);
-  indexEventsByPoolByUser(tokensWithdrawnEvents, poolUserData);
 
   // at this point we now have all events indexed by poolId and then user address.
-  // we can begin by calculating balanceSeconds per pool per user.
-  // we will define our epoch as genesis block to the current block for now.
-  const epoch = {
-    startBlock: GENESIS_BLOCK,
-    endBlock: currentBlock,
-  };
-  // TODO: how to handle forfeit?
-  await calculateAllUserBalanceSeconds(epoch, merklePools, 0, poolUserData, provider);
-  console.log(JSON.stringify(poolUserData[0]));
-  //
+  // from here we need to find all of the users unclaimed TIC balances and then sum them
+  // across users and then across pools
+  const forfeitAddress = await merklePools.forfeitAddress();
+  const poolCount = await merklePools.poolCount();
+  const poolData = {};
+  for (let i = 0; i < poolCount; i++) {
+    poolData[i] = await getPoolUnclaimedTicData(
+      Object.keys(poolUserData[i]),
+      forfeitAddress,
+      i,
+      currentBlock,
+      merklePools,
+    );
+  }
+  console.log(JSON.stringify(poolData));
+  // TODO: we need to handle unclaimed merkle nodes from the last distro!
 }
 
 main()
