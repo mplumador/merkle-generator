@@ -10,7 +10,8 @@ import 'dotenv/config';
 
 async function main() {
   const data = {};
-  
+  let totalUnclaimedTIC = ethers.constants.Zero;
+  let totalSummedUnclaimedTic = ethers.constants.Zero;
   for(var i = 0; i < chainConfig.chains.length; i++) {
     const chain = chainConfig.chains[i];
     const rpcURL = process.env[`RPC_URL_${chain.chain.toUpperCase()}`];
@@ -49,27 +50,38 @@ async function main() {
 
     const pools = {}
     for (let i = 0; i < poolCount; i++) {
-      const poolData = {
+      const pool = {
         poolId: i,
         poolData: {}
       }
-      poolData.poolData = await getPoolUnclaimedTicData(
+      pool.data = await getPoolUnclaimedTicData(
         Object.keys(poolUserData[i]),
         forfeitAddress,
         i,
         currentBlock,
         merklePools,
       );
-      pools[i] = poolData;
+      pools[i] = pool;
+      console.log(pool.data);
+      totalUnclaimedTIC = totalUnclaimedTIC.add(pool.data.unclaimedTic);
+      totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(pool.data.totalSummedUnclaimedTic);
     }
+
     data[chain.chainId] = {
       ...
       chain,
       pools
     };
+    
+    // NOTE: this is somewhat incorrect, after the first distro we will need to take into account
+    // the amount that is unclaimed in the merkle tree as well if the user hasn't claimed it!
+    data.totalUnclaimedTIC = totalUnclaimedTIC;
+    data.totalSummedUnclaimedTic = totalSummedUnclaimedTic;
     console.log(JSON.stringify(data));
     // TODO: we need to handle unclaimed merkle nodes from the last distro!
   }
+
+  
 }
 
 main()
