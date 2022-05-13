@@ -9,8 +9,8 @@ import {
 import 'dotenv/config';
 
 async function main() {
-
-  // load in chain configs
+  const data = {};
+  
   for(var i = 0; i < chainConfig.chains.length; i++) {
     const chain = chainConfig.chains[i];
     const rpcURL = process.env[`RPC_URL_${chain.chain.toUpperCase()}`];
@@ -46,17 +46,28 @@ async function main() {
     // across users and then across pools
     const forfeitAddress = await merklePools.forfeitAddress();
     const poolCount = await merklePools.poolCount();
-    const poolData = {};
+
+    const pools = {}
     for (let i = 0; i < poolCount; i++) {
-      poolData[i] = await getPoolUnclaimedTicData(
+      const poolData = {
+        poolId: i,
+        poolData: {}
+      }
+      poolData.poolData = await getPoolUnclaimedTicData(
         Object.keys(poolUserData[i]),
         forfeitAddress,
         i,
         currentBlock,
         merklePools,
       );
+      pools[i] = poolData;
     }
-    console.log(JSON.stringify(poolData));
+    data[chain.chainId] = {
+      ...
+      chain,
+      pools
+    };
+    console.log(JSON.stringify(data));
     // TODO: we need to handle unclaimed merkle nodes from the last distro!
   }
 }
