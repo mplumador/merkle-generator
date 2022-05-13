@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
-const blockNumberToTimestamp = {}; // cached block numbers to timestamp
+const blockNumberToTimestamp = {}; // cached block numbers to timestamp by chainId
 const TOKENS_DEPOSITED = 'TokensDeposited';
 const TOKENS_WITHDRAWN = 'TokensWithdrawn';
 
@@ -101,6 +101,7 @@ export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
 export const calculateAllUserBalanceSeconds = async (
   epoch,
   merklePools,
+  chainId,
   poolId,
   poolUserData,
   provider,
@@ -128,6 +129,7 @@ export const calculateAllUserBalanceSeconds = async (
     const userValues = await calculateUserBalanceSeconds(
       epoch,
       provider,
+      chainId,
       user,
       userBalancesAtStartOfEpoch[i],
       userBalancesAtEndOfEpoch[i],
@@ -144,14 +146,15 @@ export const calculateAllUserBalanceSeconds = async (
 export const calculateUserBalanceSeconds = async (
   epoch,
   provider,
+  chainId,
   user,
   userBalanceAtStartOfEpoch,
   userBalanceAtEndOfEpoch,
   userEvents,
 ) => {
   let forfeitBalanceSeconds = ZERO;
-  const epochStartTimestamp = await getBlockTimestamp(epoch.startBlock, provider);
-  const epochEndTimestamp = await getBlockTimestamp(epoch.endBlock, provider);
+  const epochStartTimestamp = await getBlockTimestamp(epoch.startBlock, chainId, provider);
+  const epochEndTimestamp = await getBlockTimestamp(epoch.endBlock, chainId, provider);
   const epochDuration = epochEndTimestamp - epochStartTimestamp;
   if (userEvents.length === 0) {
     // user has had the same balance the whole time!
@@ -177,7 +180,7 @@ export const calculateUserBalanceSeconds = async (
       continue;
     }
     const event = userEvents[eventBlockNumber];
-    const eventTimestamp = await getBlockTimestamp(eventBlockNumber, provider);
+    const eventTimestamp = await getBlockTimestamp(eventBlockNumber, chainId, provider);
     const elapsedTime = eventTimestamp - lastTimestamp;
     userBalanceSeconds = userBalanceSeconds.add(lastBalance.mul(elapsedTime));
     lastTimestamp = eventTimestamp;
@@ -206,13 +209,13 @@ export const calculateUserBalanceSeconds = async (
   };
 };
 
-export const getBlockTimestamp = async (blockNumber, provider) => {
+export const getBlockTimestamp = async (blockNumber, chainId, provider) => {
   const blockNumberParsed = parseInt(blockNumber);
-  if (blockNumberToTimestamp[blockNumberParsed]) {
-    return blockNumberToTimestamp[blockNumberParsed];
+  if (blockNumberToTimestamp[chainId] && blockNumberToTimestamp[chainId][blockNumberParsed]) {
+    return blockNumberToTimestamp[chainId][blockNumberParsed];
   }
   const block = await provider.getBlock(blockNumberParsed);
-  blockNumberToTimestamp[blockNumberParsed] = block.timestamp;
+  blockNumberToTimestamp[chainId] = block.timestamp;
   return block.timestamp;
 };
 

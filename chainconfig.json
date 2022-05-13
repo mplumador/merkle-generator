@@ -1,0 +1,16 @@
+{
+  "chains" : [
+    {
+      "chain": "ethereum",
+      "chainId": 1,
+      "genesisBlock": 14676063,
+      "supportsNativeTIC": false
+    },
+    {
+      "chain": "avalanche",
+      "chainId": 43114,
+      "genesisBlock": 13547536,
+      "supportsNativeTIC": true
+    }
+  ]
+}
