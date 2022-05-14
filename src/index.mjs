@@ -1,29 +1,40 @@
 import tokenDeployments from '@elasticswap/token/artifacts/deployments.json' assert { type: 'json' };
 import { readFileSync, writeFileSync } from 'fs';
 import config from '../config.json' assert { type: 'json' };
-import { bigNumberJSONToString, getChainData, getAllocationData } from './utils.mjs';
+import { bigNumberJSONToString, getChainData, getAllocationData, getMerkleData } from './utils.mjs';
 import 'dotenv/config';
 
 async function main() {
-  await generateChainData();
-  await generateAllocations();
+  // await generateChainData();
+  generateAllocations();
+  generateMerkleTree();
 }
 
 async function generateChainData() {
   const data = getChainData(config, tokenDeployments);
   // write to disk
   console.log('Persisting chain data to disk at chainData.json');
-  writeFileSync(`${config.index}_chainData.json`, JSON.stringify(data, bigNumberJSONToString, 2));
+  writeFileSync(`${config.epoch}_chainData.json`, JSON.stringify(data, bigNumberJSONToString, 2));
   console.log('generate chain data to disk completed');
 }
 
-async function generateAllocations() {
-  const chainDataRaw = readFileSync(`${config.index}_chainData.json`);
+function generateAllocations() {
+  const chainDataRaw = readFileSync(`${config.epoch}_chainData.json`);
   const chainData = JSON.parse(chainDataRaw);
-  const allocationData = await getAllocationData(chainData, config, tokenDeployments);
+  const allocationData = getAllocationData(chainData, config);
   writeFileSync(
-    `${config.index}_allocationData.json`,
+    `${config.epoch}_allocationData.json`,
     JSON.stringify(allocationData, bigNumberJSONToString, 2),
+  );
+}
+
+function generateMerkleTree() {
+  const chainData = JSON.parse(readFileSync(`${config.epoch}_chainData.json`));
+  const allocationData = JSON.parse(readFileSync(`${config.epoch}_allocationData.json`));
+  const merkleTree = getMerkleData(chainData, allocationData, config);
+  writeFileSync(
+    `${config.epoch}_merkleTree.json`,
+    JSON.stringify(merkleTree, bigNumberJSONToString, 2),
   );
 }
 

@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import { BalanceTree } from './BalanceTree.js';
 
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
@@ -100,7 +101,6 @@ export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
 export const getBlockTimestamp = async (blockNumber, chainId, provider) => {
   const blockNumberParsed = parseInt(blockNumber);
   if (blockNumberToTimestamp[chainId] && blockNumberToTimestamp[chainId][blockNumberParsed]) {
-    console.log('cached');
     return blockNumberToTimestamp[chainId][blockNumberParsed];
   }
   const block = await provider.getBlock(blockNumberParsed);
@@ -250,14 +250,11 @@ export const getChainData = async (config, tokenDeployments) => {
   return data;
 };
 
-export const getAllocationData = async (chainData, config, tokenDeployments) => {
+export const getAllocationData = (chainData, config) => {
   const totalUnclaimedTIC = ethers.BigNumber.from(chainData.totalUnclaimedTIC);
   const allocations = {};
   for (let i = 0; i < config.chains.length; i += 1) {
     const chain = config.chains[i];
-    const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
-    const provider = new ethers.providers.JsonRpcProvider(rpcURL);
-
     const totalUnclaimedTicForChain = ethers.BigNumber.from(
       chainData[chain.chainId].totalUnclaimedTIC,
     );
@@ -266,17 +263,21 @@ export const getAllocationData = async (chainData, config, tokenDeployments) => 
       DECIMAL_PRECISION;
     const chainAllocations = {
       pools: {},
-      percentAllocation,
+      chainPercentOfTotal: percentAllocation,
     };
 
-    const merklePools = getMerklePools(chain, provider, tokenDeployments);
-    const poolCount = await merklePools.poolCount();
+    const poolCount = Object.keys(chainData[chain.chainId].pools).length;
     const { pools } = chainData[chain.chainId];
     for (let ii = 0; ii < poolCount; ii += 1) {
       const totalUnclaimedForPool = ethers.BigNumber.from(pools[ii].unclaimedTic);
-      chainAllocations.pools[ii] =
-        totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
-        DECIMAL_PRECISION;
+      chainAllocations.pools[ii] = {
+        poolPercentOfTotal:
+          totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
+          DECIMAL_PRECISION,
+        poolPercentOfChain:
+          totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTicForChain).toNumber() /
+          DECIMAL_PRECISION,
+      };
     }
     allocations[chain.chainId] = {
       name: chain.name,
@@ -285,4 +286,101 @@ export const getAllocationData = async (chainData, config, tokenDeployments) => 
     };
   }
   return allocations;
+};
+
+export const getMerkleData = (chainData, allocationData, config) => {
+  const merkleData = {
+    snapshotTimestamp: config.snapshotTimestamp,
+    index: config.index,
+    chains: {},
+  };
+
+  for (let i = 0; i < config.chains.length; i += 1) {
+    const chain = config.chains[i];
+    const chainMerkleData = {
+      ...chain,
+    };
+
+    const poolData = {};
+    const poolCount = Object.keys(chainData[chain.chainId].pools).length;
+    let startingIndex = 0;
+    for (let ii = 0; ii < poolCount; ii += 1) {
+      const pool = {
+        poolId: ii,
+        claims: {},
+      };
+      const claims = getMerkleClaimsForPool(
+        startingIndex,
+        chain,
+        chainData[chain.chainId].pools[ii],
+        allocationData[chain.chainId].pools[ii].poolPercentOfChain,
+      );
+      pool.claims = claims;
+      poolData[ii] = pool;
+      startingIndex += Object.keys(claims).length;
+    }
+
+    // we now have all the data for this chain, generate our balance tree.
+    const tree = new BalanceTree(poolData);
+    chainMerkleData.merkleRoot = tree.getHexRoot();
+
+    // now we can finally generate the needed proofs since we have the entire tree.
+    for (let iii = 0; iii < poolCount; iii += 1) {
+      const { claims } = poolData[iii];
+      const addresses = Object.keys(claims);
+      addresses.forEach((address) => {
+        const claim = claims[address];
+        claim.proof = tree.getProof(
+          claim.index,
+          address,
+          iii,
+          claim.totalLPTokenAmount,
+          claim.totalTICAmount,
+        );
+      });
+    }
+    chainMerkleData.pools = poolData;
+    merkleData.chains[chain.chainId] = chainMerkleData;
+  }
+
+  return merkleData;
+};
+
+export const getMerkleClaimsForPool = (startingIndex, chainConfig, poolData, poolPercentOfChain) => {
+  const claims = {};
+  let index = startingIndex;
+  const lpTokensForChain = ethers.BigNumber.from(chainConfig.lpTokensGenerated);
+  const ticConsumedForChain = ethers.BigNumber.from(chainConfig.ticConsumed);
+  const poolMultiplier = ethers.BigNumber.from(DECIMAL_PRECISION * poolPercentOfChain);
+
+  const lpTokensForPool = poolMultiplier.mul(lpTokensForChain).div(DECIMAL_PRECISION);
+  const ticConsumedForPool = poolMultiplier.mul(ticConsumedForChain).div(DECIMAL_PRECISION);
+  const unclaimedTicForPool = ethers.BigNumber.from(poolData.unclaimedTic);
+
+  // iterate through users of this pool to create claims
+  const addresses = Object.keys(poolData.users).sort();
+  addresses.forEach((address) => {
+    const userPoolData = poolData.users[address];
+    const userPercentOfPoolUnclaimedTic = ethers.BigNumber.from(userPoolData.totalUnclaimedTic)
+      .mul(DECIMAL_PRECISION)
+      .div(unclaimedTicForPool);
+
+    const userLPTokens = lpTokensForPool.mul(userPercentOfPoolUnclaimedTic).div(DECIMAL_PRECISION);
+    const userTicConsumed = ticConsumedForPool
+      .mul(userPercentOfPoolUnclaimedTic)
+      .div(DECIMAL_PRECISION);
+
+    // we need to add anything they have previously claimed into the proofs at this point
+    const totalTICAmount = userTicConsumed.add(userPoolData.totalClaimedTic);
+    const totalLPTokenAmount = userLPTokens.add(userPoolData.totalClaimedLP);
+    claims[address] = {
+      index,
+      poolId: poolData.poolId,
+      totalLPTokenAmount,
+      totalTICAmount,
+      proof: '', // we have to generate this after the entire tree is ready.
+    };
+    index += 1;
+  });
+  return claims;
 };
