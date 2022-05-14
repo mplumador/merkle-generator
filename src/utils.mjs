@@ -140,7 +140,7 @@ export const getPoolUnclaimedTicData = async (
     }),
   };
 
-  for (let i = 0; i < allAddresses.length; i++) {
+  for (let i = 0; i < allAddresses.length; i += 1) {
     const user = allAddresses[i];
     const unclaimedTicBalance = unclaimedTicAtSnapshot[i];
     const stake = stakesAtSnapshot[i];
@@ -188,7 +188,7 @@ export const getChainUnclaimedTicData = async (chain, provider, tokenDeployments
   let totalUnclaimedTIC = ethers.constants.Zero;
   let totalSummedUnclaimedTic = ethers.constants.Zero;
 
-  for (let i = 0; i < poolCount; i++) {
+  for (let i = 0; i < poolCount; i += 1) {
     const pool = {
       poolId: i,
       ...(await getPoolUnclaimedTicData(
@@ -220,10 +220,40 @@ export const bigNumberJSONToString = (key, value) => {
   return value;
 };
 
-export const generateAllocationData = async (chainData, config, tokenDeployments) => {
+export const getChainData = async (config, tokenDeployments) => {
+  const data = {};
+  let totalUnclaimedTIC = ZERO;
+  let totalSummedUnclaimedTic = ZERO;
+
+  for (let i = 0; i < config.chains.length; i += 1) {
+    const chain = config.chains[i];
+    const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
+    const provider = new ethers.providers.JsonRpcProvider(rpcURL);
+
+    const chainData = await getChainUnclaimedTicData(chain, provider, tokenDeployments);
+
+    // NOTE: this is somewhat incorrect, after the first distro we will need to take into account
+    // the amount that is unclaimed in the merkle tree as well if the user hasn't claimed it!
+    totalUnclaimedTIC = totalUnclaimedTIC.add(chainData.totalUnclaimedTIC);
+    totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(chainData.totalSummedUnclaimedTic);
+    data[chain.chainId] = chainData;
+    // TODO: we need to handle unclaimed merkle nodes from the last distro
+    // by checking their unclaimed TIC against the node and what they have claimed...
+    // some users may never claim,
+    // check with LSDAN if this is true, could be a good incentive for people not too claim...
+    // more complicated for little benefit.  If people claim and compound its the same effect...
+  }
+
+  // save our totals
+  data.totalUnclaimedTIC = totalUnclaimedTIC;
+  data.totalSummedUnclaimedTic = totalSummedUnclaimedTic;
+  return data;
+};
+
+export const getAllocationData = async (chainData, config, tokenDeployments) => {
   const totalUnclaimedTIC = ethers.BigNumber.from(chainData.totalUnclaimedTIC);
   const allocations = {};
-  for (let i = 0; i < config.chains.length; i++) {
+  for (let i = 0; i < config.chains.length; i += 1) {
     const chain = config.chains[i];
     const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
     const provider = new ethers.providers.JsonRpcProvider(rpcURL);
@@ -242,7 +272,7 @@ export const generateAllocationData = async (chainData, config, tokenDeployments
     const merklePools = getMerklePools(chain, provider, tokenDeployments);
     const poolCount = await merklePools.poolCount();
     const { pools } = chainData[chain.chainId];
-    for (let ii = 0; ii < poolCount; ii++) {
+    for (let ii = 0; ii < poolCount; ii += 1) {
       const totalUnclaimedForPool = ethers.BigNumber.from(pools[ii].unclaimedTic);
       chainAllocations.pools[ii] =
         totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
