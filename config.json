@@ -1,15 +1,19 @@
 {
+  "snapshotTimestamp": 1652550835,
+  "epoch" : 0,
   "chains" : [
     {
-      "chain": "ethereum",
+      "name": "ethereum",
       "chainId": 1,
       "genesisBlock": 14676063,
+      "snapshotBlock": 14775021,
       "supportsNativeTIC": false
     },
     {
-      "chain": "avalanche",
+      "name": "avalanche",
       "chainId": 43114,
       "genesisBlock": 13547536,
+      "snapshotBlock": 14694098,
       "supportsNativeTIC": true
     }
   ]

@@ -2,9 +2,8 @@ import { ethers } from 'ethers';
 
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
+const DECIMAL_PRECISION = 1000000;
 const blockNumberToTimestamp = {}; // cached block numbers to timestamp by chainId
-const TOKENS_DEPOSITED = 'TokensDeposited';
-const TOKENS_WITHDRAWN = 'TokensWithdrawn';
 
 export const getAllTokensDepositedEvents = async (
   merklePools,
@@ -98,124 +97,19 @@ export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
   return poolUserData;
 };
 
-export const calculateAllUserBalanceSeconds = async (
-  epoch,
-  merklePools,
-  chainId,
-  poolId,
-  poolUserData,
-  provider,
-) => {
-  const userData = poolUserData[poolId];
-  const userAddresses = Object.keys(userData);
-  let forfeitBalanceSecondsTotal = ZERO;
-  let userBalanceSecondsTotal = ZERO;
-  const userBalancesAtEndOfEpoch = await Promise.all(
-    userAddresses.map((user) =>
-      merklePools.getStakeTotalDeposited(user, poolId, { blockTag: epoch.endBlock }),
-    ),
-  );
-
-  const userBalancesAtStartOfEpoch = await Promise.all(
-    userAddresses.map((user) =>
-      merklePools.getStakeTotalDeposited(user, poolId, { blockTag: epoch.startBlock }),
-    ),
-  );
-
-  // for each user, iterate back through block to the start of the epoch and calculate
-  // their balanceSeconds.
-  for (let i = 0; i < userAddresses.length; i++) {
-    const user = userAddresses[i];
-    const userValues = await calculateUserBalanceSeconds(
-      epoch,
-      provider,
-      chainId,
-      user,
-      userBalancesAtStartOfEpoch[i],
-      userBalancesAtEndOfEpoch[i],
-      userData[user].events,
-    );
-    userData[user].balanceSeconds = userValues.userBalanceSeconds;
-    userBalanceSecondsTotal = userBalanceSecondsTotal.add(userValues.userBalanceSeconds);
-    forfeitBalanceSecondsTotal = forfeitBalanceSecondsTotal.add(userValues.forfeitBalanceSeconds);
-  }
-  userData.userBalanceSecondsTotal = userBalanceSecondsTotal;
-  userData.forfeitBalanceSecondsTotal = forfeitBalanceSecondsTotal;
-};
-
-export const calculateUserBalanceSeconds = async (
-  epoch,
-  provider,
-  chainId,
-  user,
-  userBalanceAtStartOfEpoch,
-  userBalanceAtEndOfEpoch,
-  userEvents,
-) => {
-  let forfeitBalanceSeconds = ZERO;
-  const epochStartTimestamp = await getBlockTimestamp(epoch.startBlock, chainId, provider);
-  const epochEndTimestamp = await getBlockTimestamp(epoch.endBlock, chainId, provider);
-  const epochDuration = epochEndTimestamp - epochStartTimestamp;
-  if (userEvents.length === 0) {
-    // user has had the same balance the whole time!
-    if (!userBalanceAtEndOfEpoch.eq(userBalanceAtStartOfEpoch)) {
-      throw new Error(
-        `User ${user} has no events, but a staked balance change! balanceAtStart=${userBalanceAtStartOfEpoch.toString()} balanceAtEnd=${userBalanceAtEndOfEpoch.toString()}`,
-      );
-    }
-    return {
-      userBalanceSeconds: userBalanceAtEndOfEpoch.mul(epochDuration),
-      forfeitBalanceSeconds,
-    };
-  }
-  // find any events that occurred or this user and sort them by block number!
-  const eventBlockNumbers = Object.keys(userEvents).sort();
-  let userBalanceSeconds = ZERO;
-  let lastBalance = userBalanceAtStartOfEpoch;
-  let lastTimestamp = epochStartTimestamp;
-  for (let ii = 0; ii < eventBlockNumbers.length; ii++) {
-    const eventBlockNumber = eventBlockNumbers[ii];
-    if (eventBlockNumber <= epoch.startBlock || eventBlockNumber > epoch.endBlock) {
-      // this event occurs before our epoch or after our epoch
-      continue;
-    }
-    const event = userEvents[eventBlockNumber];
-    const eventTimestamp = await getBlockTimestamp(eventBlockNumber, chainId, provider);
-    const elapsedTime = eventTimestamp - lastTimestamp;
-    userBalanceSeconds = userBalanceSeconds.add(lastBalance.mul(elapsedTime));
-    lastTimestamp = eventTimestamp;
-    if (event.event === TOKENS_DEPOSITED) {
-      // user has increased their balance, record their userBalance until now and set new balance
-      // going forward.
-      lastBalance = lastBalance.add(event.amount);
-    } else if (event.event === TOKENS_WITHDRAWN) {
-      forfeitBalanceSeconds = forfeitBalanceSeconds.add(userBalanceSeconds);
-      userBalanceSeconds = ZERO;
-      lastBalance = ZERO;
-    } else {
-      throw new Error(`Unexpected event ${event.event} found for user ${user}`);
-    }
-  }
-
-  // we now just need to handle the time period since the last event and the end of the epoch!
-  if (!lastBalance.eq(ZERO)) {
-    // the user has a balance.
-    const elapsedTime = epochEndTimestamp - lastTimestamp;
-    userBalanceSeconds = userBalanceSeconds.add(lastBalance.mul(elapsedTime));
-  }
-  return {
-    userBalanceSeconds,
-    forfeitBalanceSeconds,
-  };
-};
-
 export const getBlockTimestamp = async (blockNumber, chainId, provider) => {
   const blockNumberParsed = parseInt(blockNumber);
   if (blockNumberToTimestamp[chainId] && blockNumberToTimestamp[chainId][blockNumberParsed]) {
+    console.log(`cached`);
     return blockNumberToTimestamp[chainId][blockNumberParsed];
   }
   const block = await provider.getBlock(blockNumberParsed);
-  blockNumberToTimestamp[chainId] = block.timestamp;
+
+  if(!blockNumberToTimestamp[chainId]) {
+    blockNumberToTimestamp[chainId] = {};
+  }
+
+  blockNumberToTimestamp[chainId][blockNumberParsed] = block.timestamp;
   return block.timestamp;
 };
 
@@ -250,3 +144,105 @@ export const getPoolUnclaimedTicData = async (
   }
   return poolData;
 };
+
+export const getMerklePools = (
+  chain,
+  provider,
+  tokenDeployments
+) => {
+  let merklePoolsDeployInfo;
+  if(chain.supportsNativeTIC) {
+    merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePools;
+  } else {
+    merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePoolsForeign;
+  }
+  
+  return new ethers.Contract(
+    merklePoolsDeployInfo.address,
+    merklePoolsDeployInfo.abi,
+    provider,
+  );
+}
+
+
+export const getChainUnclaimedTicData = async(
+  chain,
+  provider,
+  tokenDeployments,
+) => {
+  const merklePools = getMerklePools(chain, provider, tokenDeployments);
+  const tokensDepositedEvents = await getAllTokensDepositedEvents(
+    merklePools,
+    chain.genesisBlock,
+    chain.snapshotBlock,
+  );
+
+  console.log(`Found ${tokensDepositedEvents.length} TokensDeposited events on ${chain.name}`);
+
+  const poolUserData = {};
+  indexEventsByPoolByUser(tokensDepositedEvents, poolUserData);
+
+  // at this point we now have all events indexed by poolId and then user address.
+  // from here we need to find all of the users unclaimed TIC balances and then sum them
+  // across users and then across pools
+  const forfeitAddress = await merklePools.forfeitAddress();
+  const poolCount = await merklePools.poolCount();
+
+  const pools = {}
+  let totalUnclaimedTIC = ethers.constants.Zero;
+  let totalSummedUnclaimedTic = ethers.constants.Zero;
+
+  for (let i = 0; i < poolCount; i++) {
+    const pool = {
+      poolId: i,
+    }
+    pool.data = await getPoolUnclaimedTicData(
+      Object.keys(poolUserData[i]),
+      forfeitAddress,
+      i,
+      chain.snapshotBlock,
+      merklePools,
+    );
+    pools[i] = pool;
+
+    totalUnclaimedTIC = totalUnclaimedTIC.add(pool.data.unclaimedTic);
+    totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(pool.data.totalSummedUnclaimedTic);
+  }
+
+  return {
+    ...
+    chain,
+    snapshotBlock: chain.snapshotBlock,
+    pools,
+    totalUnclaimedTIC,
+    totalSummedUnclaimedTic
+  };
+}
+
+export const bigNumberJSONToString = (key, value) => {
+  if (value.type && value.type === 'BigNumber') {
+    return ethers.BigNumber.from(value.hex).toString();
+  }
+  return value;
+}
+
+
+export const generateAllocationData = async (chainData, config, provider, tokenDeployments) => {
+  const allocations = {};
+  for(var i = 0; i < config.chains.length; i++) {
+    const chain = config.chains[i];
+    const percentAllocation = chainData[chain.chainId].totalUnclaimedTIC.mul(DECIMAL_PRECISION).div(chainData.totalUnclaimedTIC).toNumber() / DECIMAL_PRECISION;
+    console.log(percentAllocation);
+    allocations[chain.chainId] = {
+      pools : {},
+      percentAllocation
+    };
+
+    // const merklePools = getMerklePools(chain, provider, tokenDeployments);
+    // const poolCount = await merklePools.poolCount();
+    // for (let i = 0; i < poolCount; i++) {
+
+    // }
+
+  }
+}
