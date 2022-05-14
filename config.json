@@ -1,0 +1,24 @@
+{
+  "snapshotTimestamp": 1652550835,
+  "epoch" : 0,
+  "chains" : [
+    {
+      "name": "ethereum",
+      "chainId": 1,
+      "genesisBlock": 14676063,
+      "snapshotBlock": 14775021,
+      "supportsNativeTIC": false,
+      "lpTokensGenerated": "3000000000000000",
+      "ticConsumed": "15700000000000000000"
+    },
+    {
+      "name": "avalanche",
+      "chainId": 43114,
+      "genesisBlock": 13547536,
+      "snapshotBlock": 14694098,
+      "supportsNativeTIC": true,
+      "lpTokensGenerated": "3000000000000000",
+      "ticConsumed": "100000000000000000000"
+    }
+  ]
+}
