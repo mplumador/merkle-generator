@@ -195,18 +195,17 @@ export const getChainUnclaimedTicData = async(
   for (let i = 0; i < poolCount; i++) {
     const pool = {
       poolId: i,
+      ... await getPoolUnclaimedTicData(
+        Object.keys(poolUserData[i]),
+        forfeitAddress,
+        i,
+        chain.snapshotBlock,
+        merklePools,
+      )
     }
-    pool.data = await getPoolUnclaimedTicData(
-      Object.keys(poolUserData[i]),
-      forfeitAddress,
-      i,
-      chain.snapshotBlock,
-      merklePools,
-    );
     pools[i] = pool;
-
-    totalUnclaimedTIC = totalUnclaimedTIC.add(pool.data.unclaimedTic);
-    totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(pool.data.totalSummedUnclaimedTic);
+    totalUnclaimedTIC = totalUnclaimedTIC.add(pool.unclaimedTic);
+    totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(pool.totalSummedUnclaimedTic);
   }
 
   return {
