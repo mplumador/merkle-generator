@@ -1,6 +1,6 @@
 {
   "snapshotTimestamp": 1652550835,
-  "epoch" : 0,
+  "index" : 0,
   "chains" : [
     {
       "name": "ethereum",

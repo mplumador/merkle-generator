@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
-const DECIMAL_PRECISION = 1000000;
+const DECIMAL_PRECISION = 10000000000;
 const blockNumberToTimestamp = {}; // cached block numbers to timestamp by chainId
 
 export const getAllTokensDepositedEvents = async (
@@ -100,12 +100,12 @@ export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
 export const getBlockTimestamp = async (blockNumber, chainId, provider) => {
   const blockNumberParsed = parseInt(blockNumber);
   if (blockNumberToTimestamp[chainId] && blockNumberToTimestamp[chainId][blockNumberParsed]) {
-    console.log(`cached`);
+    console.log('cached');
     return blockNumberToTimestamp[chainId][blockNumberParsed];
   }
   const block = await provider.getBlock(blockNumberParsed);
 
-  if(!blockNumberToTimestamp[chainId]) {
+  if (!blockNumberToTimestamp[chainId]) {
     blockNumberToTimestamp[chainId] = {};
   }
 
@@ -128,6 +128,10 @@ export const getPoolUnclaimedTicData = async (
     ),
   );
 
+  const stakesAtSnapshot = await Promise.all(
+    allAddresses.map((user) => merklePools.stakes(user, poolId, { blockTag: snapshotBlock })),
+  );
+
   const poolData = {
     users: {},
     totalSummedUnclaimedTic: ZERO,
@@ -139,37 +143,29 @@ export const getPoolUnclaimedTicData = async (
   for (let i = 0; i < allAddresses.length; i++) {
     const user = allAddresses[i];
     const unclaimedTicBalance = unclaimedTicAtSnapshot[i];
-    poolData.users[user] = unclaimedTicBalance;
+    const stake = stakesAtSnapshot[i];
+    poolData.users[user] = {
+      totalUnclaimedTic: unclaimedTicBalance,
+      totalClaimedTic: stake.totalRealizedTIC,
+      totalClaimedLP: stake.totalRealizedLP,
+    };
     poolData.totalSummedUnclaimedTic = poolData.totalSummedUnclaimedTic.add(unclaimedTicBalance);
   }
   return poolData;
 };
 
-export const getMerklePools = (
-  chain,
-  provider,
-  tokenDeployments
-) => {
+export const getMerklePools = (chain, provider, tokenDeployments) => {
   let merklePoolsDeployInfo;
-  if(chain.supportsNativeTIC) {
+  if (chain.supportsNativeTIC) {
     merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePools;
   } else {
     merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePoolsForeign;
   }
-  
-  return new ethers.Contract(
-    merklePoolsDeployInfo.address,
-    merklePoolsDeployInfo.abi,
-    provider,
-  );
-}
 
+  return new ethers.Contract(merklePoolsDeployInfo.address, merklePoolsDeployInfo.abi, provider);
+};
 
-export const getChainUnclaimedTicData = async(
-  chain,
-  provider,
-  tokenDeployments,
-) => {
+export const getChainUnclaimedTicData = async (chain, provider, tokenDeployments) => {
   const merklePools = getMerklePools(chain, provider, tokenDeployments);
   const tokensDepositedEvents = await getAllTokensDepositedEvents(
     merklePools,
@@ -188,60 +184,75 @@ export const getChainUnclaimedTicData = async(
   const forfeitAddress = await merklePools.forfeitAddress();
   const poolCount = await merklePools.poolCount();
 
-  const pools = {}
+  const pools = {};
   let totalUnclaimedTIC = ethers.constants.Zero;
   let totalSummedUnclaimedTic = ethers.constants.Zero;
 
   for (let i = 0; i < poolCount; i++) {
     const pool = {
       poolId: i,
-      ... await getPoolUnclaimedTicData(
+      ...(await getPoolUnclaimedTicData(
         Object.keys(poolUserData[i]),
         forfeitAddress,
         i,
         chain.snapshotBlock,
         merklePools,
-      )
-    }
+      )),
+    };
     pools[i] = pool;
     totalUnclaimedTIC = totalUnclaimedTIC.add(pool.unclaimedTic);
     totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(pool.totalSummedUnclaimedTic);
   }
 
   return {
-    ...
-    chain,
+    ...chain,
     snapshotBlock: chain.snapshotBlock,
     pools,
     totalUnclaimedTIC,
-    totalSummedUnclaimedTic
+    totalSummedUnclaimedTic,
   };
-}
+};
 
 export const bigNumberJSONToString = (key, value) => {
-  if (value.type && value.type === 'BigNumber') {
+  if (value && value.type && value.type === 'BigNumber') {
     return ethers.BigNumber.from(value.hex).toString();
   }
   return value;
-}
+};
 
-
-export const generateAllocationData = async (chainData, config, provider, tokenDeployments) => {
+export const generateAllocationData = async (chainData, config, tokenDeployments) => {
+  const totalUnclaimedTIC = ethers.BigNumber.from(chainData.totalUnclaimedTIC);
   const allocations = {};
-  for(var i = 0; i < config.chains.length; i++) {
+  for (let i = 0; i < config.chains.length; i++) {
     const chain = config.chains[i];
-    const percentAllocation = chainData[chain.chainId].totalUnclaimedTIC.mul(DECIMAL_PRECISION).div(chainData.totalUnclaimedTIC).toNumber() / DECIMAL_PRECISION;
-    console.log(percentAllocation);
-    allocations[chain.chainId] = {
-      pools : {},
-      percentAllocation
+    const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
+    const provider = new ethers.providers.JsonRpcProvider(rpcURL);
+
+    const totalUnclaimedTicForChain = ethers.BigNumber.from(
+      chainData[chain.chainId].totalUnclaimedTIC,
+    );
+    const percentAllocation =
+      totalUnclaimedTicForChain.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
+      DECIMAL_PRECISION;
+    const chainAllocations = {
+      pools: {},
+      percentAllocation,
     };
 
-    // const merklePools = getMerklePools(chain, provider, tokenDeployments);
-    // const poolCount = await merklePools.poolCount();
-    // for (let i = 0; i < poolCount; i++) {
-
-    // }
-
+    const merklePools = getMerklePools(chain, provider, tokenDeployments);
+    const poolCount = await merklePools.poolCount();
+    const { pools } = chainData[chain.chainId];
+    for (let ii = 0; ii < poolCount; ii++) {
+      const totalUnclaimedForPool = ethers.BigNumber.from(pools[ii].unclaimedTic);
+      chainAllocations.pools[ii] =
+        totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
+        DECIMAL_PRECISION;
+    }
+    allocations[chain.chainId] = {
+      name: chain.name,
+      chainId: chain.chainId,
+      ...chainAllocations,
+    };
   }
-}
+  return allocations;
+};

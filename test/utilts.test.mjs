@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import { ethers } from 'ethers';
-import {
-  getClosestBlockNumberToTimestamp,
-} from '../src/utils.mjs';
+import { getClosestBlockNumberToTimestamp } from '../src/utils.mjs';
 
 const GENESIS_BLOCK = 13720539;
 const RPC_URL = 'https://api.avax.network/ext/bc/C/rpc';
@@ -18,6 +16,4 @@ describe('utils', async () => {
       endBlock: GENESIS_BLOCK + 1000,
     };
   });
-
-
 });
