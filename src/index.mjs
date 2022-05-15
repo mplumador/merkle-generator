@@ -5,8 +5,8 @@ import { bigNumberJSONToString, getChainData, getAllocationData, getMerkleData }
 import 'dotenv/config';
 
 async function main() {
-  //await generateChainData();
-  //generateAllocations();
+  // await generateChainData();
+  // generateAllocations();
   generateMerkleTree();
 }
 

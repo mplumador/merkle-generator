@@ -16,7 +16,7 @@
           "users": {
             "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
               "totalUnclaimedTic": "2000",
-              "totalClaimedTic": "500",
+              "totalClaimedTic": "0",
               "totalClaimedLP": "0"
             },
             "0xF7a94CCB3048Bdc95f8041D0a2D7bf939479f99d": {
@@ -26,8 +26,8 @@
             },
             "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
               "totalUnclaimedTic": "1000",
-              "totalClaimedTic": "10",
-              "totalClaimedLP": "100"
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
             }
           },
           "totalSummedUnclaimedTic": "5000",
