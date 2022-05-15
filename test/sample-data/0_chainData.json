@@ -1,0 +1,95 @@
+{
+  "epoch": 0,
+  "snapshotTimestamp": 1652550835,
+  "chains": {
+    "1": {
+      "name": "ethereum",
+      "chainId": 1,
+      "genesisBlock": 14676063,
+      "snapshotBlock": 14775021,
+      "supportsNativeTIC": false,
+      "lpTokensGenerated": "10000",
+      "ticConsumed": "1000",
+      "pools": {
+        "0": {
+          "poolId": 0,
+          "users": {
+            "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
+              "totalUnclaimedTic": "2000",
+              "totalClaimedTic": "500",
+              "totalClaimedLP": "0"
+            },
+            "0xF7a94CCB3048Bdc95f8041D0a2D7bf939479f99d": {
+              "totalUnclaimedTic": "2000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
+              "totalUnclaimedTic": "1000",
+              "totalClaimedTic": "10",
+              "totalClaimedLP": "100"
+            }
+          },
+          "totalSummedUnclaimedTic": "5000",
+          "unclaimedTic": "5000"
+        },
+        "1": {
+          "poolId": 1,
+          "users": {
+            "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
+              "totalUnclaimedTic": "8000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xbC373f98b0e8aAee3Db4cF86C5eD1F113AdF2793": {
+              "totalUnclaimedTic": "1000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x13712a5B8B92B629824DF347a1670df5AfaFF263": {
+              "totalUnclaimedTic": "1000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "10000",
+          "unclaimedTic": "10000"
+        }
+      },
+      "totalUnclaimedTIC": "15000",
+      "totalSummedUnclaimedTic": "15000"
+    },
+    "43114": {
+      "name": "avalanche",
+      "chainId": 43114,
+      "genesisBlock": 13547536,
+      "snapshotBlock": 14694098,
+      "supportsNativeTIC": true,
+      "lpTokensGenerated": "5000",
+      "ticConsumed": "500",
+      "pools": {
+        "0": {
+          "poolId": 0,
+          "users": {
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "5000",
+              "totalClaimedTic": "500",
+              "totalClaimedLP": "0"
+            },
+            "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
+              "totalUnclaimedTic": "2500",
+              "totalClaimedTic": "100",
+              "totalClaimedLP": "100"
+            }            
+          },
+          "totalSummedUnclaimedTic": "7500",
+          "unclaimedTic": "7500"
+        }
+      },
+      "totalUnclaimedTIC": "7500",
+      "totalSummedUnclaimedTic": "7500"
+    }
+  },
+  "totalUnclaimedTIC": "7500",
+  "totalSummedUnclaimedTic": "7500"
+}

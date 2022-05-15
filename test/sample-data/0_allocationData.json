@@ -1,0 +1,32 @@
+{
+  "epoch": 0,
+  "snapshotTimestamp": 1652550835,
+  "chains": {
+    "1": {
+      "name": "ethereum",
+      "chainId": 1,
+      "pools": {
+        "0": {
+          "poolPercentOfTotal": 0.6666666666,
+          "poolPercentOfChain": 0.3333333333
+        },
+        "1": {
+          "poolPercentOfTotal": 1.3333333333,
+          "poolPercentOfChain": 0.6666666666
+        }
+      },
+      "chainPercentOfTotal": 2
+    },
+    "43114": {
+      "name": "avalanche",
+      "chainId": 43114,
+      "pools": {
+        "0": {
+          "poolPercentOfTotal": 1,
+          "poolPercentOfChain": 1
+        }
+      },
+      "chainPercentOfTotal": 1
+    }
+  }
+}
