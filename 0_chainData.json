@@ -8,8 +8,6 @@
       "genesisBlock": 14676063,
       "snapshotBlock": 14775021,
       "supportsNativeTIC": false,
-      "lpTokensGenerated": "3000000000000000",
-      "ticConsumed": "15700000000000000000",
       "pools": {
         "0": {
           "poolId": 0,
@@ -202,8 +200,6 @@
       "genesisBlock": 13547536,
       "snapshotBlock": 14694098,
       "supportsNativeTIC": true,
-      "lpTokensGenerated": "3000000000000000",
-      "ticConsumed": "100000000000000000000",
       "pools": {
         "0": {
           "poolId": 0,
