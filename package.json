@@ -12,8 +12,8 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "prep": "node --experimental-json-modules ./src/index.mjs --prep true",
-    "merkle": "node --experimental-json-modules ./src/index.mjs",
+    "prep": "node --experimental-json-modules ./src/prepData.mjs",
+    "merkle": "node --experimental-json-modules ./src/generateMerkleTree.mjs",
     "lint": "yarn run prettier && yarn run lint:js",
     "lint:js": "npx eslint src/*.mjs src/**/*.mjs --fix",
     "lint:test": "npx eslint test/*.mjs test/**/*.mjs --fix",
@@ -28,6 +28,7 @@
     "@elasticswap/elasticswap": "^0.0.11",
     "@elasticswap/token": "^0.0.6",
     "dotenv": "^16.0.1",
+    "ethereumjs-util": "^7.1.4",
     "ethers": "^5.6.4"
   },
   "devDependencies": {

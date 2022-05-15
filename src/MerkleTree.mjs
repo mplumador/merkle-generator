@@ -1,6 +1,6 @@
-const { bufferToHex, keccak256 } = require("ethereumjs-util");
+import { bufferToHex, keccak256 } from 'ethereumjs-util';
 
-class MerkleTree {
+export default class MerkleTree {
   constructor(elements) {
     this.elements = [...elements];
     // Sort elements
@@ -8,13 +8,10 @@ class MerkleTree {
     // Deduplicate elements
     this.elements = MerkleTree._bufDedup(this.elements);
 
-    this.bufferElementPositionIndex = this.elements.reduce(
-      (memo, el, index) => {
-        memo[bufferToHex(el)] = index;
-        return memo;
-      },
-      {}
-    );
+    this.bufferElementPositionIndex = this.elements.reduce((memo, el, index) => {
+      memo[bufferToHex(el)] = index;
+      return memo;
+    }, {});
 
     // Create layers
     this.layers = MerkleTree.getLayers(this.elements);
@@ -22,7 +19,7 @@ class MerkleTree {
 
   static getLayers(elements) {
     if (elements.length === 0) {
-      throw new Error("empty tree");
+      throw new Error('empty tree');
     }
 
     const layers = [];
@@ -69,8 +66,8 @@ class MerkleTree {
   getProof(el) {
     let idx = this.bufferElementPositionIndex[bufferToHex(el)];
 
-    if (typeof idx !== "number") {
-      throw new Error("Element does not exist in Merkle tree");
+    if (typeof idx !== 'number') {
+      throw new Error('Element does not exist in Merkle tree');
     }
 
     return this.layers.reduce((proof, layer) => {
@@ -102,22 +99,18 @@ class MerkleTree {
   }
 
   static _bufDedup(elements) {
-    return elements.filter(
-      (el, idx) => idx === 0 || !elements[idx - 1].equals(el)
-    );
+    return elements.filter((el, idx) => idx === 0 || !elements[idx - 1].equals(el));
   }
 
   static _bufArrToHexArr(arr) {
     if (arr.some((el) => !Buffer.isBuffer(el))) {
-      throw new Error("Array is not an array of buffers");
+      throw new Error('Array is not an array of buffers');
     }
 
-    return arr.map((el) => `0x${el.toString("hex")}`);
+    return arr.map((el) => `0x${el.toString('hex')}`);
   }
 
   static _sortAndConcat(...args) {
     return Buffer.concat([...args].sort(Buffer.compare));
   }
 }
-
-module.exports = { MerkleTree };

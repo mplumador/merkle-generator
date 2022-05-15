@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { BalanceTree } from './BalanceTree.js';
+import BalanceTree from './BalanceTree.mjs';
 
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
