@@ -41,6 +41,15 @@ describe('utils', async () => {
       );      
     });
 
-    it('calculates expected allocations correctly across chains', async () => {});
+    it('calculates expected allocations correctly across chains', async () => {
+      const allocationData = getAllocationData(sampleChainData, config);
+      // we will check chain id #1 and make sure all pools are correct.
+      let summedPercentOfChains = 0;
+      const chainIds = Object.keys(allocationData.chains);
+      for (let i = 0; i < chainIds.length; i += 1) {
+        summedPercentOfChains += allocationData.chains[chainIds[i]].chainPercentOfTotal;
+      }
+      expect(summedPercentOfChains).to.be.closeTo(1, EPSILON);
+    });
   });
 });
