@@ -5,17 +5,29 @@ import { bigNumberJSONToString, getChainData, getAllocationData, getMerkleData }
 import 'dotenv/config';
 
 async function main() {
-  // await generateChainData();
-  // generateAllocations();
-  generateMerkleTree();
+  const args = process.argv.slice(2);
+  if (args.length === 0) {
+    console.log(`Prepping Merkle tree for epoch=${config.epoch}`);
+    generateMerkleTree();
+    console.log('Tree created, saved to disk.');
+    return;
+  } if (args.length === 2) {
+    if (args[0] === '--prep' && args[1] === 'true') {
+      console.log(`Prepping data for epoch=${config.epoch}`);
+      await generateChainData();
+      generateAllocations();
+      console.log('Data prep completed, saved to disk.');
+      console.log('Please generate LP tokens and updated config.json');
+      return;
+    }
+  }
+  throw new Error('unexpected args!');
 }
 
 async function generateChainData() {
   const data = await getChainData(config, tokenDeployments);
   // write to disk
-  console.log('Persisting chain data to disk at chainData.json');
   writeFileSync(`${config.epoch}_chainData.json`, JSON.stringify(data, bigNumberJSONToString, 2));
-  console.log('generate chain data to disk completed');
 }
 
 function generateAllocations() {
