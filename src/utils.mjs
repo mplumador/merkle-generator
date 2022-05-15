@@ -221,7 +221,11 @@ export const bigNumberJSONToString = (key, value) => {
 };
 
 export const getChainData = async (config, tokenDeployments) => {
-  const data = {};
+  const data = {
+    epoch: config.epoch,
+    snapshotTimestamp: config.snapshotTimestamp,
+    chains: {},
+  };
   let totalUnclaimedTIC = ZERO;
   let totalSummedUnclaimedTic = ZERO;
 
@@ -229,14 +233,13 @@ export const getChainData = async (config, tokenDeployments) => {
     const chain = config.chains[i];
     const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
     const provider = new ethers.providers.JsonRpcProvider(rpcURL);
-
     const chainData = await getChainUnclaimedTicData(chain, provider, tokenDeployments);
 
     // NOTE: this is somewhat incorrect, after the first distro we will need to take into account
     // the amount that is unclaimed in the merkle tree as well if the user hasn't claimed it!
     totalUnclaimedTIC = totalUnclaimedTIC.add(chainData.totalUnclaimedTIC);
     totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(chainData.totalSummedUnclaimedTic);
-    data[chain.chainId] = chainData;
+    data.chains[chain.chainId] = chainData;
     // TODO: we need to handle unclaimed merkle nodes from the last distro
     // by checking their unclaimed TIC against the node and what they have claimed...
     // some users may never claim,
@@ -251,12 +254,16 @@ export const getChainData = async (config, tokenDeployments) => {
 };
 
 export const getAllocationData = (chainData, config) => {
+  const allocations = {
+    epoch: config.epoch,
+    snapshotTimestamp: config.snapshotTimestamp,
+    chains: {},
+  };
   const totalUnclaimedTIC = ethers.BigNumber.from(chainData.totalUnclaimedTIC);
-  const allocations = {};
   for (let i = 0; i < config.chains.length; i += 1) {
     const chain = config.chains[i];
     const totalUnclaimedTicForChain = ethers.BigNumber.from(
-      chainData[chain.chainId].totalUnclaimedTIC,
+      chainData.chains[chain.chainId].totalUnclaimedTIC,
     );
     const percentAllocation =
       totalUnclaimedTicForChain.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
@@ -266,8 +273,8 @@ export const getAllocationData = (chainData, config) => {
       chainPercentOfTotal: percentAllocation,
     };
 
-    const poolCount = Object.keys(chainData[chain.chainId].pools).length;
-    const { pools } = chainData[chain.chainId];
+    const poolCount = Object.keys(chainData.chains[chain.chainId].pools).length;
+    const { pools } = chainData.chains[chain.chainId];
     for (let ii = 0; ii < poolCount; ii += 1) {
       const totalUnclaimedForPool = ethers.BigNumber.from(pools[ii].unclaimedTic);
       chainAllocations.pools[ii] = {
@@ -279,7 +286,7 @@ export const getAllocationData = (chainData, config) => {
           DECIMAL_PRECISION,
       };
     }
-    allocations[chain.chainId] = {
+    allocations.chains[chain.chainId] = {
       name: chain.name,
       chainId: chain.chainId,
       ...chainAllocations,
@@ -290,8 +297,8 @@ export const getAllocationData = (chainData, config) => {
 
 export const getMerkleData = (chainData, allocationData, config) => {
   const merkleData = {
+    epoch: config.epoch,
     snapshotTimestamp: config.snapshotTimestamp,
-    index: config.index,
     chains: {},
   };
 
@@ -302,7 +309,7 @@ export const getMerkleData = (chainData, allocationData, config) => {
     };
 
     const poolData = {};
-    const poolCount = Object.keys(chainData[chain.chainId].pools).length;
+    const poolCount = Object.keys(chainData.chains[chain.chainId].pools).length;
     let startingIndex = 0;
     for (let ii = 0; ii < poolCount; ii += 1) {
       const pool = {
@@ -312,8 +319,8 @@ export const getMerkleData = (chainData, allocationData, config) => {
       const claims = getMerkleClaimsForPool(
         startingIndex,
         chain,
-        chainData[chain.chainId].pools[ii],
-        allocationData[chain.chainId].pools[ii].poolPercentOfChain,
+        chainData.chains[chain.chainId].pools[ii],
+        allocationData.chains[chain.chainId].pools[ii].poolPercentOfChain,
       );
       pool.claims = claims;
       poolData[ii] = pool;
@@ -346,7 +353,12 @@ export const getMerkleData = (chainData, allocationData, config) => {
   return merkleData;
 };
 
-export const getMerkleClaimsForPool = (startingIndex, chainConfig, poolData, poolPercentOfChain) => {
+export const getMerkleClaimsForPool = (
+  startingIndex,
+  chainConfig,
+  poolData,
+  poolPercentOfChain,
+) => {
   const claims = {};
   let index = startingIndex;
   const lpTokensForChain = ethers.BigNumber.from(chainConfig.lpTokensGenerated);

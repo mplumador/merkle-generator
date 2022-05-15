@@ -5,13 +5,13 @@ import { bigNumberJSONToString, getChainData, getAllocationData, getMerkleData }
 import 'dotenv/config';
 
 async function main() {
-  // await generateChainData();
+  //await generateChainData();
   generateAllocations();
   generateMerkleTree();
 }
 
 async function generateChainData() {
-  const data = getChainData(config, tokenDeployments);
+  const data = await getChainData(config, tokenDeployments);
   // write to disk
   console.log('Persisting chain data to disk at chainData.json');
   writeFileSync(`${config.epoch}_chainData.json`, JSON.stringify(data, bigNumberJSONToString, 2));

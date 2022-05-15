@@ -1,52 +1,56 @@
 {
-  "1": {
-    "name": "ethereum",
-    "chainId": 1,
-    "pools": {
-      "0": {
-        "poolPercentOfTotal": 0.014032227,
-        "poolPercentOfChain": 0.3337480795
+  "epoch": 0,
+  "snapshotTimestamp": 1652550835,
+  "chains": {
+    "1": {
+      "name": "ethereum",
+      "chainId": 1,
+      "pools": {
+        "0": {
+          "poolPercentOfTotal": 0.014032227,
+          "poolPercentOfChain": 0.3337480795
+        },
+        "1": {
+          "poolPercentOfTotal": 0.014032227,
+          "poolPercentOfChain": 0.3337480795
+        },
+        "2": {
+          "poolPercentOfTotal": 0.0139799137,
+          "poolPercentOfChain": 0.3325038408
+        }
       },
-      "1": {
-        "poolPercentOfTotal": 0.014032227,
-        "poolPercentOfChain": 0.3337480795
-      },
-      "2": {
-        "poolPercentOfTotal": 0.0139799137,
-        "poolPercentOfChain": 0.3325038408
-      }
+      "chainPercentOfTotal": 0.0420443678
     },
-    "chainPercentOfTotal": 0.0420443678
-  },
-  "43114": {
-    "name": "avalanche",
-    "chainId": 43114,
-    "pools": {
-      "0": {
-        "poolPercentOfTotal": 0.4023798512,
-        "poolPercentOfChain": 0.4200401748
+    "43114": {
+      "name": "avalanche",
+      "chainId": 43114,
+      "pools": {
+        "0": {
+          "poolPercentOfTotal": 0.4023798512,
+          "poolPercentOfChain": 0.4200401748
+        },
+        "1": {
+          "poolPercentOfTotal": 0.0888921249,
+          "poolPercentOfChain": 0.092793572
+        },
+        "2": {
+          "poolPercentOfTotal": 0.1111151561,
+          "poolPercentOfChain": 0.115991965
+        },
+        "3": {
+          "poolPercentOfTotal": 0.1777842498,
+          "poolPercentOfChain": 0.185587144
+        },
+        "4": {
+          "poolPercentOfTotal": 0.0888921249,
+          "poolPercentOfChain": 0.092793572
+        },
+        "5": {
+          "poolPercentOfTotal": 0.0888921249,
+          "poolPercentOfChain": 0.092793572
+        }
       },
-      "1": {
-        "poolPercentOfTotal": 0.0888921249,
-        "poolPercentOfChain": 0.092793572
-      },
-      "2": {
-        "poolPercentOfTotal": 0.1111151561,
-        "poolPercentOfChain": 0.115991965
-      },
-      "3": {
-        "poolPercentOfTotal": 0.1777842498,
-        "poolPercentOfChain": 0.185587144
-      },
-      "4": {
-        "poolPercentOfTotal": 0.0888921249,
-        "poolPercentOfChain": 0.092793572
-      },
-      "5": {
-        "poolPercentOfTotal": 0.0888921249,
-        "poolPercentOfChain": 0.092793572
-      }
-    },
-    "chainPercentOfTotal": 0.9579556321
+      "chainPercentOfTotal": 0.9579556321
+    }
   }
 }
