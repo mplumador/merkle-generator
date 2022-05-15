@@ -4,7 +4,73 @@ import { BalanceTree } from './BalanceTree.js';
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
 const DECIMAL_PRECISION = 10000000000;
-const blockNumberToTimestamp = {}; // cached block numbers to timestamp by chainId
+
+export const bigNumberJSONToString = (key, value) => {
+  if (value && value.type && value.type === 'BigNumber') {
+    return ethers.BigNumber.from(value.hex).toString();
+  }
+  return value;
+};
+
+export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlockNumber, filter) => {
+  let allEvents = [];
+  let requestedBlock = genesisBlockNumber;
+  while (requestedBlock < currentBlockNumber) {
+    const nextRequestedBlock = requestedBlock + BLOCK_REQUEST_LIMIT;
+    const events = await merklePools.queryFilter(
+      filter,
+      requestedBlock,
+      nextRequestedBlock < currentBlockNumber ? nextRequestedBlock : currentBlockNumber,
+    );
+    if (events.length > 0) {
+      allEvents = allEvents.concat(events);
+    }
+    requestedBlock = nextRequestedBlock;
+  }
+  return allEvents;
+};
+
+export const getAllocationData = (chainData, config) => {
+  const allocations = {
+    epoch: config.epoch,
+    snapshotTimestamp: config.snapshotTimestamp,
+    chains: {},
+  };
+  const totalUnclaimedTIC = ethers.BigNumber.from(chainData.totalUnclaimedTIC);
+  for (let i = 0; i < config.chains.length; i += 1) {
+    const chain = config.chains[i];
+    const totalUnclaimedTicForChain = ethers.BigNumber.from(
+      chainData.chains[chain.chainId].totalUnclaimedTIC,
+    );
+    const percentAllocation =
+      totalUnclaimedTicForChain.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
+      DECIMAL_PRECISION;
+    const chainAllocations = {
+      pools: {},
+      chainPercentOfTotal: percentAllocation,
+    };
+
+    const poolCount = Object.keys(chainData.chains[chain.chainId].pools).length;
+    const { pools } = chainData.chains[chain.chainId];
+    for (let ii = 0; ii < poolCount; ii += 1) {
+      const totalUnclaimedForPool = ethers.BigNumber.from(pools[ii].unclaimedTic);
+      chainAllocations.pools[ii] = {
+        poolPercentOfTotal:
+          totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
+          DECIMAL_PRECISION,
+        poolPercentOfChain:
+          totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTicForChain).toNumber() /
+          DECIMAL_PRECISION,
+      };
+    }
+    allocations.chains[chain.chainId] = {
+      name: chain.name,
+      chainId: chain.chainId,
+      ...chainAllocations,
+    };
+  }
+  return allocations;
+};
 
 export const getAllTokensDepositedEvents = async (
   merklePools,
@@ -30,139 +96,37 @@ export const getAllTokensWithdrawnEvents = async (
     merklePools.filters.TokensWithdrawn(),
   );
 
-export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlockNumber, filter) => {
-  let allEvents = [];
-  let requestedBlock = genesisBlockNumber;
-  while (requestedBlock < currentBlockNumber) {
-    const nextRequestedBlock = requestedBlock + BLOCK_REQUEST_LIMIT;
-    const events = await merklePools.queryFilter(
-      filter,
-      requestedBlock,
-      nextRequestedBlock < currentBlockNumber ? nextRequestedBlock : currentBlockNumber,
-    );
-    if (events.length > 0) {
-      allEvents = allEvents.concat(events);
-      // for testing return here.... TODO: make sure to remove me!
-      // return allEvents;
-    }
-    requestedBlock = nextRequestedBlock;
-  }
-  return allEvents;
-};
-
-/**
- * Process all events in the eventsToIndex array and adds them to eventMapping first
- * indexed by the poolId and then by the user address
- * @param {Array} eventsToIndex
- * @param {Object} poolUserData - mapping of indexed events to add new events to
- * @returns the modified event mapping (same as the original, no cloning is done)
- */
-export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
-  eventsToIndex.forEach((event) => {
-    const { user, amount } = event.args;
-    const poolId = event.args.poolId.toNumber();
-
-    let poolEvents;
-    if (poolUserData[poolId] === undefined) {
-      poolEvents = {};
-      poolUserData[poolId] = poolEvents;
-    } else {
-      poolEvents = poolUserData[poolId];
-    }
-
-    let userInstance;
-    if (poolEvents[user] === undefined) {
-      userInstance = {
-        events: {},
-        balanceSeconds: ZERO,
-      };
-      poolEvents[user] = userInstance;
-    } else {
-      userInstance = poolEvents[user];
-    }
-
-    if (userInstance.events[event.blockNumber]) {
-      // currently we assume that users only take one action per block per pool,
-      // just to be safe throw an error if something breaks our assumptions!
-      throw new Error(`Found existing event for user ${user} at block number ${event.blockNumber}`);
-    }
-
-    userInstance.events[event.blockNumber] = {
-      event: event.event,
-      transactionHash: event.transactionHash,
-      user,
-      poolId,
-      amount,
-    };
-  });
-  return poolUserData;
-};
-
-export const getBlockTimestamp = async (blockNumber, chainId, provider) => {
-  const blockNumberParsed = parseInt(blockNumber);
-  if (blockNumberToTimestamp[chainId] && blockNumberToTimestamp[chainId][blockNumberParsed]) {
-    return blockNumberToTimestamp[chainId][blockNumberParsed];
-  }
-  const block = await provider.getBlock(blockNumberParsed);
-
-  if (!blockNumberToTimestamp[chainId]) {
-    blockNumberToTimestamp[chainId] = {};
-  }
-
-  blockNumberToTimestamp[chainId][blockNumberParsed] = block.timestamp;
-  return block.timestamp;
-};
-
-export const getPoolUnclaimedTicData = async (
-  userAddresses,
-  forfeitAddress,
-  poolId,
-  snapshotBlock,
-  merklePools,
-) => {
-  const allAddresses = userAddresses.concat([forfeitAddress]);
-
-  const unclaimedTicAtSnapshot = await Promise.all(
-    allAddresses.map((user) =>
-      merklePools.getStakeTotalUnclaimed(user, poolId, { blockTag: snapshotBlock }),
-    ),
-  );
-
-  const stakesAtSnapshot = await Promise.all(
-    allAddresses.map((user) => merklePools.stakes(user, poolId, { blockTag: snapshotBlock })),
-  );
-
-  const poolData = {
-    users: {},
-    totalSummedUnclaimedTic: ZERO,
-    unclaimedTic: await merklePools.getPoolTotalUnclaimedNotInLP(poolId, {
-      blockTag: snapshotBlock,
-    }),
+export const getChainData = async (config, tokenDeployments) => {
+  const data = {
+    epoch: config.epoch,
+    snapshotTimestamp: config.snapshotTimestamp,
+    chains: {},
   };
+  let totalUnclaimedTIC = ZERO;
+  let totalSummedUnclaimedTic = ZERO;
 
-  for (let i = 0; i < allAddresses.length; i += 1) {
-    const user = allAddresses[i];
-    const unclaimedTicBalance = unclaimedTicAtSnapshot[i];
-    const stake = stakesAtSnapshot[i];
-    poolData.users[user] = {
-      totalUnclaimedTic: unclaimedTicBalance,
-      totalClaimedTic: stake.totalRealizedTIC,
-      totalClaimedLP: stake.totalRealizedLP,
-    };
-    poolData.totalSummedUnclaimedTic = poolData.totalSummedUnclaimedTic.add(unclaimedTicBalance);
-  }
-  return poolData;
-};
+  for (let i = 0; i < config.chains.length; i += 1) {
+    const chain = config.chains[i];
+    const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
+    const provider = new ethers.providers.JsonRpcProvider(rpcURL);
+    const chainData = await getChainUnclaimedTicData(chain, provider, tokenDeployments);
 
-export const getMerklePools = (chain, provider, tokenDeployments) => {
-  let merklePoolsDeployInfo;
-  if (chain.supportsNativeTIC) {
-    merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePools;
-  } else {
-    merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePoolsForeign;
+    // NOTE: this is somewhat incorrect, after the first distro we will need to take into account
+    // the amount that is unclaimed in the merkle tree as well if the user hasn't claimed it!
+    totalUnclaimedTIC = totalUnclaimedTIC.add(chainData.totalUnclaimedTIC);
+    totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(chainData.totalSummedUnclaimedTic);
+    data.chains[chain.chainId] = chainData;
+    // TODO: we need to handle unclaimed merkle nodes from the last distro
+    // by checking their unclaimed TIC against the node and what they have claimed...
+    // some users may never claim,
+    // check with LSDAN if this is true, could be a good incentive for people not too claim...
+    // more complicated for little benefit.  If people claim and compound its the same effect...
   }
 
-  return new ethers.Contract(merklePoolsDeployInfo.address, merklePoolsDeployInfo.abi, provider);
+  // save our totals
+  data.totalUnclaimedTIC = totalUnclaimedTIC;
+  data.totalSummedUnclaimedTic = totalSummedUnclaimedTic;
+  return data;
 };
 
 export const getChainUnclaimedTicData = async (chain, provider, tokenDeployments) => {
@@ -213,86 +177,48 @@ export const getChainUnclaimedTicData = async (chain, provider, tokenDeployments
   };
 };
 
-export const bigNumberJSONToString = (key, value) => {
-  if (value && value.type && value.type === 'BigNumber') {
-    return ethers.BigNumber.from(value.hex).toString();
-  }
-  return value;
-};
+export const getMerkleClaimsForPool = (
+  startingIndex,
+  chainConfig,
+  poolData,
+  poolPercentOfChain,
+) => {
+  const claims = {};
+  let index = startingIndex;
+  const lpTokensForChain = ethers.BigNumber.from(chainConfig.lpTokensGenerated);
+  const ticConsumedForChain = ethers.BigNumber.from(chainConfig.ticConsumed);
+  const poolMultiplier = ethers.BigNumber.from(DECIMAL_PRECISION * poolPercentOfChain);
 
-export const getChainData = async (config, tokenDeployments) => {
-  const data = {
-    epoch: config.epoch,
-    snapshotTimestamp: config.snapshotTimestamp,
-    chains: {},
-  };
-  let totalUnclaimedTIC = ZERO;
-  let totalSummedUnclaimedTic = ZERO;
+  const lpTokensForPool = poolMultiplier.mul(lpTokensForChain).div(DECIMAL_PRECISION);
+  const ticConsumedForPool = poolMultiplier.mul(ticConsumedForChain).div(DECIMAL_PRECISION);
+  const unclaimedTicForPool = ethers.BigNumber.from(poolData.unclaimedTic);
 
-  for (let i = 0; i < config.chains.length; i += 1) {
-    const chain = config.chains[i];
-    const rpcURL = process.env[`RPC_URL_${chain.name.toUpperCase()}`];
-    const provider = new ethers.providers.JsonRpcProvider(rpcURL);
-    const chainData = await getChainUnclaimedTicData(chain, provider, tokenDeployments);
+  // iterate through users of this pool to create claims
+  const addresses = Object.keys(poolData.users).sort();
+  addresses.forEach((address) => {
+    const userPoolData = poolData.users[address];
+    const userPercentOfPoolUnclaimedTic = ethers.BigNumber.from(userPoolData.totalUnclaimedTic)
+      .mul(DECIMAL_PRECISION)
+      .div(unclaimedTicForPool);
 
-    // NOTE: this is somewhat incorrect, after the first distro we will need to take into account
-    // the amount that is unclaimed in the merkle tree as well if the user hasn't claimed it!
-    totalUnclaimedTIC = totalUnclaimedTIC.add(chainData.totalUnclaimedTIC);
-    totalSummedUnclaimedTic = totalSummedUnclaimedTic.add(chainData.totalSummedUnclaimedTic);
-    data.chains[chain.chainId] = chainData;
-    // TODO: we need to handle unclaimed merkle nodes from the last distro
-    // by checking their unclaimed TIC against the node and what they have claimed...
-    // some users may never claim,
-    // check with LSDAN if this is true, could be a good incentive for people not too claim...
-    // more complicated for little benefit.  If people claim and compound its the same effect...
-  }
+    const userLPTokens = lpTokensForPool.mul(userPercentOfPoolUnclaimedTic).div(DECIMAL_PRECISION);
+    const userTicConsumed = ticConsumedForPool
+      .mul(userPercentOfPoolUnclaimedTic)
+      .div(DECIMAL_PRECISION);
 
-  // save our totals
-  data.totalUnclaimedTIC = totalUnclaimedTIC;
-  data.totalSummedUnclaimedTic = totalSummedUnclaimedTic;
-  return data;
-};
-
-export const getAllocationData = (chainData, config) => {
-  const allocations = {
-    epoch: config.epoch,
-    snapshotTimestamp: config.snapshotTimestamp,
-    chains: {},
-  };
-  const totalUnclaimedTIC = ethers.BigNumber.from(chainData.totalUnclaimedTIC);
-  for (let i = 0; i < config.chains.length; i += 1) {
-    const chain = config.chains[i];
-    const totalUnclaimedTicForChain = ethers.BigNumber.from(
-      chainData.chains[chain.chainId].totalUnclaimedTIC,
-    );
-    const percentAllocation =
-      totalUnclaimedTicForChain.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
-      DECIMAL_PRECISION;
-    const chainAllocations = {
-      pools: {},
-      chainPercentOfTotal: percentAllocation,
+    // we need to add anything they have previously claimed into the proofs at this point
+    const totalTICAmount = userTicConsumed.add(userPoolData.totalClaimedTic);
+    const totalLPTokenAmount = userLPTokens.add(userPoolData.totalClaimedLP);
+    claims[address] = {
+      index,
+      poolId: poolData.poolId,
+      totalLPTokenAmount,
+      totalTICAmount,
+      proof: '', // we have to generate this after the entire tree is ready.
     };
-
-    const poolCount = Object.keys(chainData.chains[chain.chainId].pools).length;
-    const { pools } = chainData.chains[chain.chainId];
-    for (let ii = 0; ii < poolCount; ii += 1) {
-      const totalUnclaimedForPool = ethers.BigNumber.from(pools[ii].unclaimedTic);
-      chainAllocations.pools[ii] = {
-        poolPercentOfTotal:
-          totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTIC).toNumber() /
-          DECIMAL_PRECISION,
-        poolPercentOfChain:
-          totalUnclaimedForPool.mul(DECIMAL_PRECISION).div(totalUnclaimedTicForChain).toNumber() /
-          DECIMAL_PRECISION,
-      };
-    }
-    allocations.chains[chain.chainId] = {
-      name: chain.name,
-      chainId: chain.chainId,
-      ...chainAllocations,
-    };
-  }
-  return allocations;
+    index += 1;
+  });
+  return claims;
 };
 
 export const getMerkleData = (chainData, allocationData, config) => {
@@ -353,46 +279,102 @@ export const getMerkleData = (chainData, allocationData, config) => {
   return merkleData;
 };
 
-export const getMerkleClaimsForPool = (
-  startingIndex,
-  chainConfig,
-  poolData,
-  poolPercentOfChain,
+export const getMerklePools = (chain, provider, tokenDeployments) => {
+  let merklePoolsDeployInfo;
+  if (chain.supportsNativeTIC) {
+    merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePools;
+  } else {
+    merklePoolsDeployInfo = tokenDeployments[chain.chainId][0].contracts.MerklePoolsForeign;
+  }
+
+  return new ethers.Contract(merklePoolsDeployInfo.address, merklePoolsDeployInfo.abi, provider);
+};
+
+export const getPoolUnclaimedTicData = async (
+  userAddresses,
+  forfeitAddress,
+  poolId,
+  snapshotBlock,
+  merklePools,
 ) => {
-  const claims = {};
-  let index = startingIndex;
-  const lpTokensForChain = ethers.BigNumber.from(chainConfig.lpTokensGenerated);
-  const ticConsumedForChain = ethers.BigNumber.from(chainConfig.ticConsumed);
-  const poolMultiplier = ethers.BigNumber.from(DECIMAL_PRECISION * poolPercentOfChain);
+  const allAddresses = userAddresses.concat([forfeitAddress]);
 
-  const lpTokensForPool = poolMultiplier.mul(lpTokensForChain).div(DECIMAL_PRECISION);
-  const ticConsumedForPool = poolMultiplier.mul(ticConsumedForChain).div(DECIMAL_PRECISION);
-  const unclaimedTicForPool = ethers.BigNumber.from(poolData.unclaimedTic);
+  const unclaimedTicAtSnapshot = await Promise.all(
+    allAddresses.map((user) =>
+      merklePools.getStakeTotalUnclaimed(user, poolId, { blockTag: snapshotBlock }),
+    ),
+  );
 
-  // iterate through users of this pool to create claims
-  const addresses = Object.keys(poolData.users).sort();
-  addresses.forEach((address) => {
-    const userPoolData = poolData.users[address];
-    const userPercentOfPoolUnclaimedTic = ethers.BigNumber.from(userPoolData.totalUnclaimedTic)
-      .mul(DECIMAL_PRECISION)
-      .div(unclaimedTicForPool);
+  const stakesAtSnapshot = await Promise.all(
+    allAddresses.map((user) => merklePools.stakes(user, poolId, { blockTag: snapshotBlock })),
+  );
 
-    const userLPTokens = lpTokensForPool.mul(userPercentOfPoolUnclaimedTic).div(DECIMAL_PRECISION);
-    const userTicConsumed = ticConsumedForPool
-      .mul(userPercentOfPoolUnclaimedTic)
-      .div(DECIMAL_PRECISION);
+  const poolData = {
+    users: {},
+    totalSummedUnclaimedTic: ZERO,
+    unclaimedTic: await merklePools.getPoolTotalUnclaimedNotInLP(poolId, {
+      blockTag: snapshotBlock,
+    }),
+  };
 
-    // we need to add anything they have previously claimed into the proofs at this point
-    const totalTICAmount = userTicConsumed.add(userPoolData.totalClaimedTic);
-    const totalLPTokenAmount = userLPTokens.add(userPoolData.totalClaimedLP);
-    claims[address] = {
-      index,
-      poolId: poolData.poolId,
-      totalLPTokenAmount,
-      totalTICAmount,
-      proof: '', // we have to generate this after the entire tree is ready.
+  for (let i = 0; i < allAddresses.length; i += 1) {
+    const user = allAddresses[i];
+    const unclaimedTicBalance = unclaimedTicAtSnapshot[i];
+    const stake = stakesAtSnapshot[i];
+    poolData.users[user] = {
+      totalUnclaimedTic: unclaimedTicBalance,
+      totalClaimedTic: stake.totalRealizedTIC,
+      totalClaimedLP: stake.totalRealizedLP,
     };
-    index += 1;
+    poolData.totalSummedUnclaimedTic = poolData.totalSummedUnclaimedTic.add(unclaimedTicBalance);
+  }
+  return poolData;
+};
+
+/**
+ * Process all events in the eventsToIndex array and adds them to eventMapping first
+ * indexed by the poolId and then by the user address
+ * @param {Array} eventsToIndex
+ * @param {Object} poolUserData - mapping of indexed events to add new events to
+ * @returns the modified event mapping (same as the original, no cloning is done)
+ */
+export const indexEventsByPoolByUser = (eventsToIndex, poolUserData) => {
+  eventsToIndex.forEach((event) => {
+    const { user, amount } = event.args;
+    const poolId = event.args.poolId.toNumber();
+
+    let poolEvents;
+    if (poolUserData[poolId] === undefined) {
+      poolEvents = {};
+      poolUserData[poolId] = poolEvents;
+    } else {
+      poolEvents = poolUserData[poolId];
+    }
+
+    let userInstance;
+    if (poolEvents[user] === undefined) {
+      userInstance = {
+        events: {},
+        balanceSeconds: ZERO,
+      };
+      poolEvents[user] = userInstance;
+    } else {
+      userInstance = poolEvents[user];
+    }
+
+    if (userInstance.events[event.blockNumber]) {
+      // currently we assume that users only take one action per block per pool,
+      // just to be safe throw an error if something breaks our assumptions!
+      throw new Error(`Found existing event for user ${user} at block number ${event.blockNumber}`);
+    }
+
+    userInstance.events[event.blockNumber] = {
+      event: event.event,
+      transactionHash: event.transactionHash,
+      user,
+      poolId,
+      amount,
+    };
   });
-  return claims;
+  return poolUserData;
 };
