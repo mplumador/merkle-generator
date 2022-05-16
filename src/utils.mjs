@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import BalanceTree from './BalanceTree.mjs';
+import 'dotenv/config';
 
 const BLOCK_REQUEST_LIMIT = 2048;
 const ZERO = ethers.BigNumber.from('0');
@@ -13,21 +14,26 @@ export const bigNumberJSONToString = (key, value) => {
 };
 
 export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlockNumber, filter) => {
-  let allEvents = [];
   let requestedBlock = genesisBlockNumber;
+  const promises = [];
   while (requestedBlock < currentBlockNumber) {
     const nextRequestedBlock = requestedBlock + BLOCK_REQUEST_LIMIT;
-    const events = await merklePools.queryFilter(
+    const eventPromise = merklePools.queryFilter(
       filter,
       requestedBlock,
       nextRequestedBlock < currentBlockNumber ? nextRequestedBlock : currentBlockNumber,
     );
-    if (events.length > 0) {
-      allEvents = allEvents.concat(events);
-    }
     requestedBlock = nextRequestedBlock;
+    promises.push(eventPromise);
   }
-  return allEvents;
+  const allEvents = await Promise.all(promises);
+  const filteredEvents = [];
+  allEvents.forEach((anEvent) => {
+    if (anEvent.length > 0) {
+      filteredEvents.push(...anEvent);
+    }
+  });
+  return filteredEvents;
 };
 
 export const getAllocationData = (chainData, config) => {

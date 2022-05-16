@@ -2,7 +2,6 @@ import tokenDeployments from '@elasticswap/token/artifacts/deployments.json' ass
 import { readFileSync, writeFileSync } from 'fs';
 import config from '../config.json' assert { type: 'json' };
 import { bigNumberJSONToString, getChainData, getAllocationData } from './utils.mjs';
-import 'dotenv/config';
 
 async function main() {
   console.log(`Prepping data for epoch=${config.epoch}`);
