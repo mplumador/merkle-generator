@@ -9,6 +9,7 @@ export default class MerkleTree {
     this.elements = MerkleTree._bufDedup(this.elements);
 
     this.bufferElementPositionIndex = this.elements.reduce((memo, el, index) => {
+      // eslint-disable-next-line no-param-reassign
       memo[bufferToHex(el)] = index;
       return memo;
     }, {});
