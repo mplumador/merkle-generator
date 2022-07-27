@@ -190,7 +190,7 @@ export const getMerkleClaimsForPool = (
   let index = startingIndex;
   const lpTokensForChain = ethers.BigNumber.from(chainConfig.lpTokensGenerated);
   const ticConsumedForChain = ethers.BigNumber.from(chainConfig.ticConsumed);
-  const poolMultiplier = ethers.BigNumber.from(DECIMAL_PRECISION * poolPercentOfChain);
+  const poolMultiplier = ethers.BigNumber.from(Math.round(DECIMAL_PRECISION * poolPercentOfChain));
 
   const lpTokensForPool = poolMultiplier.mul(lpTokensForChain).div(DECIMAL_PRECISION);
   const ticConsumedForPool = poolMultiplier.mul(ticConsumedForChain).div(DECIMAL_PRECISION);
