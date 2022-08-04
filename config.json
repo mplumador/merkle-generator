@@ -8,8 +8,8 @@
       "genesisBlock": 14676063,
       "snapshotBlock": 15166694,
       "supportsNativeTIC": false,
-      "lpTokensGenerated": "910946332339206",
-      "ticConsumed": "409298031569412748833"
+      "lpTokensGenerated": "873066819497099",
+      "ticConsumed": "391650069386461463486"
     },
     {
       "name": "avalanche",
@@ -17,8 +17,8 @@
       "genesisBlock": 13547536,
       "snapshotBlock": 17487749,
       "supportsNativeTIC": true,
-      "lpTokensGenerated": "180341829201833",
-      "ticConsumed": "1665044469858155408413"
+      "lpTokensGenerated": "167928053432199",
+      "ticConsumed": "1504508000490886586214"
     }
   ]
 }
