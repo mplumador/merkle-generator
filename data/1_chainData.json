@@ -1,0 +1,3633 @@
+{
+  "epoch": 1,
+  "snapshotTimestamp": 1660832001,
+  "chains": {
+    "1": {
+      "name": "ethereum",
+      "chainId": 1,
+      "genesisBlock": 14676063,
+      "snapshotBlock": 15365472,
+      "supportsNativeTIC": false,
+      "pools": {
+        "0": {
+          "poolId": 0,
+          "users": {
+            "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
+              "totalUnclaimedTic": "4590065522630210440374",
+              "totalClaimedTic": "12964071338712845512",
+              "totalClaimedLP": "28899523876388"
+            },
+            "0xF7a94CCB3048Bdc95f8041D0a2D7bf939479f99d": {
+              "totalUnclaimedTic": "2202482248076617919849",
+              "totalClaimedTic": "6212937551749754573",
+              "totalClaimedLP": "13849888081311"
+            },
+            "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
+              "totalUnclaimedTic": "1573362225930668472948",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x588A07FdB3dDafF7E32B7fe20828afAB7D3387E7": {
+              "totalUnclaimedTic": "18422595858651400685893",
+              "totalClaimedTic": "51981867242537238921",
+              "totalClaimedLP": "115878042805042"
+            },
+            "0x49e8C9617A3bBcc9492Dc2c40a7D05b4F8dd1C17": {
+              "totalUnclaimedTic": "6050866481256101118609",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x13712a5B8B92B629824DF347a1670df5AfaFF263": {
+              "totalUnclaimedTic": "9067563878731730667746",
+              "totalClaimedTic": "25534442252565594319",
+              "totalClaimedLP": "56921410278321"
+            },
+            "0xEF7F2e81EA14538858d962df34eB1bFDa83da395": {
+              "totalUnclaimedTic": "2944179257609158816831",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1C999B96b09c373b2A0aD05F94CC54D67C2050A8": {
+              "totalUnclaimedTic": "1469145866228975308137",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x32096e6adB07b09e76b0Fd72D19dA279c5Bf0A27": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "26903920764811873",
+              "totalClaimedLP": "0"
+            },
+            "0x02E4aC227071b41f4F331b1dD5eA2de33AA67Cff": {
+              "totalUnclaimedTic": "631153279319894133",
+              "totalClaimedTic": "108391175895432957",
+              "totalClaimedLP": "0"
+            },
+            "0xff75E131c711e4310C045317779d39B3B4f718C4": {
+              "totalUnclaimedTic": "22775432075853500949",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa0B3459DEB6B77164A6558cF4E70AAcBE534EfBC": {
+              "totalUnclaimedTic": "5782461342899164397",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x11502311A80736dad252Cc8cf95125DFc041fd15": {
+              "totalUnclaimedTic": "4365390039944268625",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x206fc71879C2f037cCcDB1d2250645c44d9f7587": {
+              "totalUnclaimedTic": "1266577770026470234",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9a2D469429282C6DD5a20071Fcfc63AbbB36A4a0": {
+              "totalUnclaimedTic": "36301534733291972054",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x54D4a26Df1b02020C34a10Fb7d1D9bF188dAb12b": {
+              "totalUnclaimedTic": "1835050669455288022",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x622482B1c42B27060E06Cf674B32787DFCecb866": {
+              "totalUnclaimedTic": "234610317862469221378",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6cA79F0FA0Abb8072d1998138600DbeFfBE5a9bB": {
+              "totalUnclaimedTic": "135295096660298945",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "46627964551984783509124",
+          "unclaimedTic": "46594097629306815046605"
+        },
+        "1": {
+          "poolId": 1,
+          "users": {
+            "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
+              "totalUnclaimedTic": "137021324094991659457",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xbC373f98b0e8aAee3Db4cF86C5eD1F113AdF2793": {
+              "totalUnclaimedTic": "1311805081989368692810",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x13712a5B8B92B629824DF347a1670df5AfaFF263": {
+              "totalUnclaimedTic": "4703244600172011462485",
+              "totalClaimedTic": "13174857074729744292",
+              "totalClaimedLP": "29369407700048"
+            },
+            "0xceb8fA8652a2b3De9f0caf9209Ca5e28B24CD249": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3666636053990351538862",
+              "totalClaimedLP": "0"
+            },
+            "0x14BDfda5b5B829f14332A52c15129386284CE36a": {
+              "totalUnclaimedTic": "1041295148684709541424",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xCA37caD587d26f5EC69742737121e7c280C40669": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "254250676935284679151",
+              "totalClaimedLP": "0"
+            },
+            "0x9FfD0a5b5438B95861167422E745D34d151bcc3b": {
+              "totalUnclaimedTic": "1347075890591305434863",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1710ef30e80b4ccfB064172B90682D51d57fe552": {
+              "totalUnclaimedTic": "2415264764131958958657",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4Ac25bF2d1cD447Ae75659b90a665cC497991DAF": {
+              "totalUnclaimedTic": "451053485578506401888",
+              "totalClaimedTic": "1258530312779207982",
+              "totalClaimedLP": "2805517331173"
+            },
+            "0x01ebce016681D076667BDb823EBE1f76830DA6Fa": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2610630697470027085505",
+              "totalClaimedLP": "0"
+            },
+            "0x9a2D469429282C6DD5a20071Fcfc63AbbB36A4a0": {
+              "totalUnclaimedTic": "10220396889536994514035",
+              "totalClaimedTic": "28213612805608525513",
+              "totalClaimedLP": "62893820591690"
+            },
+            "0x1925d9B6848eCD6Bfc47a75888C5A479B6b39a18": {
+              "totalUnclaimedTic": "235628420759945645138",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc2DEfea119d3E2916783BDB6e346eC804230Ed7B": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1811574533128902560460",
+              "totalClaimedLP": "0"
+            },
+            "0x6a61857928149cb7cd2ad29251902787BCf9C3b0": {
+              "totalUnclaimedTic": "302937201392761690516",
+              "totalClaimedTic": "830152565649996628",
+              "totalClaimedLP": "1850577126986"
+            },
+            "0x11502311A80736dad252Cc8cf95125DFc041fd15": {
+              "totalUnclaimedTic": "7837229234021027480642",
+              "totalClaimedTic": "21356949956721539810",
+              "totalClaimedLP": "47608939281138"
+            },
+            "0x8BEBA06195B9D154c883bf177683B52f1d912C08": {
+              "totalUnclaimedTic": "57056185846674266762",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x05cd5CB45D91D5705D5569800345003FB9b0C3ae": {
+              "totalUnclaimedTic": "46759765975797325733",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf89EbFA55385f1aEF401d5DC5Ee761569E45874e": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1427583823662437358630",
+              "totalClaimedLP": "0"
+            },
+            "0xa8C83B1b30291A3a1a118058b5445cC83041Cd9d": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "9975985616206569435",
+              "totalClaimedLP": "0"
+            },
+            "0x0A2600448fA9E8A2377cFB35Dc522cCfcdfA17db": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1697476024301599980",
+              "totalClaimedLP": "0"
+            },
+            "0xFB7c1D49e006eaDdff2385c7eF8B0C5Cf49d038A": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "34960079203376682443",
+              "totalClaimedLP": "0"
+            },
+            "0x65f4424CEa0593c53Fe4E34d55455238BD058a6c": {
+              "totalUnclaimedTic": "317323014089288789623",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa01dd79c6A09CD5d51278dba059114Bc2Cb5eBCe": {
+              "totalUnclaimedTic": "45387937399399791664",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6b40314C82F6A95a6c17BEc773573F244A69008D": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3236466408132348311186",
+              "totalClaimedLP": "21650911515847"
+            },
+            "0x206fc71879C2f037cCcDB1d2250645c44d9f7587": {
+              "totalUnclaimedTic": "359408886929056320264",
+              "totalClaimedTic": "932100660449942992",
+              "totalClaimedLP": "2077839946115"
+            },
+            "0x4dCC496706AA19fF473bb5a712b7d4C7C282F237": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "66741989091140487524",
+              "totalClaimedLP": "0"
+            },
+            "0x79d81f7cE3741f6edE6A6769B10BE0E73Abe3b35": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "10215097724216708589",
+              "totalClaimedLP": "0"
+            },
+            "0xb4FFd9b783A71B7CB1790D02E8F744cC32dc9C1f": {
+              "totalUnclaimedTic": "147823406021824609203",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x767504c377Dcd3985a55760E7c20599bfb21291D": {
+              "totalUnclaimedTic": "57419550920228465713",
+              "totalClaimedTic": "5217892258468999",
+              "totalClaimedLP": "11631731881"
+            },
+            "0xC18ee6bF19aEccbC5985f68A4f10F4cB2D2BcB51": {
+              "totalUnclaimedTic": "896912387003762019570",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe3b72489968F11c15282514F33DF24634440393f": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "68475298782989358765",
+              "totalClaimedLP": "0"
+            },
+            "0xd9DF4EccDD3fD6d280C76927589f7C69b74F6358": {
+              "totalUnclaimedTic": "495857479595917685347",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x87AFaA198117496bCe792B6A5DE3b33ba7cAc73f": {
+              "totalUnclaimedTic": "101023001451511613074",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xff75E131c711e4310C045317779d39B3B4f718C4": {
+              "totalUnclaimedTic": "14028388200495438788",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x614AC9473B5A32Aa20875eDf2EDe11F334531A33": {
+              "totalUnclaimedTic": "192669108034502289469",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x622482B1c42B27060E06Cf674B32787DFCecb866": {
+              "totalUnclaimedTic": "721579542884754689594",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x38fcf6aAF523118Bfea55ab0747e490CEf5E71f2": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "462270177184862432",
+              "totalClaimedLP": "0"
+            },
+            "0x54D4a26Df1b02020C34a10Fb7d1D9bF188dAb12b": {
+              "totalUnclaimedTic": "3015363856588839055",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6cA79F0FA0Abb8072d1998138600DbeFfBE5a9bB": {
+              "totalUnclaimedTic": "13189957982127477728108",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "46649174041290861353882",
+          "unclaimedTic": "46594097629306815013239"
+        },
+        "2": {
+          "poolId": 2,
+          "users": {
+            "0x72c6d5B5E7F921E84166DC2061BeF4533a5a98Db": {
+              "totalUnclaimedTic": "802668238677056626699",
+              "totalClaimedTic": "31042",
+              "totalClaimedLP": "0"
+            },
+            "0xE6eA861295af4e0d0D7F331c7B950f7DA3A9D265": {
+              "totalUnclaimedTic": "5796225643954179026893",
+              "totalClaimedTic": "16308069396693934876",
+              "totalClaimedLP": "36353968486751"
+            },
+            "0x01ebce016681D076667BDb823EBE1f76830DA6Fa": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4340024593607089366720",
+              "totalClaimedLP": "0"
+            },
+            "0x7E2f6E2f86089Ae708425BcA2E7Bf43ad5cA486E": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "17156717685754508735",
+              "totalClaimedLP": "0"
+            },
+            "0x545b85bae197C6F5C8D12183587831C281922b07": {
+              "totalUnclaimedTic": "537803348273451913431",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa0B3459DEB6B77164A6558cF4E70AAcBE534EfBC": {
+              "totalUnclaimedTic": "4535750953315677891347",
+              "totalClaimedTic": "13312483806960562853",
+              "totalClaimedLP": "29676205381904"
+            },
+            "0xAC3c2F091eDEA973F666173b3eBd242A80FE411c": {
+              "totalUnclaimedTic": "385846719276800954297",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x25487e8BbF5A6ed60ECB0cd7F329b8714162f505": {
+              "totalUnclaimedTic": "4486689516856055899422",
+              "totalClaimedTic": "13379108914657035951",
+              "totalClaimedLP": "29824726154455"
+            },
+            "0xa8C83B1b30291A3a1a118058b5445cC83041Cd9d": {
+              "totalUnclaimedTic": "613340563538357733879",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7a4D7ce912d537F13690072274e87D63637b1D32": {
+              "totalUnclaimedTic": "308097871275001653596",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x41148F77FbB3615d52Fd49C927523efb719A3288": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "85793655038226727768",
+              "totalClaimedLP": "0"
+            },
+            "0xff75E131c711e4310C045317779d39B3B4f718C4": {
+              "totalUnclaimedTic": "17552655964849487271516",
+              "totalClaimedTic": "49898158098794572671",
+              "totalClaimedLP": "111233035802402"
+            },
+            "0x206fc71879C2f037cCcDB1d2250645c44d9f7587": {
+              "totalUnclaimedTic": "853185426510335481928",
+              "totalClaimedTic": "2458382510842886561",
+              "totalClaimedLP": "5480229336384"
+            },
+            "0x4a41f3D9DF03b76bF80A9455f17cB04743301a44": {
+              "totalUnclaimedTic": "702025651444887098935",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf89EbFA55385f1aEF401d5DC5Ee761569E45874e": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1116225040619201422068",
+              "totalClaimedLP": "0"
+            },
+            "0x14BDfda5b5B829f14332A52c15129386284CE36a": {
+              "totalUnclaimedTic": "785847326504903908709",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xfc60673163F4B2446F0a59EcDa32a8Ee673f1C22": {
+              "totalUnclaimedTic": "158035705177534968647",
+              "totalClaimedTic": "429302988523053474",
+              "totalClaimedLP": "957002753446"
+            },
+            "0x32096e6adB07b09e76b0Fd72D19dA279c5Bf0A27": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "80111595065808488079",
+              "totalClaimedLP": "0"
+            },
+            "0xC09FBDE653Fcec1A8AA329E14e6BEaB27E358311": {
+              "totalUnclaimedTic": "59691920317667437115",
+              "totalClaimedTic": "136558396409991370",
+              "totalClaimedLP": "304416146321"
+            },
+            "0x02E4aC227071b41f4F331b1dD5eA2de33AA67Cff": {
+              "totalUnclaimedTic": "1567178209802255340978",
+              "totalClaimedTic": "1484178369653115846",
+              "totalClaimedLP": "3308532258884"
+            },
+            "0xC18ee6bF19aEccbC5985f68A4f10F4cB2D2BcB51": {
+              "totalUnclaimedTic": "1583325767266874594590",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x13cB009A280bd617ec1C9dB97A2584A90F0b23F3": {
+              "totalUnclaimedTic": "194353400636071054624",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x977149ca5614aFEE85726AD5bBd66B358C240e0C": {
+              "totalUnclaimedTic": "55137879839529375281",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xC40B5F658093b799Fce1EcBEE3b4e85439b86045": {
+              "totalUnclaimedTic": "2090764916445561064",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6cA79F0FA0Abb8072d1998138600DbeFfBE5a9bB": {
+              "totalUnclaimedTic": "5639311602016080544412",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "46619262474448654337363",
+          "unclaimedTic": "46586139129671800630224"
+        }
+      },
+      "totalUnclaimedTIC": "139774334388285430690068",
+      "totalSummedUnclaimedTic": "139896401067724299200369"
+    },
+    "43114": {
+      "name": "avalanche",
+      "chainId": 43114,
+      "genesisBlock": 13547536,
+      "snapshotBlock": 18806084,
+      "supportsNativeTIC": true,
+      "pools": {
+        "0": {
+          "poolId": 0,
+          "users": {
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "11569227441928676378715",
+              "totalClaimedTic": "35015759662082050945",
+              "totalClaimedLP": "3908339708117"
+            },
+            "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
+              "totalUnclaimedTic": "1386205439853868790000",
+              "totalClaimedTic": "799920",
+              "totalClaimedLP": "0"
+            },
+            "0xF7a94CCB3048Bdc95f8041D0a2D7bf939479f99d": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "123737394870592957243",
+              "totalClaimedLP": "0"
+            },
+            "0x96C1E989A1CD3dF73200016F52e5C4f6CA53D1aa": {
+              "totalUnclaimedTic": "3779381433892077700",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6001db55d8793936F3D288F3319389E2265db4ee": {
+              "totalUnclaimedTic": "13091086349243671836584",
+              "totalClaimedTic": "39633115311951497519",
+              "totalClaimedLP": "4423713202999"
+            },
+            "0x1D0c8C3e2Ce611E9D85fBB44F0Ec9eeef2549191": {
+              "totalUnclaimedTic": "9919568182770103646814",
+              "totalClaimedTic": "30031380090962437266",
+              "totalClaimedLP": "3352000254509"
+            },
+            "0xB7275dd78e005D7d191fee57eD9448fEabf708EF": {
+              "totalUnclaimedTic": "553324073973967777820",
+              "totalClaimedTic": "2965894056558311295",
+              "totalClaimedLP": "186901826891"
+            },
+            "0x4aC83585B497D50B7e187919aD85a522A452586e": {
+              "totalUnclaimedTic": "5787929352145062409717",
+              "totalClaimedTic": "17521199161042443884",
+              "totalClaimedLP": "1955656512262"
+            },
+            "0xfE2e90d188916361B09770b64461c01AC9D31F0A": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1082569359603752298",
+              "totalClaimedLP": "0"
+            },
+            "0xdFbE12391491d4Be121D6cf3c05107Ff260AD23C": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "51545032026750387746",
+              "totalClaimedLP": "0"
+            },
+            "0x2399C77FF6Fa7D0d182fC75769e47619ef86fE0c": {
+              "totalUnclaimedTic": "8890915426005903849",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xeDAbDc26E7E56111E1b5AF3556ceda589DDAD592": {
+              "totalUnclaimedTic": "58895602219539206396",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe958Db62b7ECd202c0880Bd5248CdDA3Ce0255c4": {
+              "totalUnclaimedTic": "4457932401541591201",
+              "totalClaimedTic": "13494656117966354",
+              "totalClaimedLP": "1506227506"
+            },
+            "0x7e16D7f1b6056E790Eeb3EFC03b1015eeE5436A1": {
+              "totalUnclaimedTic": "236252706757061831534",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2067BEd542762D26E2755Ce7d8776728F3429f48": {
+              "totalUnclaimedTic": "48815021233971068119",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x54D4a26Df1b02020C34a10Fb7d1D9bF188dAb12b": {
+              "totalUnclaimedTic": "62702569037936931819",
+              "totalClaimedTic": "182744520576289553",
+              "totalClaimedLP": "20397320323"
+            },
+            "0xa6fbe8f447fe74D39C2D904D521a2819C4BA7C33": {
+              "totalUnclaimedTic": "186742036409455826567",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3Fd1DdF28f604CFe5FEFA3adc38e38BE2F7208d6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1163258518297365309780",
+              "totalClaimedLP": "0"
+            },
+            "0x949dEcF07C83d99AB63b9d68c93AB16cDeeD6cfD": {
+              "totalUnclaimedTic": "205621110337812023771",
+              "totalClaimedTic": "622393718655519350",
+              "totalClaimedLP": "69469464840"
+            },
+            "0xa11861B3E6B567dE155088ea25748864c7Ed9840": {
+              "totalUnclaimedTic": "169275863993632673914",
+              "totalClaimedTic": "512379408292790637",
+              "totalClaimedLP": "57190042608"
+            },
+            "0xec50a6779c4D81731Ed07C4EB56cCd75A9410677": {
+              "totalUnclaimedTic": "1755654961306888320967",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa870271a5193940F738e17f1FA1af4eE28D8FA50": {
+              "totalUnclaimedTic": "563388871457422939614",
+              "totalClaimedTic": "1704457914402666297",
+              "totalClaimedLP": "190245781098"
+            },
+            "0x545b85bae197C6F5C8D12183587831C281922b07": {
+              "totalUnclaimedTic": "1246840739306509328273",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xFB38B16b8B7865F4C4AB63790c7CA79d02e8E366": {
+              "totalUnclaimedTic": "3040045147087579753318",
+              "totalClaimedTic": "9200740101295514202",
+              "totalClaimedLP": "1026955240412"
+            },
+            "0x605DAaf43d31B56A0ABDCF8AedBd4E9F74723aEa": {
+              "totalUnclaimedTic": "2562193286010771809205",
+              "totalClaimedTic": "7754326127380526681",
+              "totalClaimedLP": "865511444156"
+            },
+            "0x95a4350e1cb5e795d3eBe8bEe63D9183dE5449d1": {
+              "totalUnclaimedTic": "486222403276143042688",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3d1471942c75642F1cdeC7233512ec0fC2202F81": {
+              "totalUnclaimedTic": "3039116227839297467689",
+              "totalClaimedTic": "9197313337780337791",
+              "totalClaimedLP": "1026572756752"
+            },
+            "0x4449dd09067dcaA55C15F40b465A5173778f8100": {
+              "totalUnclaimedTic": "45048847377939408025",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0E1891281D77244f4C3f99e1b60EcAd98765b884": {
+              "totalUnclaimedTic": "404065386659647084233",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x14D92832265eeAFDEF9e526356FEfc90105966c3": {
+              "totalUnclaimedTic": "6167006639371167718",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x622482B1c42B27060E06Cf674B32787DFCecb866": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1435864469348418571889",
+              "totalClaimedLP": "0"
+            },
+            "0xE16584424F34380DBf798f547Af684597788FbC7": {
+              "totalUnclaimedTic": "34967265755343890643",
+              "totalClaimedTic": "716941186572856955613",
+              "totalClaimedLP": "0"
+            },
+            "0x214c5645d54A27c66A46734515A8F32C57268Cd9": {
+              "totalUnclaimedTic": "158358610336163472522",
+              "totalClaimedTic": "474512421915065218",
+              "totalClaimedLP": "52963458695"
+            },
+            "0x5cCa8677Bd71d6B492958e56719E4643bE6aA2D4": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "25769246060544806409",
+              "totalClaimedLP": "0"
+            },
+            "0x082E9C0Bd157d085851Dcb439Df845eA652cb823": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3167573581947020693",
+              "totalClaimedLP": "0"
+            },
+            "0xb404BeBdb830b89F2a344Fcc2544Fc5b3af8F003": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "17028812884122900875",
+              "totalClaimedLP": "0"
+            },
+            "0xEe0ec6Abd49d224F6FC50805d2517795C7335DD8": {
+              "totalUnclaimedTic": "117135934050151234013",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x25DD159Bb80Ca4216A2693CA0394672e4600578f": {
+              "totalUnclaimedTic": "2484436227012479423610",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa2C62a66F6660166838B95DB60f234dFB59e765e": {
+              "totalUnclaimedTic": "3236986707207958440245",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA423687Ddf458A3a0Ae4b738dc2Cca3C4312A742": {
+              "totalUnclaimedTic": "26582272909476072697",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3fdccD59070D44a1560ac3D6757DF197Bb087f1E": {
+              "totalUnclaimedTic": "551413074442813103244",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x20EADfcaf91BD98674FF8fc341D148E1731576A4": {
+              "totalUnclaimedTic": "1502565249146395683597",
+              "totalClaimedTic": "4545940235876510403",
+              "totalClaimedLP": "507402349858"
+            },
+            "0xCdBc0f810414Fc48aAEfC9e959DE0af878319cd5": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "10045210462350767284",
+              "totalClaimedLP": "0"
+            },
+            "0x468325e9Ed9bbEF9e0B61F15BFfa3A349bf11719": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "39218040319951654768",
+              "totalClaimedLP": "0"
+            },
+            "0x342F531B0C40af85651c921A72bbEA7002751a63": {
+              "totalUnclaimedTic": "38153712920081892813",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9B87E1Fd164E70E6FA8c7fbEE5943C2532f7834B": {
+              "totalUnclaimedTic": "96554067877282527469",
+              "totalClaimedTic": "292071885826704808",
+              "totalClaimedLP": "32600068084"
+            },
+            "0xa2dfA6120e342C2287d613Ca7896A7F34f7bCA56": {
+              "totalUnclaimedTic": "1156839075310944087904",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7a4D7ce912d537F13690072274e87D63637b1D32": {
+              "totalUnclaimedTic": "54357432887158915675",
+              "totalClaimedTic": "164403509492704030",
+              "totalClaimedLP": "18350159199"
+            },
+            "0x04D4794481209fCBc6CA603A84621031Ed976ae8": {
+              "totalUnclaimedTic": "2349916675944426422058",
+              "totalClaimedTic": "7106916119198767635",
+              "totalClaimedLP": "793249746371"
+            },
+            "0xC8Dae2e849a37EA9f905e7C3282c959dDAAB12F8": {
+              "totalUnclaimedTic": "995518010675205519479",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2Da11a9bc34af5Db2E11c3320298Da98edF2f1C6": {
+              "totalUnclaimedTic": "11320003102566236688",
+              "totalClaimedTic": "34236247200096024",
+              "totalClaimedLP": "3821333184"
+            },
+            "0x5f4f120D8435ea38F0F4635A910fEe03801BE88d": {
+              "totalUnclaimedTic": "175796586647584353017",
+              "totalClaimedTic": "531650275938695676",
+              "totalClaimedLP": "59340991151"
+            },
+            "0x76C8f65be5828c324E4d4b3D9A9551b014bbbe64": {
+              "totalUnclaimedTic": "150426994277623670600",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3DD9bc86880a0678df824df117dbC7d577C471C4": {
+              "totalUnclaimedTic": "1007221244629853199021",
+              "totalClaimedTic": "3046037556471338876",
+              "totalClaimedLP": "339988326664"
+            },
+            "0xf1C30D30E07E6940D1C12Ea25502e2c40d752171": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "298950271814202064931",
+              "totalClaimedLP": "0"
+            },
+            "0x3845b28A99D312199e8821128Bf62705bBfF0D68": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "5577810336129383388",
+              "totalClaimedLP": "0"
+            },
+            "0xA6d52bd150A551F084F7C8420448EC19cE868055": {
+              "totalUnclaimedTic": "38067954033463760330",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x811aF49A1d0E0E7cDc0AdDcAFf682e87274455C0": {
+              "totalUnclaimedTic": "671928860521704178580",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf480001F7d7D46c1e6CC71B308a34f117b649a3B": {
+              "totalUnclaimedTic": "18084061393996564971",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb9D24761ebB3e3a88B8CF20e77F56ccF026A2044": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "130751094645178280",
+              "totalClaimedLP": "0"
+            },
+            "0x2562DD39Af7440B63eEf5549D9486a4066c328b4": {
+              "totalUnclaimedTic": "894293523001127654655",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x588A07FdB3dDafF7E32B7fe20828afAB7D3387E7": {
+              "totalUnclaimedTic": "14975139403351175624217",
+              "totalClaimedTic": "45273060235851655783",
+              "totalClaimedLP": "5053224626153"
+            },
+            "0xE48BC8765F53F2d271Cd43466eAF0f71D725e482": {
+              "totalUnclaimedTic": "105569833989702263807",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc0781d3d43A30a5524226C9F7da8117A3eCD87AC": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "5897706617963509633476",
+              "totalClaimedLP": "0"
+            },
+            "0xe6f4cCAc6bbc030f4b4735fb9Dbd68526096Ce3D": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "19635973136865875651",
+              "totalClaimedLP": "6752644558"
+            },
+            "0x5805b9Ef3A7E6b26B8CF1CEa42b06EfE598C526A": {
+              "totalUnclaimedTic": "1351136302262583756",
+              "totalClaimedTic": "2042155537268266608972",
+              "totalClaimedLP": "0"
+            },
+            "0x368c54973BB89c6419330020FA1A8D67b8c7c544": {
+              "totalUnclaimedTic": "181681159799386070112",
+              "totalClaimedTic": "549230198229414546",
+              "totalClaimedLP": "61303202139"
+            },
+            "0xC18ee6bF19aEccbC5985f68A4f10F4cB2D2BcB51": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "30380039550160535952",
+              "totalClaimedLP": "0"
+            },
+            "0x11502311A80736dad252Cc8cf95125DFc041fd15": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1459702625424203660226",
+              "totalClaimedLP": "0"
+            },
+            "0xF956F08fEd42c82A54558a2cC11a38496B6f2185": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "568313752170022707000",
+              "totalClaimedLP": "0"
+            },
+            "0x4Ac25bF2d1cD447Ae75659b90a665cC497991DAF": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "403041133895736636196",
+              "totalClaimedLP": "0"
+            },
+            "0x2EdF166a658af79C5C8Bb268265A7def157EB62E": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "272762611545066501094",
+              "totalClaimedLP": "0"
+            },
+            "0x82d60bf46cD393385163e4609Ae035AD96Dd5fC6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3671022715284951",
+              "totalClaimedLP": "0"
+            },
+            "0xBC5FAa39e67b0Fe089D2B7183a8c6889Cc555C10": {
+              "totalUnclaimedTic": "299505413226358966800",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x887C3599c4826F7b3cDe82003b894430F27d5b92": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "180911078230447852500",
+              "totalClaimedLP": "0"
+            },
+            "0x4190E7bD6Ce58aA54648126947D69e687C5F2423": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "17039731878943363687",
+              "totalClaimedLP": "0"
+            },
+            "0xCFFE08BDf20918007f8Ab268C32f8756494fC8D8": {
+              "totalUnclaimedTic": "768477816837169312021",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x041bfE6cb9f6E37cEf70b7e013ad7164c054d044": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "154773426356454383362",
+              "totalClaimedLP": "0"
+            },
+            "0x3330F2205aFC9236c49f5257210187678E8A6285": {
+              "totalUnclaimedTic": "5104626063474171557986",
+              "totalClaimedTic": "15419720384703407119",
+              "totalClaimedLP": "1721096616187"
+            },
+            "0xd00Dd00d1BEfb7da65A4a133F13a26F8F99D17d8": {
+              "totalUnclaimedTic": "1982786420439078215476",
+              "totalClaimedTic": "5943378327762917566",
+              "totalClaimedLP": "663379625144"
+            },
+            "0x633e9aa71802b5b8c003F0022DE7C85246Cc1a43": {
+              "totalUnclaimedTic": "305817185210783483295",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x47ECAAB0df99221bA5294D3967817631187f8C55": {
+              "totalUnclaimedTic": "747826820129932819622",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xd158637f7a7bAC0E16e83e532b8d01edc77c4797": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2347017244074088667",
+              "totalClaimedLP": "0"
+            },
+            "0x9ADA95Ce2a188C51824Ef76Dd49850330AF7545F": {
+              "totalUnclaimedTic": "24598029432098216707",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x385f68B55cf0d9c8f00D60F0452BF9b2622D2C83": {
+              "totalUnclaimedTic": "74416176845744608100",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xB7e4cdb37dfCfB877F1Dc6cC576A6813839ff605": {
+              "totalUnclaimedTic": "3058099067308289259",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xBb179f078BAC0FF4f181F6e01606cCAe883Ef74D": {
+              "totalUnclaimedTic": "401517169535675825013",
+              "totalClaimedTic": "1290918788589640931822",
+              "totalClaimedLP": "54599651639"
+            },
+            "0x5F0732247eb3E0996e6544F669907c220CBEb366": {
+              "totalUnclaimedTic": "151638238162334607455",
+              "totalClaimedTic": "457419335038928403",
+              "totalClaimedLP": "51055586617"
+            },
+            "0xC28Ed279CF3B7f856a5D9c84CdB73e802AAbb5A6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "190764538713153548497",
+              "totalClaimedLP": "0"
+            },
+            "0xEee6587C643bE5aA3CfB7d75FBC1e4144D10D184": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "140268838372475062150",
+              "totalClaimedLP": "0"
+            },
+            "0x431b5DDB0AcE97eBC3d936403ea25831BaD832B6": {
+              "totalUnclaimedTic": "35636745543911623822",
+              "totalClaimedTic": "107469354991189301",
+              "totalClaimedLP": "11995362990"
+            },
+            "0x6F955b068B0fa533A494895f241991Db0B6cefFC": {
+              "totalUnclaimedTic": "76666800789295922354",
+              "totalClaimedTic": "231164900293090234",
+              "totalClaimedLP": "25801838019"
+            },
+            "0xdd6fB67BAB9366D3f14dA7A6365da6e9FA2BE5a9": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "8504343577516939540",
+              "totalClaimedLP": "0"
+            },
+            "0x43eD63322703Ca6249DDD5A094D9bee0A3E8aaF7": {
+              "totalUnclaimedTic": "417440053014469438750",
+              "totalClaimedTic": "1258586814291166881",
+              "totalClaimedLP": "140479169090"
+            },
+            "0x13712a5B8B92B629824DF347a1670df5AfaFF263": {
+              "totalUnclaimedTic": "3466739135084084276201",
+              "totalClaimedTic": "99768176555003201246",
+              "totalClaimedLP": "1163325703728"
+            },
+            "0xC6f96E8335EeeF35b8F35c18EAe3e14133004853": {
+              "totalUnclaimedTic": "563795205895212980380",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xCef1CCAEb011CC43060C404C8CE497207ce26dE5": {
+              "totalUnclaimedTic": "304656389471642615121",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9a14e7045Bf7dCfe6B0002d72ec1674b5CCC50E6": {
+              "totalUnclaimedTic": "76818334092444847370",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x35c3cCBbFcD78F2B3581260c5464A74e58D27049": {
+              "totalUnclaimedTic": "112999954689686336756",
+              "totalClaimedTic": "340448083089544555",
+              "totalClaimedLP": "37999654285"
+            },
+            "0x29031321A2181Ca35301F5685eb62D551c8b4665": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "10803970800268205603",
+              "totalClaimedLP": "0"
+            },
+            "0x1f4D088464A0175c8DDb90BC7a510B1d5A0dA1A6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "141891368255316248",
+              "totalClaimedLP": "0"
+            },
+            "0x70fA25D9e01Bb6006e77f20a4119C193350C92b0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3751352110889297120",
+              "totalClaimedLP": "0"
+            },
+            "0xB203df26AF3666f4214661f7f903C46EDF9403b0": {
+              "totalUnclaimedTic": "46943789087951345337",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5aFDB0508F34A72139e4fA5F5672fFadee8a5Aa6": {
+              "totalUnclaimedTic": "747642878863054446051",
+              "totalClaimedTic": "2250210769411797071",
+              "totalClaimedLP": "251160854044"
+            },
+            "0xc46f9F9f714e23b11d3A495C37B116381725957F": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "128257524352822200",
+              "totalClaimedLP": "0"
+            },
+            "0x2021d157d58AD60Fb4fF3bA8bD42a447dBF0eCEE": {
+              "totalUnclaimedTic": "465104339138953891507",
+              "totalClaimedTic": "1399646708327168955",
+              "totalClaimedLP": "156223793522"
+            },
+            "0x16BeCa2e3Ae6C7b751828Df3e9F4995D61e5fdcb": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "36625508784401848558",
+              "totalClaimedLP": "0"
+            },
+            "0x2B19fDE5d7377b48BE50a5D0A78398a496e8B15C": {
+              "totalUnclaimedTic": "354640958323748281412",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x25CD302E37a69D70a6Ef645dAea5A7de38c66E2a": {
+              "totalUnclaimedTic": "185545070254977728613",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xD2eFc04d97f3D3dc0Cd36f54BA20ba103c132434": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "41647470507464928571",
+              "totalClaimedLP": "0"
+            },
+            "0xf481F3A48696f1f20679707fED3F680e4A84BE0B": {
+              "totalUnclaimedTic": "3113941649874572732085",
+              "totalClaimedTic": "9368493607289637518",
+              "totalClaimedLP": "1045679314799"
+            },
+            "0x98E073b579FD483EaC8f10d5bd0B32C8C3BBD7e0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "137213609963939154823",
+              "totalClaimedLP": "0"
+            },
+            "0xAf79312EB821871208ac76A80c8E282f8796964e": {
+              "totalUnclaimedTic": "768940719904393763",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x11DFeCb2152A0dEf7a796AFA964eA3180474b09f": {
+              "totalUnclaimedTic": "1465056694149348496000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa91A3cc43FC23929fe879B853D4e6ae9568B8251": {
+              "totalUnclaimedTic": "229511663598360515754",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7bC952b9622316B3A934FaBeAa35Bb32EF9B80bB": {
+              "totalUnclaimedTic": "160758395080424615375",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa23CB68780be74b254a5f7210Ec6cF1c76289953": {
+              "totalUnclaimedTic": "249222704739543105601",
+              "totalClaimedTic": "748541206058694018",
+              "totalClaimedLP": "83549617287"
+            },
+            "0x38274785D72Ed15Af7c40685e4a54a60BBB14668": {
+              "totalUnclaimedTic": "3882737621900511434",
+              "totalClaimedTic": "11378316573237557",
+              "totalClaimedLP": "1270008901"
+            },
+            "0xa8616cbF31db3d55Ed3607A22ef17E75Cb3CED12": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "41300859618593353255",
+              "totalClaimedLP": "0"
+            },
+            "0x2CcDe611A35Aa395c8aEb2bAbB4E25C835CA1760": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "48839298658960976848",
+              "totalClaimedLP": "0"
+            },
+            "0x635DF30939Bb8eED7433b7D79fB103aEC05A7c11": {
+              "totalUnclaimedTic": "3735530389896013859",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa50c2b94be97a7C2B07B4142727171eb7f45975a": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3721264823453258057",
+              "totalClaimedLP": "0"
+            },
+            "0x6c098683c9D5877c22867b8FA4B59D5D60ac0f3a": {
+              "totalUnclaimedTic": "182773882641550129084",
+              "totalClaimedTic": "548302090555897651",
+              "totalClaimedLP": "61199609925"
+            },
+            "0xCd51bE3eB3e13d1C144a7Fa2536C12A4040A8E29": {
+              "totalUnclaimedTic": "5121887888802282119",
+              "totalClaimedTic": "15362101172048550",
+              "totalClaimedLP": "1714665356"
+            },
+            "0xAC3c2F091eDEA973F666173b3eBd242A80FE411c": {
+              "totalUnclaimedTic": "150391166542921261445",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x00D599CD9617E0aDaC899247c9eEb1e254A5D25f": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2647730633011764319",
+              "totalClaimedLP": "0"
+            },
+            "0xF7395D1DE78beb25d97e4Ad7480079A9D4827503": {
+              "totalUnclaimedTic": "63752527148910570548",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x29F4BC513421e123fd9A8cd4C159E40405eA02FE": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4622318699475186807",
+              "totalClaimedLP": "0"
+            },
+            "0x7A27aD158B32BAC2B447b7eb8d432B55F57e9a47": {
+              "totalUnclaimedTic": "27788323826949711465",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xAbb950314405Ff1FD66cB19de3CAC771C1FF7440": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "5480921693279249065",
+              "totalClaimedLP": "0"
+            },
+            "0xe14c7cC4C4F690Dd3332c0848c788b03C9637B87": {
+              "totalUnclaimedTic": "22512378848232826167",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9E9BF7495369e73e76E0F41C00481B16A270711c": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "218296950864640",
+              "totalClaimedLP": "0"
+            },
+            "0x999EcCEa3C4f9219B1B1B42b4830e62c26004B40": {
+              "totalUnclaimedTic": "841387580782882191232",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x697ccd97C8419EBba7347CEF03a0CD02804EbF54": {
+              "totalUnclaimedTic": "65864314844780335652",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x977149ca5614aFEE85726AD5bBd66B358C240e0C": {
+              "totalUnclaimedTic": "283903883582329837561",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xDd9b9a7B7814b718282967dde9489E68894bdF84": {
+              "totalUnclaimedTic": "1277930122159509256592",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6884D601F171Fe31FC3d4a1fEEf65b586fe83406": {
+              "totalUnclaimedTic": "54032946805211781835",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xdd3C0A719b16C3937F10e4074dD622F5880f5EC1": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4533457979920517009",
+              "totalClaimedLP": "0"
+            },
+            "0xC65e77469D1875e47242a09521293cd28eF4C958": {
+              "totalUnclaimedTic": "14889926705619155310",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9F8cd169AcfFbde91bf666d936630E0Dbdb50391": {
+              "totalUnclaimedTic": "823255373588258134333",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xd65a064B9d9456c22179700025Be68CbFaA82107": {
+              "totalUnclaimedTic": "1421372660638730727079",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1DE8bEB3F82df1BB42cf49599F1AaA6C5049ef9E": {
+              "totalUnclaimedTic": "981265812177786090514",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x73aA447a8fbB316ba2572e992552Eef99fd51E5D": {
+              "totalUnclaimedTic": "187666137758031652856",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf023D9b047243B911e132E4B5877b5f09B8B66B9": {
+              "totalUnclaimedTic": "62134774169962602138",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x40c94C03eaf228526b685B5A08b630AAb3eE74C0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2533871762113627517",
+              "totalClaimedLP": "0"
+            },
+            "0x45b383D15CAE3175952e8E989FA7f475A87F3810": {
+              "totalUnclaimedTic": "23537264748455940743",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xE4A6e2122574d83D5d371d8059AAa453D116a1e4": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "10370234404985656271",
+              "totalClaimedLP": "0"
+            },
+            "0x12eA5a1Eed6c6df135E358892E6Ad49faeF0b742": {
+              "totalUnclaimedTic": "9001389313502678226",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4D733B80D77116F74106E5850B49120cF39bfd5a": {
+              "totalUnclaimedTic": "493034820908635165309",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x01F3577108d35870b3FC9B68F122896ABf4b30a5": {
+              "totalUnclaimedTic": "461205792976779281200",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x01a8E34F107f2BF5eE415E4087Ab105ddFBA11BC": {
+              "totalUnclaimedTic": "301094050862531397277",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xE744048f7D1B63B4e233A1D63c3153b913D7a2cc": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1435097138413476322",
+              "totalClaimedLP": "0"
+            },
+            "0x49e8C9617A3bBcc9492Dc2c40a7D05b4F8dd1C17": {
+              "totalUnclaimedTic": "980235131019750559500",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4FFFD93036cdc41BDd6Caa95637C7FCBEE32f5d9": {
+              "totalUnclaimedTic": "653474912843145496000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xE315D03d64DDc57aAfBA7e2F7a5CFdE55095ab55": {
+              "totalUnclaimedTic": "653460702653390719000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x77CB064593b2878baA8332a14b02fA4C1338574d": {
+              "totalUnclaimedTic": "653459995692878927000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1F68c0D22b715CA7D2d856AB206D97e9953765d2": {
+              "totalUnclaimedTic": "653441706075722329000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA2efe0f8F495DF65EEB81862622879ED6c6FcB0A": {
+              "totalUnclaimedTic": "16848014505131908833",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xEF7F2e81EA14538858d962df34eB1bFDa83da395": {
+              "totalUnclaimedTic": "812921990733243734086",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa00032cd08Ec149968C2b11a06Bd11FB90dc8711": {
+              "totalUnclaimedTic": "1790480935295263592",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x31926916a7123CA55ED7aBEFb930591Da2A5eA8D": {
+              "totalUnclaimedTic": "317397947393668301944",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xF96c9Da826d81AC661e3C22bdD4a8bfF5AE421E0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "42645296431073768880",
+              "totalClaimedLP": "0"
+            },
+            "0x134A2B296AE0Bb70BD979A9de02526A5C6BE8DA5": {
+              "totalUnclaimedTic": "9265148619263451840000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xF5a13AB94D4d665EE078dC5e5FE8A0e117217BBe": {
+              "totalUnclaimedTic": "12172596207502528",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2D48fc31d3C5F614021822fD0608E672bf75EC0d": {
+              "totalUnclaimedTic": "27079212958796839",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x66df740fd528baAf5c4B40918c386fB3022013A6": {
+              "totalUnclaimedTic": "21855697987308776",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0740655604A8D15dafD78D4DFb335F4E8016B369": {
+              "totalUnclaimedTic": "6035595320991383430",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x62A4EebaFb609c6C774Db597f53475630111b591": {
+              "totalUnclaimedTic": "144148884915326953",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x56e4ce33F67e352b1d767B8Bf3bfc43117a024A6": {
+              "totalUnclaimedTic": "22283099578491220",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9aeDf805DBd9494f07855D548Ab8074406E4ec71": {
+              "totalUnclaimedTic": "54213460804654337",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x84838a964246b32CaF4fB8b1449FcC2Fa24D148f": {
+              "totalUnclaimedTic": "20549912984342031",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x8E45B08b2f24e2d11021Bc5a4164cB17D7B034A1": {
+              "totalUnclaimedTic": "242710793086965160",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2949C89B537deEB2fC9f70A07C5aA4c57f4ee38E": {
+              "totalUnclaimedTic": "15134329879283658",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6af0f0a3d5BFa238f46F36bDeD36888a00D0a730": {
+              "totalUnclaimedTic": "15097216843606608",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5cC46c968671E925F74Dc0eD77d9f358aB6514b7": {
+              "totalUnclaimedTic": "13691677766938170",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa8C83B1b30291A3a1a118058b5445cC83041Cd9d": {
+              "totalUnclaimedTic": "31823473094",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe8B2e45b303029F8024b8FCd6413677c0C3f5d88": {
+              "totalUnclaimedTic": "79497768707577900",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x34c060708C42887A719036C2723789A9063322a8": {
+              "totalUnclaimedTic": "80030575623378939",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xd9622C6f3318E89c2D03ae2a6932B0599e667872": {
+              "totalUnclaimedTic": "40195388244617668",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x8F302403145223bbE7B3eDFae3a08d7234926A8C": {
+              "totalUnclaimedTic": "40206820246161386",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9CaC94e060313544a64889A3700d23d21508eB1F": {
+              "totalUnclaimedTic": "40088835648600540",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb97a1Ae1BFB7B6c8cC2545FfA7138877E55057e4": {
+              "totalUnclaimedTic": "40201254682386117",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa61301A5199671aB6C5d2E21c718fdDBDAB778E3": {
+              "totalUnclaimedTic": "5081271453129756183",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x75d564cb908dee81958BEc58a75c3E199ae4Ff9b": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "23860421303603841881",
+              "totalClaimedLP": "0"
+            },
+            "0xdcf0226fAEC72c88FAB624e2D7CA35449c6927FA": {
+              "totalUnclaimedTic": "162206026627145249043",
+              "totalClaimedTic": "14677565014857871960",
+              "totalClaimedLP": "0"
+            },
+            "0x963e42f55C93A3C079a23D50D1Ca89eDfeeC651C": {
+              "totalUnclaimedTic": "112186354879169152200",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1925d9B6848eCD6Bfc47a75888C5A479B6b39a18": {
+              "totalUnclaimedTic": "27184988409118554238",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x8C33F4e49088AC743777fC167A32F56c2eb32291": {
+              "totalUnclaimedTic": "54926492705704908323",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3d0FeAF9fA634D7766A0c80aC6f38b486Dc73c9c": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3087725472138193137",
+              "totalClaimedLP": "0"
+            },
+            "0x4a514613838246d4f2510b4d04871ec38fb57D8B": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "524488443987395160",
+              "totalClaimedLP": "0"
+            },
+            "0xAcD26379C27d533067406bC0c7AcB736DaA30208": {
+              "totalUnclaimedTic": "67407908776611727",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xF5914DF18691Ed7622eE6B0b911462Be61F201c7": {
+              "totalUnclaimedTic": "65651820431000017971",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf817560A4454AAD0b884D726e9aA7547Aa14B771": {
+              "totalUnclaimedTic": "113724605799628362025",
+              "totalClaimedTic": "305422074524896813",
+              "totalClaimedLP": "34090170629"
+            },
+            "0x032A6603303A63796C59ae0153Ea4dB6BA190732": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "543254113077296028",
+              "totalClaimedLP": "0"
+            },
+            "0x843e155e2Bf5FF5A1679b856B74B0eAD701B92bb": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "542749704366401337",
+              "totalClaimedLP": "0"
+            },
+            "0x1c8B5520858C79e922Aeb52Ca71dAD8EAa14Fe9C": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "500801710188265668",
+              "totalClaimedLP": "0"
+            },
+            "0x82d12cbaD2DBA1E435e29CA9EA15f9231f713Ce8": {
+              "totalUnclaimedTic": "25333571297995836930",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xEDB4416bd6449A24463855DF2C8Dd59a27c4dC66": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "6951232578341701709",
+              "totalClaimedLP": "0"
+            },
+            "0xa5D6d92CB547CD3837eBAeB8572f983441f46054": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4912052409004149441",
+              "totalClaimedLP": "0"
+            },
+            "0xF8Ed0c75174753b0D264e67331818E89DADf0F69": {
+              "totalUnclaimedTic": "57222222649544678138",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xeEc5217Edd419AC0b0237868eE9BcD0B1f83CfbC": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3795983879306434274",
+              "totalClaimedLP": "0"
+            },
+            "0xCA37caD587d26f5EC69742737121e7c280C40669": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "7135329804179183216",
+              "totalClaimedLP": "0"
+            },
+            "0x1122577f6E4453a3E34f4FFF92066f0fF8247518": {
+              "totalUnclaimedTic": "205336563390670251672",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3A45e2F5Ab0218D7C35aeC963fCA64De03934057": {
+              "totalUnclaimedTic": "205075542682468903964",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x83b23E8e5da74fD3f3E5471865FC778d9c843df0": {
+              "totalUnclaimedTic": "274208852563947940413",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x89986DA6016A92F160eEE7B432446113963ff7d7": {
+              "totalUnclaimedTic": "54807896762160368",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5279C667CC10a1409d337E1C8e0B3C3C758c77D3": {
+              "totalUnclaimedTic": "212165105435229093",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x234243e9C5aE1B48ECDFfD2C78Dcb987E9977B71": {
+              "totalUnclaimedTic": "273759827756742033453",
+              "totalClaimedTic": "711204455151889364",
+              "totalClaimedLP": "79382216450"
+            },
+            "0xE1dB03573BE9c272FF3dd6419212025Ae67359B3": {
+              "totalUnclaimedTic": "26278563988702695",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x51043Eeae771928201aeC273e2D41E282CA0c118": {
+              "totalUnclaimedTic": "7370966073607156900",
+              "totalClaimedTic": "19065097071259891",
+              "totalClaimedLP": "2127981133"
+            },
+            "0x9b7b8B940daa873057D9ABC49A23BBb750790531": {
+              "totalUnclaimedTic": "267701908823849890",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9150002A1c6285a89578Bd33CFa0282f86d36aE6": {
+              "totalUnclaimedTic": "641799577551259361",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xB862545D93ba13F8dA4Efb7ac73e45672A417D71": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3142305828442226248",
+              "totalClaimedLP": "0"
+            },
+            "0x24E219EBf46093dC5c5A748Cb20B8c83e86bf09d": {
+              "totalUnclaimedTic": "2354005502455240440",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2ecc3fBFF1a9c2077CC17986909f1F1e7e6e6719": {
+              "totalUnclaimedTic": "268028789157935831",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x912d518cD39414770A615198C3Cd9653744d729f": {
+              "totalUnclaimedTic": "243233560562789785",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1e136Ea2D0022d5A4dcE0E06D5BC688E2A9e9349": {
+              "totalUnclaimedTic": "1327004215741489530",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x72353d86F2E6410c8bb05d5f8c9dAfe8436F1ee9": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "795622792533841011",
+              "totalClaimedLP": "0"
+            },
+            "0x9eCF4363677Ab22d38499572D70aF38F4f85d71d": {
+              "totalUnclaimedTic": "24911917746494583478",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc04E6E32835132c695F5067492B67d2Bd2B3Cd27": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "126962963858488772",
+              "totalClaimedLP": "0"
+            },
+            "0xdb4ce815D334280e5FB0b84bFcd1031FeBeabFaC": {
+              "totalUnclaimedTic": "104083068246999480",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe2C5b0F3355D543d3BF1a584D6763A3678B237b0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "680369767621063",
+              "totalClaimedLP": "0"
+            },
+            "0x00753905A1896E610ce6C71390924F0ef2D2CD56": {
+              "totalUnclaimedTic": "139755866565587370080",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xD2d51bB6cc1852Cf3f3aA54C299A14405eA34577": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "12376392976473448",
+              "totalClaimedLP": "0"
+            },
+            "0x3C4067C854BbCE9dA217032197E4c38601A850b3": {
+              "totalUnclaimedTic": "4277436252650165281",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x14BDfda5b5B829f14332A52c15129386284CE36a": {
+              "totalUnclaimedTic": "6095414092290560694",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x59AACe68787309a3241dC69A49942391F9D0aC0f": {
+              "totalUnclaimedTic": "263433990603153894000",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xF3Debd893D3788C3b700E3f2ae7EC2C7619A35DB": {
+              "totalUnclaimedTic": "667471318194950555",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2BE830C9c4A3eB3f9eBF736eED948e9ec1f1f33b": {
+              "totalUnclaimedTic": "3287457557692931788",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf312aDAcFE33B4Acf833c26917f0301ab68728EB": {
+              "totalUnclaimedTic": "111274787383434977",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x02E0c302380aa679189D9caA349A0Da5A6A19108": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "17516638783214197",
+              "totalClaimedLP": "0"
+            },
+            "0xCec590F5b40B1556BD68AcC8D9696F375F1484bC": {
+              "totalUnclaimedTic": "470687143731255963",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x028C361f3d5562082Ad19244104a69e950857eEF": {
+              "totalUnclaimedTic": "17130703698507056846557",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "150359549446744781107272",
+          "unclaimedTic": "150164505411949201353474"
+        },
+        "1": {
+          "poolId": 1,
+          "users": {
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4487062",
+              "totalClaimedLP": "0"
+            },
+            "0x96C1E989A1CD3dF73200016F52e5C4f6CA53D1aa": {
+              "totalUnclaimedTic": "28508039934186119643",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6001db55d8793936F3D288F3319389E2265db4ee": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1254445643114128398968",
+              "totalClaimedLP": "0"
+            },
+            "0xD0c5f83E78C05ED0756F446e2e24F4456eD1C1d1": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2514745903542100644189",
+              "totalClaimedLP": "0"
+            },
+            "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "592537351469933623030",
+              "totalClaimedLP": "0"
+            },
+            "0xa870271a5193940F738e17f1FA1af4eE28D8FA50": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "170334989502246931",
+              "totalClaimedLP": "0"
+            },
+            "0x4449dd09067dcaA55C15F40b465A5173778f8100": {
+              "totalUnclaimedTic": "3467911124084388910522",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x50258A2aE0b3065754936828Cd7814731C6fC008": {
+              "totalUnclaimedTic": "146309224581100425841",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x62151C0E69D03E2FB1F16B7657d12e0F4efF1cEe": {
+              "totalUnclaimedTic": "203516436180855827236",
+              "totalClaimedTic": "576510767221265225",
+              "totalClaimedLP": "64348166238"
+            },
+            "0x622482B1c42B27060E06Cf674B32787DFCecb866": {
+              "totalUnclaimedTic": "19091996005464654578",
+              "totalClaimedTic": "1452763585037987957386",
+              "totalClaimedLP": "0"
+            },
+            "0xCdBc0f810414Fc48aAEfC9e959DE0af878319cd5": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "67469830053601203869",
+              "totalClaimedLP": "0"
+            },
+            "0x54881c1b56e0E7a62a3f0752180036976435b891": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "34179340351067309688",
+              "totalClaimedLP": "0"
+            },
+            "0x3fdccD59070D44a1560ac3D6757DF197Bb087f1E": {
+              "totalUnclaimedTic": "9095084032858665865",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb9D24761ebB3e3a88B8CF20e77F56ccF026A2044": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "213696797184782190",
+              "totalClaimedLP": "0"
+            },
+            "0x122945F2296e18b49b4ac7C182d2bBa9069DD7B1": {
+              "totalUnclaimedTic": "1466162095350232320913",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x25DD159Bb80Ca4216A2693CA0394672e4600578f": {
+              "totalUnclaimedTic": "2737659693706836962820",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3DD9bc86880a0678df824df117dbC7d577C471C4": {
+              "totalUnclaimedTic": "4904355654444478998099",
+              "totalClaimedTic": "13624706976005362418",
+              "totalClaimedLP": "1520743339562"
+            },
+            "0xf480001F7d7D46c1e6CC71B308a34f117b649a3B": {
+              "totalUnclaimedTic": "1743312208242058784496",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x49e8C9617A3bBcc9492Dc2c40a7D05b4F8dd1C17": {
+              "totalUnclaimedTic": "2806385282257525833381",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2562DD39Af7440B63eEf5549D9486a4066c328b4": {
+              "totalUnclaimedTic": "1389272538622453229048",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9B87E1Fd164E70E6FA8c7fbEE5943C2532f7834B": {
+              "totalUnclaimedTic": "193862004921618733180",
+              "totalClaimedTic": "548914512412503467",
+              "totalClaimedLP": "61267966365"
+            },
+            "0xc11ACE6a8BE2772161F4c7930e2dEbBA6f2392B2": {
+              "totalUnclaimedTic": "66055981457706346400",
+              "totalClaimedTic": "187026116947996299",
+              "totalClaimedLP": "20875217512"
+            },
+            "0x11502311A80736dad252Cc8cf95125DFc041fd15": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1957088451516621771",
+              "totalClaimedLP": "0"
+            },
+            "0xC28f85D6A2CD2252DAC06F3db42A17033C4e7791": {
+              "totalUnclaimedTic": "452508559083966140561",
+              "totalClaimedTic": "1279655659237792150",
+              "totalClaimedLP": "142830801729"
+            },
+            "0xF956F08fEd42c82A54558a2cC11a38496B6f2185": {
+              "totalUnclaimedTic": "4390057311271193339569",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xD2eFc04d97f3D3dc0Cd36f54BA20ba103c132434": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "49111798158338729833",
+              "totalClaimedLP": "0"
+            },
+            "0x887C3599c4826F7b3cDe82003b894430F27d5b92": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "186863728810938615764",
+              "totalClaimedLP": "0"
+            },
+            "0x3330F2205aFC9236c49f5257210187678E8A6285": {
+              "totalUnclaimedTic": "4936100660720310002882",
+              "totalClaimedTic": "13969413871155983787",
+              "totalClaimedLP": "1559218347929"
+            },
+            "0xC248129e903cf0d04F2Ea34F26f6b8c9c4D95c12": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2572996504246829076",
+              "totalClaimedLP": "0"
+            },
+            "0x041bfE6cb9f6E37cEf70b7e013ad7164c054d044": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "341351738376145373327",
+              "totalClaimedLP": "0"
+            },
+            "0x431b5DDB0AcE97eBC3d936403ea25831BaD832B6": {
+              "totalUnclaimedTic": "90002912584223572005",
+              "totalClaimedTic": "254502180580297728",
+              "totalClaimedLP": "28406665677"
+            },
+            "0x13712a5B8B92B629824DF347a1670df5AfaFF263": {
+              "totalUnclaimedTic": "4152481537282970591625",
+              "totalClaimedTic": "11728887122640145669",
+              "totalClaimedLP": "1309138391280"
+            },
+            "0xdd6fB67BAB9366D3f14dA7A6365da6e9FA2BE5a9": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1825015768870706092",
+              "totalClaimedLP": "0"
+            },
+            "0x29031321A2181Ca35301F5685eb62D551c8b4665": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "7665192808001789048",
+              "totalClaimedLP": "0"
+            },
+            "0x5aFDB0508F34A72139e4fA5F5672fFadee8a5Aa6": {
+              "totalUnclaimedTic": "8288821099165097448267",
+              "totalClaimedTic": "23408060532281147144",
+              "totalClaimedLP": "2612727907413"
+            },
+            "0xDd9b9a7B7814b718282967dde9489E68894bdF84": {
+              "totalUnclaimedTic": "783357827946376177520",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe958Db62b7ECd202c0880Bd5248CdDA3Ce0255c4": {
+              "totalUnclaimedTic": "14458391008794775461",
+              "totalClaimedTic": "40466924787435626",
+              "totalClaimedLP": "4516780173"
+            },
+            "0x6F955b068B0fa533A494895f241991Db0B6cefFC": {
+              "totalUnclaimedTic": "239887758043382184438",
+              "totalClaimedTic": "670626146290114831",
+              "totalClaimedLP": "74853003965"
+            },
+            "0x22561c5931143536309C17e832587b625C390b9A": {
+              "totalUnclaimedTic": "1210447311157095805924",
+              "totalClaimedTic": "3377352828024525452",
+              "totalClaimedLP": "376968607663"
+            },
+            "0x4D733B80D77116F74106E5850B49120cF39bfd5a": {
+              "totalUnclaimedTic": "745636308234391287147",
+              "totalClaimedTic": "2078578932656830092",
+              "totalClaimedLP": "232003893599"
+            },
+            "0x83b23E8e5da74fD3f3E5471865FC778d9c843df0": {
+              "totalUnclaimedTic": "2766837497410220562568",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xEF7F2e81EA14538858d962df34eB1bFDa83da395": {
+              "totalUnclaimedTic": "1327167886697972682150",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc54e01eaAC24A582B3D4ECb66A1657462BE98f85": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "71311871255346349",
+              "totalClaimedLP": "0"
+            },
+            "0x45b383D15CAE3175952e8E989FA7f475A87F3810": {
+              "totalUnclaimedTic": "25786715256427079230",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xF5914DF18691Ed7622eE6B0b911462Be61F201c7": {
+              "totalUnclaimedTic": "228563455749485861936",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf817560A4454AAD0b884D726e9aA7547Aa14B771": {
+              "totalUnclaimedTic": "649505537000745651483",
+              "totalClaimedTic": "1722253844825397762",
+              "totalClaimedLP": "192232102177"
+            },
+            "0x811aF49A1d0E0E7cDc0AdDcAFf682e87274455C0": {
+              "totalUnclaimedTic": "671130756927427625426",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x468325e9Ed9bbEF9e0B61F15BFfa3A349bf11719": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "28536128398787240664",
+              "totalClaimedLP": "0"
+            },
+            "0x214c5645d54A27c66A46734515A8F32C57268Cd9": {
+              "totalUnclaimedTic": "142826626852204292407",
+              "totalClaimedTic": "374857461126364487",
+              "totalClaimedLP": "41840311743"
+            },
+            "0x912d518cD39414770A615198C3Cd9653744d729f": {
+              "totalUnclaimedTic": "473662400026448113",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xBb179f078BAC0FF4f181F6e01606cCAe883Ef74D": {
+              "totalUnclaimedTic": "1210994621730703091008",
+              "totalClaimedTic": "2910236005434179295",
+              "totalClaimedLP": "324830620549"
+            },
+            "0xc04E6E32835132c695F5067492B67d2Bd2B3Cd27": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2141320433514440599",
+              "totalClaimedLP": "0"
+            },
+            "0xe2C5b0F3355D543d3BF1a584D6763A3678B237b0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1479820216411144307",
+              "totalClaimedLP": "0"
+            },
+            "0x00753905A1896E610ce6C71390924F0ef2D2CD56": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "718138873986788838",
+              "totalClaimedLP": "0"
+            },
+            "0xF3Debd893D3788C3b700E3f2ae7EC2C7619A35DB": {
+              "totalUnclaimedTic": "2494703269007675691",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x368c54973BB89c6419330020FA1A8D67b8c7c544": {
+              "totalUnclaimedTic": "163565045678881221",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1200Eb4fA3dF9903fC6EfF1d7A4a5D17502329b2": {
+              "totalUnclaimedTic": "72109593238873062",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5f4f120D8435ea38F0F4635A910fEe03801BE88d": {
+              "totalUnclaimedTic": "119091296927963698",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2Da11a9bc34af5Db2E11c3320298Da98edF2f1C6": {
+              "totalUnclaimedTic": "920225523288726453",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb404BeBdb830b89F2a344Fcc2544Fc5b3af8F003": {
+              "totalUnclaimedTic": "2003621644570803865",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA423687Ddf458A3a0Ae4b738dc2Cca3C4312A742": {
+              "totalUnclaimedTic": "750166444314754438",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1d9b6F64b3aE1f052cC75328CdDAffd36282dc3a": {
+              "totalUnclaimedTic": "423308623081848472",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa68df4275f54B17Aff43D3C3cEfcC8DfEf1C690C": {
+              "totalUnclaimedTic": "6992614362094188",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x43eD63322703Ca6249DDD5A094D9bee0A3E8aaF7": {
+              "totalUnclaimedTic": "771768717433978137",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x949dEcF07C83d99AB63b9d68c93AB16cDeeD6cfD": {
+              "totalUnclaimedTic": "151648332577423697",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x54D4a26Df1b02020C34a10Fb7d1D9bF188dAb12b": {
+              "totalUnclaimedTic": "94498518453711708",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x69CD4AbD687ab23E2F95f0a065cD9Ad211A58713": {
+              "totalUnclaimedTic": "203442048328956112",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xB7275dd78e005D7d191fee57eD9448fEabf708EF": {
+              "totalUnclaimedTic": "1222966208051706186",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4aC83585B497D50B7e187919aD85a522A452586e": {
+              "totalUnclaimedTic": "15510511706781378946",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2B83aC024B0a4Ba3f93776Cacb61D98310614aFE": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "49863627277573035",
+              "totalClaimedLP": "0"
+            },
+            "0x922978d3269d84cBd86Ec041089CA6b3907F728C": {
+              "totalUnclaimedTic": "141429384192189708",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xCf5B5b76c327Fae151ca810146ecc7B51b6767dD": {
+              "totalUnclaimedTic": "75926309345697800",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf312aDAcFE33B4Acf833c26917f0301ab68728EB": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "226942083548012347",
+              "totalClaimedLP": "0"
+            },
+            "0xa23CB68780be74b254a5f7210Ec6cF1c76289953": {
+              "totalUnclaimedTic": "477203108391232370",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA2efe0f8F495DF65EEB81862622879ED6c6FcB0A": {
+              "totalUnclaimedTic": "350575316162740004",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6c098683c9D5877c22867b8FA4B59D5D60ac0f3a": {
+              "totalUnclaimedTic": "172227882440256162",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x38fcf6aAF523118Bfea55ab0747e490CEf5E71f2": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "575535941839473044",
+              "totalClaimedLP": "0"
+            },
+            "0x29477A93E19f6c0469CB90BFD96123C6646Ab443": {
+              "totalUnclaimedTic": "9356098355575777774",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x20EADfcaf91BD98674FF8fc341D148E1731576A4": {
+              "totalUnclaimedTic": "64411417477144995",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x028C361f3d5562082Ad19244104a69e950857eEF": {
+              "totalUnclaimedTic": "6541672305680189337407",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "58085762597384653583836",
+          "unclaimedTic": "57995430790613501429622"
+        },
+        "2": {
+          "poolId": 2,
+          "users": {
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "6653778",
+              "totalClaimedLP": "0"
+            },
+            "0x6001db55d8793936F3D288F3319389E2265db4ee": {
+              "totalUnclaimedTic": "70450912959009012401",
+              "totalClaimedTic": "207761131737449107",
+              "totalClaimedLP": "23189589168"
+            },
+            "0xB7275dd78e005D7d191fee57eD9448fEabf708EF": {
+              "totalUnclaimedTic": "1364102801049625831348",
+              "totalClaimedTic": "4022766385201884253",
+              "totalClaimedLP": "449007468394"
+            },
+            "0xeDAbDc26E7E56111E1b5AF3556ceda589DDAD592": {
+              "totalUnclaimedTic": "128452451433088675975",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2399C77FF6Fa7D0d182fC75769e47619ef86fE0c": {
+              "totalUnclaimedTic": "12240932589011368610",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7e16D7f1b6056E790Eeb3EFC03b1015eeE5436A1": {
+              "totalUnclaimedTic": "700469112735373467162",
+              "totalClaimedTic": "2064396488063121891",
+              "totalClaimedLP": "230420897489"
+            },
+            "0x54D4a26Df1b02020C34a10Fb7d1D9bF188dAb12b": {
+              "totalUnclaimedTic": "86089980923901930144",
+              "totalClaimedTic": "253620429034927470",
+              "totalClaimedLP": "28308247576"
+            },
+            "0x949dEcF07C83d99AB63b9d68c93AB16cDeeD6cfD": {
+              "totalUnclaimedTic": "23886248626821329110",
+              "totalClaimedTic": "70367491568005412",
+              "totalClaimedLP": "7854179492"
+            },
+            "0x1200Eb4fA3dF9903fC6EfF1d7A4a5D17502329b2": {
+              "totalUnclaimedTic": "109294732366672923960",
+              "totalClaimedTic": "321868065056355743",
+              "totalClaimedLP": "35925816020"
+            },
+            "0x95a4350e1cb5e795d3eBe8bEe63D9183dE5449d1": {
+              "totalUnclaimedTic": "1290806565992483565369",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3Fd1DdF28f604CFe5FEFA3adc38e38BE2F7208d6": {
+              "totalUnclaimedTic": "4255888448017076634322",
+              "totalClaimedTic": "12528207412700489217",
+              "totalClaimedLP": "1398355796794"
+            },
+            "0x605DAaf43d31B56A0ABDCF8AedBd4E9F74723aEa": {
+              "totalUnclaimedTic": "5463472724390052339476",
+              "totalClaimedTic": "16082290609935147602",
+              "totalClaimedLP": "1795050445711"
+            },
+            "0xb404BeBdb830b89F2a344Fcc2544Fc5b3af8F003": {
+              "totalUnclaimedTic": "3068210931842763933120",
+              "totalClaimedTic": "9030219550191698601",
+              "totalClaimedLP": "1007922317883"
+            },
+            "0xEe0ec6Abd49d224F6FC50805d2517795C7335DD8": {
+              "totalUnclaimedTic": "339609445524513708164",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa2C62a66F6660166838B95DB60f234dFB59e765e": {
+              "totalUnclaimedTic": "6671898452519341736732",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA423687Ddf458A3a0Ae4b738dc2Cca3C4312A742": {
+              "totalUnclaimedTic": "1152549278934827072340",
+              "totalClaimedTic": "3391956091984872951",
+              "totalClaimedLP": "378598574197"
+            },
+            "0x20EADfcaf91BD98674FF8fc341D148E1731576A4": {
+              "totalUnclaimedTic": "5186197659705007178418",
+              "totalClaimedTic": "15262436231892023944",
+              "totalClaimedLP": "1703541095307"
+            },
+            "0x3fdccD59070D44a1560ac3D6757DF197Bb087f1E": {
+              "totalUnclaimedTic": "161263259781078757921",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3845b28A99D312199e8821128Bf62705bBfF0D68": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1255642636707015887",
+              "totalClaimedLP": "0"
+            },
+            "0xf1C30D30E07E6940D1C12Ea25502e2c40d752171": {
+              "totalUnclaimedTic": "1014374829505340138024",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA6d52bd150A551F084F7C8420448EC19cE868055": {
+              "totalUnclaimedTic": "112939677834157216054",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9B87E1Fd164E70E6FA8c7fbEE5943C2532f7834B": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2639630760344887946",
+              "totalClaimedLP": "0"
+            },
+            "0x588A07FdB3dDafF7E32B7fe20828afAB7D3387E7": {
+              "totalUnclaimedTic": "6345922418606041257681",
+              "totalClaimedTic": "18664964596681441194",
+              "totalClaimedLP": "2083319710549"
+            },
+            "0x368c54973BB89c6419330020FA1A8D67b8c7c544": {
+              "totalUnclaimedTic": "61480788643809592191",
+              "totalClaimedTic": "180789473969012518",
+              "totalClaimedLP": "20179104687"
+            },
+            "0x4Ac25bF2d1cD447Ae75659b90a665cC497991DAF": {
+              "totalUnclaimedTic": "1103725088204151691499",
+              "totalClaimedTic": "3245514234409901965",
+              "totalClaimedLP": "362253233344"
+            },
+            "0x3330F2205aFC9236c49f5257210187678E8A6285": {
+              "totalUnclaimedTic": "1519183606013955509027",
+              "totalClaimedTic": "4466869261328928878",
+              "totalClaimedLP": "498576717269"
+            },
+            "0xBC5FAa39e67b0Fe089D2B7183a8c6889Cc555C10": {
+              "totalUnclaimedTic": "674092191658160575564",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x633e9aa71802b5b8c003F0022DE7C85246Cc1a43": {
+              "totalUnclaimedTic": "1174162384740238209504",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xCd51bE3eB3e13d1C144a7Fa2536C12A4040A8E29": {
+              "totalUnclaimedTic": "88527252710984510178",
+              "totalClaimedTic": "260145032754128173",
+              "totalClaimedLP": "29036501597"
+            },
+            "0xA9d339E64576dc10b6F277be43B4989ebF36d3Ad": {
+              "totalUnclaimedTic": "48612995231629190639",
+              "totalClaimedTic": "142687128261411260",
+              "totalClaimedLP": "15926250768"
+            },
+            "0x43eD63322703Ca6249DDD5A094D9bee0A3E8aaF7": {
+              "totalUnclaimedTic": "771309405054776798533",
+              "totalClaimedTic": "2263580453558084730",
+              "totalClaimedLP": "252653132604"
+            },
+            "0xC6f96E8335EeeF35b8F35c18EAe3e14133004853": {
+              "totalUnclaimedTic": "118484822136133999474",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9a14e7045Bf7dCfe6B0002d72ec1674b5CCC50E6": {
+              "totalUnclaimedTic": "295054355124728165374",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x35c3cCBbFcD78F2B3581260c5464A74e58D27049": {
+              "totalUnclaimedTic": "384715566017493211866",
+              "totalClaimedTic": "1128325763895559084",
+              "totalClaimedLP": "125939874767"
+            },
+            "0xE2bDaE527f99a68724B9D5C271438437FC2A4695": {
+              "totalUnclaimedTic": "219054506938985629460",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9ADA95Ce2a188C51824Ef76Dd49850330AF7545F": {
+              "totalUnclaimedTic": "219029602932299393195",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb9D21f9fD7d5dE635084E2cC7E6691b8233e74c6": {
+              "totalUnclaimedTic": "218260729616899660951",
+              "totalClaimedTic": "639892407759969451",
+              "totalClaimedLP": "71422608856"
+            },
+            "0x2021d157d58AD60Fb4fF3bA8bD42a447dBF0eCEE": {
+              "totalUnclaimedTic": "1333732212250103329592",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5aFDB0508F34A72139e4fA5F5672fFadee8a5Aa6": {
+              "totalUnclaimedTic": "3595660065106893615743",
+              "totalClaimedTic": "10534937749677691728",
+              "totalClaimedLP": "1175873833010"
+            },
+            "0x6106e7b682296E3E67DE45DF3294A706b36a51a6": {
+              "totalUnclaimedTic": "127471793450805876324",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7184A38CE27bfFC75C7eb87D8cE847C3f68c583C": {
+              "totalUnclaimedTic": "496597775614969419393",
+              "totalClaimedTic": "1454235879842576413",
+              "totalClaimedLP": "162316850726"
+            },
+            "0xa23CB68780be74b254a5f7210Ec6cF1c76289953": {
+              "totalUnclaimedTic": "745848650411176697421",
+              "totalClaimedTic": "2182018656872470782",
+              "totalClaimedLP": "243549482941"
+            },
+            "0xCf5B5b76c327Fae151ca810146ecc7B51b6767dD": {
+              "totalUnclaimedTic": "147201517262958894479",
+              "totalClaimedTic": "430486627849919987",
+              "totalClaimedLP": "48049449667"
+            },
+            "0x6c098683c9D5877c22867b8FA4B59D5D60ac0f3a": {
+              "totalUnclaimedTic": "74317831384198893253",
+              "totalClaimedTic": "217216762242091467",
+              "totalClaimedLP": "24244994406"
+            },
+            "0x62151C0E69D03E2FB1F16B7657d12e0F4efF1cEe": {
+              "totalUnclaimedTic": "123857631984471901771",
+              "totalClaimedTic": "362007956625620393",
+              "totalClaimedLP": "40406093861"
+            },
+            "0xAC3c2F091eDEA973F666173b3eBd242A80FE411c": {
+              "totalUnclaimedTic": "372817133614791056245",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xD2eFc04d97f3D3dc0Cd36f54BA20ba103c132434": {
+              "totalUnclaimedTic": "1338824585902585951334",
+              "totalClaimedTic": "3903620724901534765",
+              "totalClaimedLP": "435708836015"
+            },
+            "0x697ccd97C8419EBba7347CEF03a0CD02804EbF54": {
+              "totalUnclaimedTic": "137508507130609011302",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6884D601F171Fe31FC3d4a1fEEf65b586fe83406": {
+              "totalUnclaimedTic": "366431300441365082720",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x54574aAbD769664935EA3ca1CAC48adE40530438": {
+              "totalUnclaimedTic": "327663256712360397959",
+              "totalClaimedTic": "946890824102578186",
+              "totalClaimedLP": "105688725385"
+            },
+            "0xA5F158e596D0e4051e70631D5d72a8Ee9d5A3B8A": {
+              "totalUnclaimedTic": "47355789005267384244",
+              "totalClaimedTic": "136734389927296408",
+              "totalClaimedLP": "15261826411"
+            },
+            "0x2067BEd542762D26E2755Ce7d8776728F3429f48": {
+              "totalUnclaimedTic": "74493492035317937545",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xB203df26AF3666f4214661f7f903C46EDF9403b0": {
+              "totalUnclaimedTic": "95705877020917762831",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x31926916a7123CA55ED7aBEFb930591Da2A5eA8D": {
+              "totalUnclaimedTic": "346138559961897874704",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc6C8AeCb1d9cA59A09d691cDa8539992655dbfB3": {
+              "totalUnclaimedTic": "4445616307983559890370",
+              "totalClaimedTic": "12603771191326818810",
+              "totalClaimedLP": "1406789968131"
+            },
+            "0x56446712B219fcC34a5604f5E7AF5d50d65B6647": {
+              "totalUnclaimedTic": "792311087752034888077",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x28d804Bf2212E220BC2B7B6252993Db8286dF07f": {
+              "totalUnclaimedTic": "9703220119202948025674",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xDFE2b668c6D4a3FA785f86cB2c64E54E30c16cb0": {
+              "totalUnclaimedTic": "101132624203864178638",
+              "totalClaimedTic": "280386051522553573",
+              "totalClaimedLP": "31295735101"
+            },
+            "0x8C33F4e49088AC743777fC167A32F56c2eb32291": {
+              "totalUnclaimedTic": "350076102007979883143",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4D5A7716D0C4eeDB7f6b64f89Ab7aB383c94d9B9": {
+              "totalUnclaimedTic": "15557108269807679570",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5583Bbda575F142993c10A335daf29dC7510E8F2": {
+              "totalUnclaimedTic": "54130935281786607869",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x894D8502AA32714B2EC0EA6956F26FaE3dD2a551": {
+              "totalUnclaimedTic": "51367415024891248181",
+              "totalClaimedTic": "952085448680759",
+              "totalClaimedLP": "0"
+            },
+            "0xae1B18CCBE2f8f4A28cAA99ECb60429Dd7813723": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "31926289370532498209",
+              "totalClaimedLP": "9737731559"
+            },
+            "0x1C1a6497068a8A0b1DBA39420A846A6c12D350e8": {
+              "totalUnclaimedTic": "196127585521685170176",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xCb832aABdF803bEfCA84716BfCB8F832A76a9922": {
+              "totalUnclaimedTic": "78624721268707886779",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe2CEa50ba5a302A691B93692e74786D6484Db295": {
+              "totalUnclaimedTic": "2412175005234027182313",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x73aA447a8fbB316ba2572e992552Eef99fd51E5D": {
+              "totalUnclaimedTic": "100304383706430530552",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3C4067C854BbCE9dA217032197E4c38601A850b3": {
+              "totalUnclaimedTic": "23447868344621732762",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe95c621e026c605B80F51Fe02CccbFa389689c6A": {
+              "totalUnclaimedTic": "10508425721470282221",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x028C361f3d5562082Ad19244104a69e950857eEF": {
+              "totalUnclaimedTic": "35735272163454881502",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "72575775101338395368473",
+          "unclaimedTic": "72494288488036076843036"
+        },
+        "3": {
+          "poolId": 3,
+          "users": {
+            "0x1D0c8C3e2Ce611E9D85fBB44F0Ec9eeef2549191": {
+              "totalUnclaimedTic": "38012738936607779326639",
+              "totalClaimedTic": "109700465261773589361",
+              "totalClaimedLP": "12244391911512"
+            },
+            "0x4aC83585B497D50B7e187919aD85a522A452586e": {
+              "totalUnclaimedTic": "19006369468320597631493",
+              "totalClaimedTic": "54850232614178409007",
+              "totalClaimedLP": "6122195953891"
+            },
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "38012738936607777915139",
+              "totalClaimedTic": "109700465261773589361",
+              "totalClaimedLP": "12244391911512"
+            },
+            "0xa2dfA6120e342C2287d613Ca7896A7F34f7bCA56": {
+              "totalUnclaimedTic": "5358573040739033787950",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5805b9Ef3A7E6b26B8CF1CEa42b06EfE598C526A": {
+              "totalUnclaimedTic": "7589357840498572631294",
+              "totalClaimedTic": "21891435479733252906",
+              "totalClaimedLP": "2443447389943"
+            },
+            "0x5aFDB0508F34A72139e4fA5F5672fFadee8a5Aa6": {
+              "totalUnclaimedTic": "751749499388145606309",
+              "totalClaimedTic": "2162633425104483471",
+              "totalClaimedLP": "241385769465"
+            },
+            "0xf481F3A48696f1f20679707fED3F680e4A84BE0B": {
+              "totalUnclaimedTic": "7274466535278776525505",
+              "totalClaimedTic": "20729805049303951395",
+              "totalClaimedLP": "2313790161848"
+            },
+            "0x028C361f3d5562082Ad19244104a69e950857eEF": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "116005994257440683424329",
+          "unclaimedTic": "115990861580857704386176"
+        },
+        "4": {
+          "poolId": 4,
+          "users": {
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "89070320278171712426",
+              "totalClaimedTic": "4737479",
+              "totalClaimedLP": "0"
+            },
+            "0x6001db55d8793936F3D288F3319389E2265db4ee": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2352017570462186172298",
+              "totalClaimedLP": "0"
+            },
+            "0x622482B1c42B27060E06Cf674B32787DFCecb866": {
+              "totalUnclaimedTic": "22194788106404100737224",
+              "totalClaimedTic": "62415620262572556866",
+              "totalClaimedLP": "6966618729203"
+            },
+            "0xCdBc0f810414Fc48aAEfC9e959DE0af878319cd5": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "73619410383245518049",
+              "totalClaimedLP": "0"
+            },
+            "0xa11861B3E6B567dE155088ea25748864c7Ed9840": {
+              "totalUnclaimedTic": "74964983035811719822",
+              "totalClaimedTic": "210145092483547563",
+              "totalClaimedLP": "23455678738"
+            },
+            "0x7a4D7ce912d537F13690072274e87D63637b1D32": {
+              "totalUnclaimedTic": "39469590751279419993",
+              "totalClaimedTic": "110932954034557659",
+              "totalClaimedLP": "12381958106"
+            },
+            "0xfE2e90d188916361B09770b64461c01AC9D31F0A": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "742588255947194504",
+              "totalClaimedLP": "0"
+            },
+            "0x8bB647e93587b27422920166D08c640161B6684d": {
+              "totalUnclaimedTic": "241121266252591815417",
+              "totalClaimedTic": "677662849496320293",
+              "totalClaimedLP": "75638416786"
+            },
+            "0xC18ee6bF19aEccbC5985f68A4f10F4cB2D2BcB51": {
+              "totalUnclaimedTic": "8796836153584975515635",
+              "totalClaimedTic": "24720244110149081685",
+              "totalClaimedLP": "2759189364517"
+            },
+            "0x811aF49A1d0E0E7cDc0AdDcAFf682e87274455C0": {
+              "totalUnclaimedTic": "1222735035160299738606",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf480001F7d7D46c1e6CC71B308a34f117b649a3B": {
+              "totalUnclaimedTic": "2173168949877626792760",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x82d60bf46cD393385163e4609Ae035AD96Dd5fC6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "482168157837157094554",
+              "totalClaimedLP": "167290301192"
+            },
+            "0x633e9aa71802b5b8c003F0022DE7C85246Cc1a43": {
+              "totalUnclaimedTic": "1140513853112066868427",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x14BDfda5b5B829f14332A52c15129386284CE36a": {
+              "totalUnclaimedTic": "2666722097275395257460",
+              "totalClaimedTic": "7477479960546527820",
+              "totalClaimedLP": "834610818914"
+            },
+            "0x3a5211E4fdf7b9934dF8D625B228eF35De0235cF": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "301078513856522930881",
+              "totalClaimedLP": "0"
+            },
+            "0x29031321A2181Ca35301F5685eb62D551c8b4665": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "12830589220033134204",
+              "totalClaimedLP": "0"
+            },
+            "0x5739C96553b16863643c08F3bdb2E81eFc00B935": {
+              "totalUnclaimedTic": "581584108351298178950",
+              "totalClaimedTic": "1627228861240924610",
+              "totalClaimedLP": "181625737495"
+            },
+            "0xc46f9F9f714e23b11d3A495C37B116381725957F": {
+              "totalUnclaimedTic": "262045846399422850634",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa91A3cc43FC23929fe879B853D4e6ae9568B8251": {
+              "totalUnclaimedTic": "165412565278183725820",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x54881c1b56e0E7a62a3f0752180036976435b891": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "756303388202857859970",
+              "totalClaimedLP": "0"
+            },
+            "0x6c098683c9D5877c22867b8FA4B59D5D60ac0f3a": {
+              "totalUnclaimedTic": "154047815007558520294",
+              "totalClaimedTic": "430104607165013811",
+              "totalClaimedLP": "48006809820"
+            },
+            "0xAC3c2F091eDEA973F666173b3eBd242A80FE411c": {
+              "totalUnclaimedTic": "96718725187471556748",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0342BF051724C2697362a3B947E170B4BEA63299": {
+              "totalUnclaimedTic": "1876724796238614397670",
+              "totalClaimedTic": "5195467008884122943",
+              "totalClaimedLP": "579900313716"
+            },
+            "0x733AB147ef8F4efEA84ced248F1AFE74FBe21582": {
+              "totalUnclaimedTic": "235471199561065529509",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xdd6fB67BAB9366D3f14dA7A6365da6e9FA2BE5a9": {
+              "totalUnclaimedTic": "51369825780818971107",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9E9BF7495369e73e76E0F41C00481B16A270711c": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "259273055359599396",
+              "totalClaimedLP": "0"
+            },
+            "0xEDB4416bd6449A24463855DF2C8Dd59a27c4dC66": {
+              "totalUnclaimedTic": "940539319655498071243",
+              "totalClaimedTic": "2453402659552536168",
+              "totalClaimedLP": "273840440043"
+            },
+            "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
+              "totalUnclaimedTic": "822012401406663403038",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6F9ceE855cB1F362F31256C65e1709222E0f2037": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "2894643765543640057906",
+              "totalClaimedLP": "0"
+            },
+            "0x4Fe5a55daAA9987D6775c87ffE75e3B01f80Fc2B": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "394416060078691925313",
+              "totalClaimedLP": "0"
+            },
+            "0x8E45B08b2f24e2d11021Bc5a4164cB17D7B034A1": {
+              "totalUnclaimedTic": "4781443175760509977",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xA2efe0f8F495DF65EEB81862622879ED6c6FcB0A": {
+              "totalUnclaimedTic": "835772564243462719163",
+              "totalClaimedTic": "2288297142595012740",
+              "totalClaimedLP": "255411925164"
+            },
+            "0x0000000E8CF6F0d9Df0f0199215a03296f374F9b": {
+              "totalUnclaimedTic": "1193485539742754665425",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1806c8C7993086F971Bb6f605A5Cd3E369E64eD6": {
+              "totalUnclaimedTic": "304899118545161576688",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x887C3599c4826F7b3cDe82003b894430F27d5b92": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "206696197578985935421",
+              "totalClaimedLP": "0"
+            },
+            "0x1925d9B6848eCD6Bfc47a75888C5A479B6b39a18": {
+              "totalUnclaimedTic": "225010974764142209469",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xF5a13AB94D4d665EE078dC5e5FE8A0e117217BBe": {
+              "totalUnclaimedTic": "829179346620051453",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2D48fc31d3C5F614021822fD0608E672bf75EC0d": {
+              "totalUnclaimedTic": "1380917949165705656",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x66df740fd528baAf5c4B40918c386fB3022013A6": {
+              "totalUnclaimedTic": "1104650138287837290",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x62A4EebaFb609c6C774Db597f53475630111b591": {
+              "totalUnclaimedTic": "1104594750964518886",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x56e4ce33F67e352b1d767B8Bf3bfc43117a024A6": {
+              "totalUnclaimedTic": "1398900068970229514",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9aeDf805DBd9494f07855D548Ab8074406E4ec71": {
+              "totalUnclaimedTic": "828062196695363239",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x84838a964246b32CaF4fB8b1449FcC2Fa24D148f": {
+              "totalUnclaimedTic": "1103467354119446236",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2949C89B537deEB2fC9f70A07C5aA4c57f4ee38E": {
+              "totalUnclaimedTic": "827271919496501434",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x6af0f0a3d5BFa238f46F36bDeD36888a00D0a730": {
+              "totalUnclaimedTic": "827053647196298927",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5cC46c968671E925F74Dc0eD77d9f358aB6514b7": {
+              "totalUnclaimedTic": "838218937481757820",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa8C83B1b30291A3a1a118058b5445cC83041Cd9d": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1700452116908606414",
+              "totalClaimedLP": "0"
+            },
+            "0xe8B2e45b303029F8024b8FCd6413677c0C3f5d88": {
+              "totalUnclaimedTic": "274499310279429792",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x34c060708C42887A719036C2723789A9063322a8": {
+              "totalUnclaimedTic": "274485206365044950",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xd9622C6f3318E89c2D03ae2a6932B0599e667872": {
+              "totalUnclaimedTic": "439148122479956710",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x8F302403145223bbE7B3eDFae3a08d7234926A8C": {
+              "totalUnclaimedTic": "515969614489429588",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9CaC94e060313544a64889A3700d23d21508eB1F": {
+              "totalUnclaimedTic": "274431830999663088",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb97a1Ae1BFB7B6c8cC2545FfA7138877E55057e4": {
+              "totalUnclaimedTic": "329302294205572346",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x22561c5931143536309C17e832587b625C390b9A": {
+              "totalUnclaimedTic": "486016460436135292642",
+              "totalClaimedTic": "1306789325681022066",
+              "totalClaimedLP": "145859369066"
+            },
+            "0xDd9b9a7B7814b718282967dde9489E68894bdF84": {
+              "totalUnclaimedTic": "51366224155474479637",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xAcD26379C27d533067406bC0c7AcB736DaA30208": {
+              "totalUnclaimedTic": "152112703995986039",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x69032C17C4a3f029394962D4564C67ab61710536": {
+              "totalUnclaimedTic": "5244840374705260860",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x8501Ec14C50392cd7164B68eA2Aba0Fb2a3608BE": {
+              "totalUnclaimedTic": "3933453390578357221",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa78a2FDf7187BCBFCBB7959991Bb869709a4C08A": {
+              "totalUnclaimedTic": "2622169932128628721",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x21758b997237eC3c30bc38e6e544a134B228076E": {
+              "totalUnclaimedTic": "391255702342700675",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xEf06902FCD811D1109d6648b2cdd84D34743D7eD": {
+              "totalUnclaimedTic": "521641159995833926",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xfe764F10fa1c91218F50F3e546fEA9830Ac51493": {
+              "totalUnclaimedTic": "469458730853938012",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc4A7c5F43E4d532f0e77Ea12ee54E8C70275A01E": {
+              "totalUnclaimedTic": "572985251916895866",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x02ce92bFb59C0c4c7AaCDB59277507d9C7c6FB78": {
+              "totalUnclaimedTic": "520867030684889878",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4AfdD800C245A9E4f1fb9692dDeACa9B7bF8396c": {
+              "totalUnclaimedTic": "650521465847071226",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xfe09Ec54645F29C0077827bbd53045826f7aA46F": {
+              "totalUnclaimedTic": "490726393034104517",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9998741dC9E7e1A0b1082Fc0C9dbC972f4912B43": {
+              "totalUnclaimedTic": "552758034432928178",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf817560A4454AAD0b884D726e9aA7547Aa14B771": {
+              "totalUnclaimedTic": "847093319966532803457",
+              "totalClaimedTic": "2226369716633171942",
+              "totalClaimedLP": "248499797018"
+            },
+            "0xBb5A687aB4767b2E3F085E3224F277058f786a01": {
+              "totalUnclaimedTic": "506324178354420432",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa02c9189940d1226Cf5ccE37098738bd372688d7": {
+              "totalUnclaimedTic": "408616953039494228",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4a6b43835fb5509b59bf938c4D17274C4e0FA07D": {
+              "totalUnclaimedTic": "458123537798367104",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x89986DA6016A92F160eEE7B432446113963ff7d7": {
+              "totalUnclaimedTic": "501435279614003385",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x33c6a3E66aAe27fdC1d6B002d926797d73cb4Ade": {
+              "totalUnclaimedTic": "501358872348295338",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0071AE6858c9Cf6D6680216800c4Ce04C231b28f": {
+              "totalUnclaimedTic": "375965813274450594",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7B3cF4BB173b3A9ce745dC7814Ea71E637c76B1a": {
+              "totalUnclaimedTic": "526534443529676786",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x420C83c3C47fCF7d095478AAE6683F5fD5FADFaA": {
+              "totalUnclaimedTic": "539421725997613865",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7924d8b3D52325473eCdBc4DC6bb97D2ada31748": {
+              "totalUnclaimedTic": "320174119026834506",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5279C667CC10a1409d337E1C8e0B3C3C758c77D3": {
+              "totalUnclaimedTic": "387663920509434960",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x234243e9C5aE1B48ECDFfD2C78Dcb987E9977B71": {
+              "totalUnclaimedTic": "1200406141854932084209",
+              "totalClaimedTic": "3101897379441852301",
+              "totalClaimedLP": "346223209651"
+            },
+            "0xE1dB03573BE9c272FF3dd6419212025Ae67359B3": {
+              "totalUnclaimedTic": "279154842333991151",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2F07b98805F13277f1b7785b412f562a55c264D5": {
+              "totalUnclaimedTic": "350568780214606285",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0e1Ab8E1928F488b73aB3862c40Ae1A1eAEd15a8": {
+              "totalUnclaimedTic": "345695056881785005",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xDaA78e6b7865947c4a794eCe764124F31Fe1e188": {
+              "totalUnclaimedTic": "375367860479737983",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1C36cCC3323bB6F816291954849DA710cCD6f164": {
+              "totalUnclaimedTic": "396179608357128409",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0850D8032E747278E2e94B7B58474343797cfC13": {
+              "totalUnclaimedTic": "266937795888339937",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3B850099ec5bB6A7Dc718Db0374382E8cADdF658": {
+              "totalUnclaimedTic": "312622272706629725",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xeD62aeBA49522eAe7ABdaFCe97092361Dd932173": {
+              "totalUnclaimedTic": "258657648757176755",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe3E49cf2e036B8Ef58af3d850B347e1E573Cb651": {
+              "totalUnclaimedTic": "319983882502912763",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xeF9d5ed7069c6cEea32fE835A1B605938cE5657F": {
+              "totalUnclaimedTic": "276839954905469847",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x63481Bb2C009491D36b7002077e2CB4e485D8690": {
+              "totalUnclaimedTic": "193158955802188993",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xffc29E0d581217A086Ed7d7D25F115Cc7c29A36D": {
+              "totalUnclaimedTic": "247218352556621447",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3938F7801ED196c6dd9A266c105964b7B1E9Eb2E": {
+              "totalUnclaimedTic": "317692279804876205",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x980f20b14d2F247D94a60a29ca50a1D7618B66fB": {
+              "totalUnclaimedTic": "902370573306226811",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xd00Dd00d1BEfb7da65A4a133F13a26F8F99D17d8": {
+              "totalUnclaimedTic": "1220017415608151394690",
+              "totalClaimedTic": "3116739438428413588",
+              "totalClaimedLP": "347879829671"
+            },
+            "0x9b7b8B940daa873057D9ABC49A23BBb750790531": {
+              "totalUnclaimedTic": "797176562660297869",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4f6446E557112A7bC380F2EB8575631F704DBfF7": {
+              "totalUnclaimedTic": "415296611525755539",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xCa898895B35F900d3418A7eb46Fe52F712bf5575": {
+              "totalUnclaimedTic": "164919504660104376",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x96BCEe2e9Ee9D69bB0dC56526184e7d2103952D4": {
+              "totalUnclaimedTic": "117467643028513188",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5D081DaD3670B6B5F235EAdD89c21Ec9A484bB60": {
+              "totalUnclaimedTic": "121836738664372465",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x345B2490d6d2B2853405d1B36C36570390766797": {
+              "totalUnclaimedTic": "104371198182183848",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xE7F7d5aA88Dd2480f961E94127D6FC2cEC95909f": {
+              "totalUnclaimedTic": "86645082597976871",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7E9236EA89bd1FbC2C72F36B0d72EC909b6e03F7": {
+              "totalUnclaimedTic": "154231733215269118",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x128630123766B48340c1a36D20a57c8b81184A0f": {
+              "totalUnclaimedTic": "128857756919788303",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa5D6d92CB547CD3837eBAeB8572f983441f46054": {
+              "totalUnclaimedTic": "148259493302223641785",
+              "totalClaimedTic": "369578914510184802",
+              "totalClaimedLP": "41251138367"
+            },
+            "0x843e155e2Bf5FF5A1679b856B74B0eAD701B92bb": {
+              "totalUnclaimedTic": "95625963041084959005",
+              "totalClaimedTic": "238679957565447976",
+              "totalClaimedLP": "26640643090"
+            },
+            "0x2ecc3fBFF1a9c2077CC17986909f1F1e7e6e6719": {
+              "totalUnclaimedTic": "1274738818413853608",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x912d518cD39414770A615198C3Cd9653744d729f": {
+              "totalUnclaimedTic": "2373791094306717974",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x72353d86F2E6410c8bb05d5f8c9dAfe8436F1ee9": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4176497310771132302",
+              "totalClaimedLP": "0"
+            },
+            "0xF428B85E5AACd0465f5546971B01ED4fc0437377": {
+              "totalUnclaimedTic": "2801864393016513388",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x207F4F832a08ff943894b7DEFfA48E47CAF2AdFD": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1319306838650475558",
+              "totalClaimedLP": "0"
+            },
+            "0xC151e81b061CB25e763463E1b74e0B890aea31e5": {
+              "totalUnclaimedTic": "1028458566798102481",
+              "totalClaimedTic": "1670838566538",
+              "totalClaimedLP": "186493"
+            },
+            "0x461a51197Be5276e9a0F8270006eFe92De9642EA": {
+              "totalUnclaimedTic": "37923202705309953642",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x02E0c302380aa679189D9caA349A0Da5A6A19108": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "306843020385800016",
+              "totalClaimedLP": "0"
+            },
+            "0xC827f990d7ACb949ACB77E21D652e3fd7eaFfA10": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1037535416672487",
+              "totalClaimedLP": "0"
+            },
+            "0x00753905A1896E610ce6C71390924F0ef2D2CD56": {
+              "totalUnclaimedTic": "18201738067102922203",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x38fcf6aAF523118Bfea55ab0747e490CEf5E71f2": {
+              "totalUnclaimedTic": "18613797884524663276",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xf312aDAcFE33B4Acf833c26917f0301ab68728EB": {
+              "totalUnclaimedTic": "2067332695714773595",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x028C361f3d5562082Ad19244104a69e950857eEF": {
+              "totalUnclaimedTic": "7480780857072666871369",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "58043049211130363436605",
+          "unclaimedTic": "57995430790613500777830"
+        },
+        "5": {
+          "poolId": 5,
+          "users": {
+            "0x022Cec2911Dbb3E49e1375B7c9eaa94F5cc7c8Bd": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "5270279",
+              "totalClaimedLP": "0"
+            },
+            "0x6001db55d8793936F3D288F3319389E2265db4ee": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1840256641350885440466",
+              "totalClaimedLP": "0"
+            },
+            "0x4eDfDBc961D72051853683d2D7690ec8268aB4AD": {
+              "totalUnclaimedTic": "573107542520140179403",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1FE4c6e490Da3861b119f03f08E04a5EeEA5dEc7": {
+              "totalUnclaimedTic": "132692818888368646384",
+              "totalClaimedTic": "370779803742510618",
+              "totalClaimedLP": "41344702058"
+            },
+            "0x622482B1c42B27060E06Cf674B32787DFCecb866": {
+              "totalUnclaimedTic": "12540371563171604653030",
+              "totalClaimedTic": "34982752429760709326",
+              "totalClaimedLP": "3904655553385"
+            },
+            "0x50258A2aE0b3065754936828Cd7814731C6fC008": {
+              "totalUnclaimedTic": "248566566976492051162",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x871120C63459F6cDa0586b84ad7e4631487f02e6": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "209738414818198109927",
+              "totalClaimedLP": "0"
+            },
+            "0xCdBc0f810414Fc48aAEfC9e959DE0af878319cd5": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1146202961302012393423",
+              "totalClaimedLP": "0"
+            },
+            "0xc0B62526fEd2c85aA477EF78DDcae4f0DbE2Cd23": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "737833685487306234",
+              "totalClaimedLP": "0"
+            },
+            "0x5631DE32f05c9675d367E4DF50E59e466b9d1518": {
+              "totalUnclaimedTic": "1607066515442505044466",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x54881c1b56e0E7a62a3f0752180036976435b891": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "1501830515270164888555",
+              "totalClaimedLP": "0"
+            },
+            "0xb9D24761ebB3e3a88B8CF20e77F56ccF026A2044": {
+              "totalUnclaimedTic": "234838185066407559460",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x342F531B0C40af85651c921A72bbEA7002751a63": {
+              "totalUnclaimedTic": "138869449790988451135",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2Da11a9bc34af5Db2E11c3320298Da98edF2f1C6": {
+              "totalUnclaimedTic": "1462434655212297424557",
+              "totalClaimedTic": "4078754233413640808",
+              "totalClaimedLP": "455256641122"
+            },
+            "0x0Aa379757DB57625AC2919A57e37D427a334b7b8": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "222261548245813074929",
+              "totalClaimedLP": "0"
+            },
+            "0x7a4D7ce912d537F13690072274e87D63637b1D32": {
+              "totalUnclaimedTic": "91873560688879010600",
+              "totalClaimedTic": "256193871212146605",
+              "totalClaimedLP": "28595486418"
+            },
+            "0x9FfD0a5b5438B95861167422E745D34d151bcc3b": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "267055070313906583502",
+              "totalClaimedLP": "0"
+            },
+            "0xC18ee6bF19aEccbC5985f68A4f10F4cB2D2BcB51": {
+              "totalUnclaimedTic": "3405466205032852236059",
+              "totalClaimedTic": "9438689067007982103",
+              "totalClaimedLP": "1053514292683"
+            },
+            "0x197dFea49c88554dBdAAcBc0DBF7AF425e150E79": {
+              "totalUnclaimedTic": "503409004371097366255",
+              "totalClaimedTic": "1403328339632564058",
+              "totalClaimedLP": "156634724656"
+            },
+            "0xC28f85D6A2CD2252DAC06F3db42A17033C4e7791": {
+              "totalUnclaimedTic": "518628743716334190521",
+              "totalClaimedTic": "1440198851239068275",
+              "totalClaimedLP": "160750085453"
+            },
+            "0x887C3599c4826F7b3cDe82003b894430F27d5b92": {
+              "totalUnclaimedTic": "1972339640065356604259",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe8383D48f0d6ad3226434440712692372d13d629": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "536425687255072410817",
+              "totalClaimedLP": "166351243998"
+            },
+            "0xA9d339E64576dc10b6F277be43B4989ebF36d3Ad": {
+              "totalUnclaimedTic": "69738739973915851949",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xdd6fB67BAB9366D3f14dA7A6365da6e9FA2BE5a9": {
+              "totalUnclaimedTic": "93950796882644410078",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x431b5DDB0AcE97eBC3d936403ea25831BaD832B6": {
+              "totalUnclaimedTic": "117370454334206527265",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x041bfE6cb9f6E37cEf70b7e013ad7164c054d044": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "4321653786645639244793",
+              "totalClaimedLP": "0"
+            },
+            "0xEDDCA3A0a6c81b8c8C1115a5F750e3Ffb8d5e1F0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "199197297961362920627",
+              "totalClaimedLP": "0"
+            },
+            "0x9ADA95Ce2a188C51824Ef76Dd49850330AF7545F": {
+              "totalUnclaimedTic": "110482724479596227832",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x29031321A2181Ca35301F5685eb62D551c8b4665": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "12194836337787547531",
+              "totalClaimedLP": "0"
+            },
+            "0xefB19094300E817d73733B2001AaC40F53c37dDe": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "36995844647683484193",
+              "totalClaimedLP": "0"
+            },
+            "0xF82258F8eaC53B9A2844525244785eE019252Ce9": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "3210073678902927217",
+              "totalClaimedLP": "0"
+            },
+            "0xEB1E7deA80a18c8ed084d2F4372F1cd1903C1360": {
+              "totalUnclaimedTic": "143945529087363745511",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa91A3cc43FC23929fe879B853D4e6ae9568B8251": {
+              "totalUnclaimedTic": "172984008543561430704",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0342BF051724C2697362a3B947E170B4BEA63299": {
+              "totalUnclaimedTic": "1412089883049760912012",
+              "totalClaimedTic": "3897599827481331018",
+              "totalClaimedLP": "435036803973"
+            },
+            "0xcefCcA169357a18Eb8c3F230F92b58562e48CAE5": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "844095788633368289",
+              "totalClaimedLP": "0"
+            },
+            "0x81D08f869Fc47cc73C374fDA2793fFfd017CC937": {
+              "totalUnclaimedTic": "34596152196913130432",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xC248129e903cf0d04F2Ea34F26f6b8c9c4D95c12": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "8496686634775970246",
+              "totalClaimedLP": "0"
+            },
+            "0xDc43D0c0497FBf3BB3cf43dcAFaCe9c116d5dd21": {
+              "totalUnclaimedTic": "174360797070995310402",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xb282057670cEb3cE45Bf03E8826A5cd119Bf9ECd": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "33212295791231845571",
+              "totalClaimedLP": "0"
+            },
+            "0xC65e77469D1875e47242a09521293cd28eF4C958": {
+              "totalUnclaimedTic": "156731804879033104085",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x239DBcdDEAe1dBB49aeE663E786a9c5599031bd3": {
+              "totalUnclaimedTic": "818606923204774761434",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4D733B80D77116F74106E5850B49120cF39bfd5a": {
+              "totalUnclaimedTic": "1696497783152206638634",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0144D10B6b9d90fEF7d139e9693eac9F55e344Ed": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "422686220826005069656",
+              "totalClaimedLP": "0"
+            },
+            "0x1d9b6F64b3aE1f052cC75328CdDAffd36282dc3a": {
+              "totalUnclaimedTic": "719306302077624723218",
+              "totalClaimedTic": "1918089424698696848",
+              "totalClaimedLP": "214090601906"
+            },
+            "0x8cC4632b4a37e38a957e4B8710F3F4098E5B7561": {
+              "totalUnclaimedTic": "171804663437086308145",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xc54e01eaAC24A582B3D4ECb66A1657462BE98f85": {
+              "totalUnclaimedTic": "1236329995000020950740",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe2C5b0F3355D543d3BF1a584D6763A3678B237b0": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "33403489110201381014",
+              "totalClaimedLP": "0"
+            },
+            "0x0740655604A8D15dafD78D4DFb335F4E8016B369": {
+              "totalUnclaimedTic": "45426945860467148791",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xa8C83B1b30291A3a1a118058b5445cC83041Cd9d": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "7245902343009996702",
+              "totalClaimedLP": "0"
+            },
+            "0x29ad2aD28ABDABB877E5572b57219A594e21EbEC": {
+              "totalUnclaimedTic": "166153593690836615716",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xfE2e90d188916361B09770b64461c01AC9D31F0A": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "8748496100609601087",
+              "totalClaimedLP": "0"
+            },
+            "0x1E9B7ed825C0ACb6bCf0E2Ab53C99DC32b48BD29": {
+              "totalUnclaimedTic": "110349258167285547278",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x443eb1f18CF8fD345DF376078C72e00B27e3F6a3": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "272134100338706960027",
+              "totalClaimedLP": "0"
+            },
+            "0x5583Bbda575F142993c10A335daf29dC7510E8F2": {
+              "totalUnclaimedTic": "11524863706693438108116",
+              "totalClaimedTic": "29450230832693625913",
+              "totalClaimedLP": "3287134355715"
+            },
+            "0x922978d3269d84cBd86Ec041089CA6b3907F728C": {
+              "totalUnclaimedTic": "304734339453700650702",
+              "totalClaimedTic": "787106685366836201",
+              "totalClaimedLP": "87854164599"
+            },
+            "0x8E45B08b2f24e2d11021Bc5a4164cB17D7B034A1": {
+              "totalUnclaimedTic": "6768747202386744830",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3d0FeAF9fA634D7766A0c80aC6f38b486Dc73c9c": {
+              "totalUnclaimedTic": "99351400221904026896",
+              "totalClaimedTic": "254570200418341510",
+              "totalClaimedLP": "28414257819"
+            },
+            "0x5897eABd827d38A5A8042051b9210bF6802e89D6": {
+              "totalUnclaimedTic": "113937180700312428990",
+              "totalClaimedTic": "281981944524200424",
+              "totalClaimedLP": "31473863237"
+            },
+            "0xf817560A4454AAD0b884D726e9aA7547Aa14B771": {
+              "totalUnclaimedTic": "202066049613100307119",
+              "totalClaimedTic": "515033281377007573",
+              "totalClaimedLP": "57486258874"
+            },
+            "0x14BDfda5b5B829f14332A52c15129386284CE36a": {
+              "totalUnclaimedTic": "1946492940926947613237",
+              "totalClaimedTic": "4958396937694306119",
+              "totalClaimedLP": "553439360654"
+            },
+            "0x2B83aC024B0a4Ba3f93776Cacb61D98310614aFE": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "192633680483304610025",
+              "totalClaimedLP": "58825051410"
+            },
+            "0xe329Aa0c8dd34EE7F69e173bd09464D620fD5Ec8": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "398628744108740062",
+              "totalClaimedLP": "0"
+            },
+            "0x69CD4AbD687ab23E2F95f0a065cD9Ad211A58713": {
+              "totalUnclaimedTic": "371687260064380572070",
+              "totalClaimedTic": "943535253605769008",
+              "totalClaimedLP": "105314188047"
+            },
+            "0x33c6a3E66aAe27fdC1d6B002d926797d73cb4Ade": {
+              "totalUnclaimedTic": "363082462775686383",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0071AE6858c9Cf6D6680216800c4Ce04C231b28f": {
+              "totalUnclaimedTic": "389833298934935887",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7B3cF4BB173b3A9ce745dC7814Ea71E637c76B1a": {
+              "totalUnclaimedTic": "241009445511997003",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x420C83c3C47fCF7d095478AAE6683F5fD5FADFaA": {
+              "totalUnclaimedTic": "476635011981439386",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7924d8b3D52325473eCdBc4DC6bb97D2ada31748": {
+              "totalUnclaimedTic": "245259763423814777",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5279C667CC10a1409d337E1C8e0B3C3C758c77D3": {
+              "totalUnclaimedTic": "280792957215841579",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xAA739fDa5880f2BAD7967BbE69C34bB9B284Ed67": {
+              "totalUnclaimedTic": "213729661226210966327",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xE1dB03573BE9c272FF3dd6419212025Ae67359B3": {
+              "totalUnclaimedTic": "218766940602601576",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2F07b98805F13277f1b7785b412f562a55c264D5": {
+              "totalUnclaimedTic": "238887315059317017",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0e1Ab8E1928F488b73aB3862c40Ae1A1eAEd15a8": {
+              "totalUnclaimedTic": "256161224497209702",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xDaA78e6b7865947c4a794eCe764124F31Fe1e188": {
+              "totalUnclaimedTic": "240344384974826140",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1C36cCC3323bB6F816291954849DA710cCD6f164": {
+              "totalUnclaimedTic": "240435867837138303",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x0850D8032E747278E2e94B7B58474343797cfC13": {
+              "totalUnclaimedTic": "309304504494464723",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3B850099ec5bB6A7Dc718Db0374382E8cADdF658": {
+              "totalUnclaimedTic": "236658780861939991",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xeD62aeBA49522eAe7ABdaFCe97092361Dd932173": {
+              "totalUnclaimedTic": "299094486797662073",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xe3E49cf2e036B8Ef58af3d850B347e1E573Cb651": {
+              "totalUnclaimedTic": "253275182816604582",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xeF9d5ed7069c6cEea32fE835A1B605938cE5657F": {
+              "totalUnclaimedTic": "299462243398497988",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x63481Bb2C009491D36b7002077e2CB4e485D8690": {
+              "totalUnclaimedTic": "378157638780864113",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xffc29E0d581217A086Ed7d7D25F115Cc7c29A36D": {
+              "totalUnclaimedTic": "203372641416301340",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3938F7801ED196c6dd9A266c105964b7B1E9Eb2E": {
+              "totalUnclaimedTic": "220006601959405430",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x980f20b14d2F247D94a60a29ca50a1D7618B66fB": {
+              "totalUnclaimedTic": "1975825193174304804",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x9b7b8B940daa873057D9ABC49A23BBb750790531": {
+              "totalUnclaimedTic": "609270923891309065",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x4f6446E557112A7bC380F2EB8575631F704DBfF7": {
+              "totalUnclaimedTic": "281695822875538190",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xd00Dd00d1BEfb7da65A4a133F13a26F8F99D17d8": {
+              "totalUnclaimedTic": "460541669284026578520",
+              "totalClaimedTic": "1128717499945276107",
+              "totalClaimedLP": "125983599009"
+            },
+            "0xCa898895B35F900d3418A7eb46Fe52F712bf5575": {
+              "totalUnclaimedTic": "124338410532798504",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x96BCEe2e9Ee9D69bB0dC56526184e7d2103952D4": {
+              "totalUnclaimedTic": "123648391262283952",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5D081DaD3670B6B5F235EAdD89c21Ec9A484bB60": {
+              "totalUnclaimedTic": "161623236266970825",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x345B2490d6d2B2853405d1B36C36570390766797": {
+              "totalUnclaimedTic": "108018715064178370",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xE7F7d5aA88Dd2480f961E94127D6FC2cEC95909f": {
+              "totalUnclaimedTic": "125014811627835169",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7E9236EA89bd1FbC2C72F36B0d72EC909b6e03F7": {
+              "totalUnclaimedTic": "101599385513223348",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x128630123766B48340c1a36D20a57c8b81184A0f": {
+              "totalUnclaimedTic": "160996846979627748",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x2ecc3fBFF1a9c2077CC17986909f1F1e7e6e6719": {
+              "totalUnclaimedTic": "5634905885581816195",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x545b85bae197C6F5C8D12183587831C281922b07": {
+              "totalUnclaimedTic": "133402542720621746657",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x912d518cD39414770A615198C3Cd9653744d729f": {
+              "totalUnclaimedTic": "22932754390763870341",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x1e136Ea2D0022d5A4dcE0E06D5BC688E2A9e9349": {
+              "totalUnclaimedTic": "19076056149843223245",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x07aA3206A77e386C39Eb663FcAC40D4b65374405": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "139909409827134412210",
+              "totalClaimedLP": "0"
+            },
+            "0xC151e81b061CB25e763463E1b74e0B890aea31e5": {
+              "totalUnclaimedTic": "10048772563479407587",
+              "totalClaimedTic": "23209083859444684",
+              "totalClaimedLP": "2590518809"
+            },
+            "0x168663Add249eF3f10b8F3472431AdB5cdf12625": {
+              "totalUnclaimedTic": "5418478198359538755",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xD6416f5646a322b18deb1459a67BDD851C14075e": {
+              "totalUnclaimedTic": "655245725479194797",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x232C3443f14Ab60bbaBE4D270469CA615E6B87bB": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "188660090473948629399",
+              "totalClaimedLP": "0"
+            },
+            "0xC8D6A5B5723Bff8654A8B512fCcbF5e1Aa52CD7A": {
+              "totalUnclaimedTic": "44519088822590901789",
+              "totalClaimedTic": "95235726452870649",
+              "totalClaimedLP": "10629887082"
+            },
+            "0x2E2Ea30Ba045Df4bC38e80cF11E119E12e06C1C2": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "22508475458734300495",
+              "totalClaimedLP": "0"
+            },
+            "0xE366619833126918F7fd3Bdf516002BdaDF1ae5f": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "23962413139462913493",
+              "totalClaimedLP": "0"
+            },
+            "0xa68df4275f54B17Aff43D3C3cEfcC8DfEf1C690C": {
+              "totalUnclaimedTic": "23686813237036053665",
+              "totalClaimedTic": "31784896719602729",
+              "totalClaimedLP": "3547721802"
+            },
+            "0x759567C696a9B43A6CD066D37EC14a865a1367A1": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "215351145291094168",
+              "totalClaimedLP": "0"
+            },
+            "0x02E0c302380aa679189D9caA349A0Da5A6A19108": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "32079005459701707",
+              "totalClaimedLP": "0"
+            },
+            "0x22963f931baA98D5CE2A43AB7681a638a693F560": {
+              "totalUnclaimedTic": "692629089711064",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x614AC9473B5A32Aa20875eDf2EDe11F334531A33": {
+              "totalUnclaimedTic": "382233866970307746",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0xFB38B16b8B7865F4C4AB63790c7CA79d02e8E366": {
+              "totalUnclaimedTic": "3777853612235821496",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x3d1471942c75642F1cdeC7233512ec0fC2202F81": {
+              "totalUnclaimedTic": "3773496576295718143",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x7ceb9f4A9e215C34979707eB73306Ba7E93E333A": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "46775852790899043",
+              "totalClaimedLP": "0"
+            },
+            "0x38fcf6aAF523118Bfea55ab0747e490CEf5E71f2": {
+              "totalUnclaimedTic": "1292364406542001078",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            },
+            "0x5d4a5A059c10CB3161fc8637090603091689f44b": {
+              "totalUnclaimedTic": "0",
+              "totalClaimedTic": "5032123805661268730",
+              "totalClaimedLP": "0"
+            },
+            "0x028C361f3d5562082Ad19244104a69e950857eEF": {
+              "totalUnclaimedTic": "11655913780180532199358",
+              "totalClaimedTic": "0",
+              "totalClaimedLP": "0"
+            }
+          },
+          "totalSummedUnclaimedTic": "58064241412873974888208",
+          "unclaimedTic": "57995430790613501488230"
+        }
+      },
+      "totalUnclaimedTIC": "512635947852683486278368",
+      "totalSummedUnclaimedTic": "513134372026912851808723"
+    }
+  },
+  "totalUnclaimedTIC": "652410282240968916968436",
+  "totalSummedUnclaimedTic": "653030773094637151009092"
+}

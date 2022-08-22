@@ -24,6 +24,7 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
       nextRequestedBlock < currentBlockNumber ? nextRequestedBlock : currentBlockNumber,
     );
     requestedBlock = nextRequestedBlock;
+    // await new Promise((r) => setTimeout(r, 100));
     promises.push(eventPromise);
   }
   const allEvents = await Promise.all(promises);
@@ -185,6 +186,7 @@ export const getMerkleClaimsForPool = (
   chainConfig,
   poolData,
   poolPercentOfChain,
+  previousMerkleTree,
 ) => {
   const claims = {};
   let index = startingIndex;
@@ -210,8 +212,35 @@ export const getMerkleClaimsForPool = (
       .div(DECIMAL_PRECISION);
 
     // we need to add anything they have previously claimed into the proofs at this point
-    const totalTICAmount = userTicConsumed.add(userPoolData.totalClaimedTic);
-    const totalLPTokenAmount = userLPTokens.add(userPoolData.totalClaimedLP);
+    let totalTICAmount = userTicConsumed.add(userPoolData.totalClaimedTic);
+    let totalLPTokenAmount = userLPTokens.add(userPoolData.totalClaimedLP);
+
+    if (previousMerkleTree !== null) {
+      // we are missing any claims in which a user didn't claim, but the previous tree still has
+      // the claim. We can look at whatever is great, on chain amount or the amount 
+      // in the prev merkle tree for TIC and LP. This handles the scenario in which 
+      // they have un claimed rewards or have forfeited previously.
+      const prevClaim = previousMerkleTree.claims[address];
+      if (prevClaim != null) {
+        const totalTICAmountWithUnclaimed = userTicConsumed.add(prevClaim.totalTICAmount);
+        const totalLPTokenAmountWithUnclaimed = userLPTokens.add(prevClaim.totalLPTokenAmount);
+        if (totalTICAmountWithUnclaimed.gt(totalTICAmount)) {
+          // this means that they have not claimed the previous merkle tree amount, so we
+          // need to use that value vs the on-chain value.
+          if (totalLPTokenAmountWithUnclaimed.lt(totalLPTokenAmount)) {
+            // this is state that should give us concern, throw error.
+            throw new Error(
+              `Found user ${address} with unclaimed ${ethers.utils.formatUnits(
+                totalTICAmountWithUnclaimed.sub(totalTICAmount),
+              )} TIC but no unclaimed LP`,
+            );
+          }
+          totalTICAmount = totalTICAmountWithUnclaimed;
+          totalLPTokenAmount = totalLPTokenAmountWithUnclaimed;
+        }
+      }
+    }
+
     claims[address] = {
       index,
       poolId: poolData.poolId,
@@ -224,7 +253,7 @@ export const getMerkleClaimsForPool = (
   return claims;
 };
 
-export const getMerkleData = (chainData, allocationData, config) => {
+export const getMerkleData = (chainData, allocationData, previousMerkleTree, config) => {
   const merkleData = {
     epoch: config.epoch,
     snapshotTimestamp: config.snapshotTimestamp,
@@ -250,6 +279,7 @@ export const getMerkleData = (chainData, allocationData, config) => {
         chain,
         chainData.chains[chain.chainId].pools[ii],
         allocationData.chains[chain.chainId].pools[ii].poolPercentOfChain,
+        config.epoch > 0 ? previousMerkleTree.chains[chain.chainId].pools[ii] : null,
       );
       pool.claims = claims;
       poolData[ii] = pool;

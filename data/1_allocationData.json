@@ -1,0 +1,56 @@
+{
+  "epoch": 1,
+  "snapshotTimestamp": 1660832001,
+  "chains": {
+    "1": {
+      "name": "ethereum",
+      "chainId": 1,
+      "pools": {
+        "0": {
+          "poolPercentOfTotal": 0.0714183986,
+          "poolPercentOfChain": 0.3333523127
+        },
+        "1": {
+          "poolPercentOfTotal": 0.0714183986,
+          "poolPercentOfChain": 0.3333523127
+        },
+        "2": {
+          "poolPercentOfTotal": 0.0714062,
+          "poolPercentOfChain": 0.3332953745
+        }
+      },
+      "chainPercentOfTotal": 0.2142429973
+    },
+    "43114": {
+      "name": "avalanche",
+      "chainId": 43114,
+      "pools": {
+        "0": {
+          "poolPercentOfTotal": 0.2301688209,
+          "poolPercentOfChain": 0.2929262101
+        },
+        "1": {
+          "poolPercentOfTotal": 0.088894109,
+          "poolPercentOfChain": 0.1131318063
+        },
+        "2": {
+          "poolPercentOfTotal": 0.1111176363,
+          "poolPercentOfChain": 0.1414147579
+        },
+        "3": {
+          "poolPercentOfTotal": 0.1777882181,
+          "poolPercentOfChain": 0.2262636127
+        },
+        "4": {
+          "poolPercentOfTotal": 0.088894109,
+          "poolPercentOfChain": 0.1131318063
+        },
+        "5": {
+          "poolPercentOfTotal": 0.088894109,
+          "poolPercentOfChain": 0.1131318063
+        }
+      },
+      "chainPercentOfTotal": 0.7857570026
+    }
+  }
+}

@@ -14,15 +14,18 @@ async function main() {
 async function generateChainData() {
   const data = await getChainData(config, tokenDeployments);
   // write to disk
-  writeFileSync(`${config.epoch}_chainData.json`, JSON.stringify(data, bigNumberJSONToString, 2));
+  writeFileSync(
+    `./data/${config.epoch}_chainData.json`,
+    JSON.stringify(data, bigNumberJSONToString, 2),
+  );
 }
 
 function generateAllocations() {
-  const chainDataRaw = readFileSync(`${config.epoch}_chainData.json`);
+  const chainDataRaw = readFileSync(`./data/${config.epoch}_chainData.json`);
   const chainData = JSON.parse(chainDataRaw);
   const allocationData = getAllocationData(chainData, config);
   writeFileSync(
-    `${config.epoch}_allocationData.json`,
+    `./data/${config.epoch}_allocationData.json`,
     JSON.stringify(allocationData, bigNumberJSONToString, 2),
   );
 }
