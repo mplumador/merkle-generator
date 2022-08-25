@@ -27,7 +27,65 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
     // await new Promise((r) => setTimeout(r, 100));
     promises.push(eventPromise);
   }
-  const allEvents = await Promise.all(promises);
+  let allEvents = await Promise.all(promises.map((p) => p.catch((e) => e)));
+  const invalidResults = allEvents.filter((result) => (result instanceof Error));
+  const validResults = allEvents.filter((result) => !(result instanceof Error));
+  const retriedPromises = [];
+  const maxRetries = 5;
+  console.log(`Retrying ${invalidResults.length} results.`);
+  if (invalidResults.length > 60) {
+    console.log('This may take awhile');
+  }
+
+  const retryFunction = async (filterItem, failedFrom, failedTo, retryNumber) => {
+    if (retryNumber < maxRetries) {
+      try {
+        return await merklePools.queryFilter(
+          filterItem,
+          failedFrom,
+          failedTo,
+        );
+      } catch {
+        // Recursively Retry
+        retryFunction(filterItem, failedFrom, failedTo, retryNumber++);
+      }
+    } else {
+      // Final retry response
+      return merklePools.queryFilter(
+        filterItem,
+        failedFrom,
+        failedTo,
+      );
+    }
+  };
+  /**
+   * Can't use forEach because the function would need to be async and would
+   * not be able to throttle our rpc requests
+   */
+  //   for (const error of invalidResults) {
+  for (const [index, error] of invalidResults.entries()) {
+    const currentRetries = 0;
+    // console.log('Failed');
+    if (index === Math.floor(invalidResults.length * 0.25)) {
+      console.log('25% retries complete...');
+    } else if (index === Math.floor(invalidResults.length * 0.5)) {
+      console.log('50% retries complete...');
+    } else if (index === Math.floor(invalidResults * 0.75)) {
+      console.log('75% retries complete...');
+    }
+    const failedBody = JSON.parse(error.requestBody);
+    const failedFromBlock = parseInt(failedBody.params[0].fromBlock, 16);
+    const failedToBlock = parseInt(failedBody.params[0].toBlock, 16);
+    // Using await here could take longer than our sleep below
+    const newResponse = await retryFunction(filter, failedFromBlock, failedToBlock, 0);
+    // console.log(newResponse);
+    retriedPromises.push(newResponse);
+    // Aggressive sleep since we are retrying
+    // If we don't await the response, use the sleep to throttle our calls
+    // await new Promise((r) => setTimeout(r, 250));
+  }
+  const retriedEvents = await Promise.all(retriedPromises);
+  allEvents = [...validResults, ...retriedEvents];
   const filteredEvents = [];
   allEvents.forEach((anEvent) => {
     if (anEvent.length > 0) {
@@ -217,8 +275,8 @@ export const getMerkleClaimsForPool = (
 
     if (previousMerkleTree !== null) {
       // we are missing any claims in which a user didn't claim, but the previous tree still has
-      // the claim. We can look at whatever is great, on chain amount or the amount 
-      // in the prev merkle tree for TIC and LP. This handles the scenario in which 
+      // the claim. We can look at whatever is great, on chain amount or the amount
+      // in the prev merkle tree for TIC and LP. This handles the scenario in which
       // they have un claimed rewards or have forfeited previously.
       const prevClaim = previousMerkleTree.claims[address];
       if (prevClaim != null) {
