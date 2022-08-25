@@ -47,7 +47,8 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
         );
       } catch {
         // Recursively Retry
-        retryFunction(filterItem, failedFrom, failedTo, retryNumber++);
+        const retryCount = retryNumber++;
+        retryFunction(filterItem, failedFrom, failedTo, retryCount);
       }
     } else {
       // Final retry response
@@ -62,10 +63,7 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
    * Can't use forEach because the function would need to be async and would
    * not be able to throttle our rpc requests
    */
-  //   for (const error of invalidResults) {
   for (const [index, error] of invalidResults.entries()) {
-    const currentRetries = 0;
-    // console.log('Failed');
     if (index === Math.floor(invalidResults.length * 0.25)) {
       console.log('25% retries complete...');
     } else if (index === Math.floor(invalidResults.length * 0.5)) {
@@ -78,13 +76,13 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
     const failedToBlock = parseInt(failedBody.params[0].toBlock, 16);
     // Using await here could take longer than our sleep below
     const newResponse = await retryFunction(filter, failedFromBlock, failedToBlock, 0);
-    // console.log(newResponse);
     retriedPromises.push(newResponse);
     // Aggressive sleep since we are retrying
     // If we don't await the response, use the sleep to throttle our calls
     // await new Promise((r) => setTimeout(r, 250));
   }
-  // retrievEvents is potentially a promise if we did not await in liue of using sleep
+
+  // retrievEvents is potentially a promise if we did not await in lieu of using sleep
   const retriedEvents = await Promise.all(retriedPromises);
   allEvents = [...validResults, ...retriedEvents];
   const filteredEvents = [];
