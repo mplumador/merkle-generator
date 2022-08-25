@@ -84,6 +84,7 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
     // If we don't await the response, use the sleep to throttle our calls
     // await new Promise((r) => setTimeout(r, 250));
   }
+  // retrievEvents is potentially a promise if we did not await in liue of using sleep
   const retriedEvents = await Promise.all(retriedPromises);
   allEvents = [...validResults, ...retriedEvents];
   const filteredEvents = [];
