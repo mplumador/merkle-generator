@@ -48,7 +48,7 @@ export const getAllEvents = async (merklePools, genesisBlockNumber, currentBlock
       } catch {
         // Recursively Retry
         const retryCount = retryNumber++;
-        retryFunction(filterItem, failedFrom, failedTo, retryCount);
+        return retryFunction(filterItem, failedFrom, failedTo, retryCount);
       }
     } else {
       // Final retry response
